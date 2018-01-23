@@ -31,7 +31,7 @@
 
           android:id="@+id/auth_button"
           android:layout_marginRight="40dp"
-
+          android:background="@drawable/btnbg"
           android:padding="6dp"
           android:layout_height="wrap_content" />
 

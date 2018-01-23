@@ -8,4 +8,12 @@
     <declare-styleable name="Tab">
         <attr name="umname" format="string" />
     </declare-styleable>
+    <declare-styleable name="Function">
+        <attr name="umfuncname" format="string" />
+        <attr name="umfuncdesc" format="string" />
+    </declare-styleable>
+    <declare-styleable name="FunctionTitle">
+        <attr name="umfunctitle" format="string" />
+
+    </declare-styleable>
 </resources>

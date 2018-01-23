@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.umeng.socialize.UMAuthListener;
-import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.common.ResContainer;
 import com.umeng.socialize.shareboard.SnsPlatform;
@@ -56,7 +55,8 @@ public class AuthAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.app_authadapter_share, null);
         }
-        final boolean isauth = UMShareAPI.get(mContext).isAuthorize(mActivity, list.get(position).mPlatform);
+        //final boolean isauth = UMShareAPI.get(mContext).isAuthorize(mActivity, list.get(position).mPlatform);
+        final boolean isauth = position%2==0;
         ImageView img = (ImageView) convertView.findViewById(R.id.adapter_image);
         img.setImageResource(ResContainer.getResourceId(mContext, "drawable", list.get(position).mIcon));
         TextView tv = (TextView) convertView.findViewById(R.id.name);
@@ -71,9 +71,9 @@ public class AuthAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 if (isauth) {
-                    UMShareAPI.get(mContext).deleteOauth(mActivity, list.get(position).mPlatform, authListener);
+                    //UMShareAPI.get(mContext).deleteOauth(mActivity, list.get(position).mPlatform, authListener);
                 } else {
-                    UMShareAPI.get(mContext).doOauthVerify(mActivity, list.get(position).mPlatform, authListener);
+                    //UMShareAPI.get(mContext).doOauthVerify(mActivity, list.get(position).mPlatform, authListener);
                 }
             }
         });
