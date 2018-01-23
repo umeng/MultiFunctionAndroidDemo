@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.umeng.soexample">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+       >
+        <activity android:name=".HomeActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".log.LogActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".analytics.UappActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".analytics.UGameActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".analytics.UDplusActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".push.UpushActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".share.UshareActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+    </application>
+
+</manifest>

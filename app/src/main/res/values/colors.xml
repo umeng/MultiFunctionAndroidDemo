@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="blue">#2196F3</color>
+    <color name="titlebg">#202020</color>
+    <color name="titletc">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="bg">#F9F9F9 </color>
+    <color name="textcolor">#333333 </color>
+    <color name="log_name">#666666 </color>
+    <color name="log_date">#999999 </color>
+    <color name="umeng_divide">#eeeeee</color>
+</resources>

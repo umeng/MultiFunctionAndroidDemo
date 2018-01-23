@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 自定义的属性-->
+    <declare-styleable name="Item">
+        <attr name="umtitle" format="string" />
+        <attr name="umicon" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="Tab">
+        <attr name="umname" format="string" />
+    </declare-styleable>
+</resources>
