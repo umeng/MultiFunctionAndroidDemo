@@ -22,30 +22,30 @@
         android:id="@+id/social_share"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        app:umtitle="分享示例"
+        app:umtitle="页面底部菜单-1"
         android:layout_below="@id/title_bar"
-        app:umicon="@drawable/um_sharedemo"
+        app:umicon="@drawable/um_menud"
         android:layout_height="44dp"/>
     <com.umeng.soexample.views.Item
         android:id="@+id/social_board"
         android:layout_width="match_parent"
         android:layout_below="@id/social_share"
-        app:umtitle="分享面板"
-        app:umicon="@drawable/um_board"
+        app:umtitle="页面中部菜单-1"
+        app:umicon="@drawable/um_menuc"
         android:layout_height="44dp"/>
     <com.umeng.soexample.views.Item
         android:id="@+id/social_auth"
         android:layout_width="match_parent"
         android:layout_below="@id/social_board"
-        app:umtitle="第三方登录"
-        app:umicon="@drawable/um_auth"
+        app:umtitle="页面底部菜单-2"
+        app:umicon="@drawable/um_menud"
         android:layout_height="44dp"/>
     <com.umeng.soexample.views.Item
         android:id="@+id/social_info"
         android:layout_width="match_parent"
         android:layout_below="@id/social_auth"
-        app:umtitle="获取用户资料"
-        app:umicon="@drawable/um_info"
+        app:umtitle="页面中部菜单-2"
+        app:umicon="@drawable/um_menuc"
         android:layout_height="44dp"/>
 
 </RelativeLayout>

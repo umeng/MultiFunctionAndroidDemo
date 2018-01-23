@@ -34,6 +34,24 @@
         <activity android:name=".share.UshareActivity"
                   android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
+        <activity android:name=".share.SharePlatformActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".share.ShareDetailActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".share.ShareBoardActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".share.AuthActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".share.InfoActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
+        <activity android:name=".share.InfoDetailActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+        </activity>
     </application>
 
 </manifest>

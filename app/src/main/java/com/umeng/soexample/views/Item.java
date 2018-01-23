@@ -2,6 +2,7 @@ package com.umeng.soexample.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -32,8 +33,13 @@ public class Item extends RelativeLayout {
         ////加载视图的布局
         LayoutInflater.from(context).inflate(R.layout.item,this,true);
         TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.Item);
-        titleText=a.getString(R.styleable.Item_umtitle);
-        iconId=a.getResourceId(R.styleable.Item_umicon, 0);
+        if (TextUtils.isEmpty(titleText)){
+            titleText=a.getString(R.styleable.Item_umtitle);
+        }
+       if (iconId == 0){
+           iconId=a.getResourceId(R.styleable.Item_umicon, 0);
+       }
+
         a.recycle();
     }
 
@@ -56,13 +62,19 @@ public class Item extends RelativeLayout {
     }
 
 
-    public void setPageTitleText(String text) {
-        mTextView.setText(text);
+    public void setName(String text) {
+        if (mTextView!=null){
+            mTextView.setText(text);
+        }
+        titleText = text;
     }
 
 
     public void setIcon(int id) {
+        if (imageView!=null){
         imageView.setImageResource(id);
+        }
+        iconId = id;
     }
 
 }
