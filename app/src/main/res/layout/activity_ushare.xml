@@ -25,27 +25,27 @@
         app:umtitle="分享示例"
         android:layout_below="@id/title_bar"
         app:umicon="@drawable/um_sharedemo"
-        android:layout_height="44dp"/>
+        android:layout_height="@dimen/item_height"/>
     <com.umeng.soexample.views.Item
         android:id="@+id/social_board"
         android:layout_width="match_parent"
         android:layout_below="@id/social_share"
         app:umtitle="分享面板"
         app:umicon="@drawable/um_board"
-        android:layout_height="44dp"/>
+        android:layout_height="@dimen/item_height"/>
     <com.umeng.soexample.views.Item
         android:id="@+id/social_auth"
         android:layout_width="match_parent"
         android:layout_below="@id/social_board"
         app:umtitle="第三方登录"
         app:umicon="@drawable/um_auth"
-        android:layout_height="44dp"/>
+        android:layout_height="@dimen/item_height"/>
     <com.umeng.soexample.views.Item
         android:id="@+id/social_info"
         android:layout_width="match_parent"
         android:layout_below="@id/social_auth"
         app:umtitle="获取用户资料"
         app:umicon="@drawable/um_info"
-        android:layout_height="44dp"/>
+        android:layout_height="@dimen/item_height"/>
 
 </RelativeLayout>

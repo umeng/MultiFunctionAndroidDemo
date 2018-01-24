@@ -11,14 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/titlebar"
         layout="@layout/titlebar" />
-    <ListView
-        android:id="@+id/list"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_below="@id/title_bar"
-        android:layout_marginTop="20dp"
-        android:dividerHeight="0dp"
-        android:divider="@null"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:id="@+id/platform_container"/>
+    </ScrollView>
 
 
 

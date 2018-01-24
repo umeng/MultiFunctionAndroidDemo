@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:background="@color/bg"
+                android:fitsSystemWindows="true"
+                android:layout_height="match_parent">
+    <include
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar"
+        layout="@layout/titlebar" />
+   <RelativeLayout
+       android:layout_below="@id/title_bar"
+       android:layout_width="match_parent"
+       android:background="@color/white"
+       android:layout_marginTop="16dp"
+       android:layout_height="368dp">
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="287dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:layout_marginTop="16dp"
+           android:id="@+id/result"
+           android:background="@drawable/um_infodetailbg"/>
+       <Button
+           android:layout_width="56dp"
+           android:layout_height="32dp"
+           android:layout_below="@id/result"
+           android:layout_marginTop="16dp"
+           android:id="@+id/ok"
+           android:text="获取"
+           android:layout_alignRight="@id/result"
+           android:background="@drawable/um_infodetailbg"/>
+       <Button
+           android:layout_width="56dp"
+           android:layout_height="32dp"
+           android:layout_below="@id/result"
+           android:layout_marginTop="16dp"
+           android:id="@+id/clear"
+           android:layout_toLeftOf="@id/ok"
+           android:layout_marginRight="5dp"
+           android:text="清空"
+           android:background="@drawable/um_infodetailbg"/>
+   </RelativeLayout>
+
+
+
+</RelativeLayout>

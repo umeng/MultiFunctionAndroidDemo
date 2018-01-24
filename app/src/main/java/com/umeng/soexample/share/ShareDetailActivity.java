@@ -7,34 +7,32 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
-import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMEmoji;
 import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.media.UMMin;
 import com.umeng.socialize.media.UMVideo;
 import com.umeng.socialize.media.UMWeb;
 import com.umeng.socialize.media.UMusic;
 import com.umeng.socialize.utils.SocializeUtils;
 import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
-import com.umeng.soexample.share.utils.Defaultcontent;
 import com.umeng.soexample.share.utils.StyleUtil;
-import com.umeng.soexample.share.views.ShareTypeAdapter;
+import com.umeng.soexample.views.Item;
 
 /**
  * Created by wangfei on 2018/1/23.
  */
 
 public class ShareDetailActivity extends BaseActivity{
-    private ListView listView;
-    private ShareTypeAdapter shareAdapter;
+
     public ArrayList<String> styles = new ArrayList<String>();
     private SHARE_MEDIA share_media;
     private LinearLayout container;
@@ -56,79 +54,29 @@ public class ShareDetailActivity extends BaseActivity{
 
     }
     private void initViews(){
-        listView = (ListView) findViewById(R.id.list);
+        LinearLayout container = (LinearLayout)findViewById(R.id.platform_container);
         StyleUtil.initStyles(share_media,styles);
         dialog = new ProgressDialog(this);
-        shareAdapter  = new ShareTypeAdapter(this,styles);
-        listView.setAdapter(shareAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (styles.get(position).equals(StyleUtil.IMAGELOCAL)){
-                    new ShareAction(ShareDetailActivity.this).withMedia(imagelocal )
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.IMAGEURL)){
-                    new ShareAction(ShareDetailActivity.this).withMedia(imageurl )
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.TEXT)){
-                    new ShareAction(ShareDetailActivity.this).withText(Defaultcontent.text)
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.TEXTANDIMAGE)){
-                    new ShareAction(ShareDetailActivity.this).withText(Defaultcontent.text)
-                        .withMedia(imagelocal)
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.WEB11)
-                    ||styles.get(position).equals(StyleUtil.WEB00)
-                    ||styles.get(position).equals(StyleUtil.WEB10)
-                    ||styles.get(position).equals(StyleUtil.WEB01)){
-                    new ShareAction(ShareDetailActivity.this)
-                        .withMedia(web)
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.MUSIC11)
-                    ||styles.get(position).equals(StyleUtil.MUSIC00)
-                    ||styles.get(position).equals(StyleUtil.MUSIC10)
-                    ||styles.get(position).equals(StyleUtil.MUSIC01)){
-                    new ShareAction(ShareDetailActivity.this).withMedia(music)
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.VIDEO11)
-                    ||styles.get(position).equals(StyleUtil.VIDEO00)
-                    ||styles.get(position).equals(StyleUtil.VIDEO01)
-                    ||styles.get(position).equals(StyleUtil.VIDEO10)){
-                    new ShareAction(ShareDetailActivity.this).withMedia(video)
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.EMOJI)){
-                    new ShareAction(ShareDetailActivity.this)
-                        .withMedia(emoji)
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.FILE)){
-                    new ShareAction(ShareDetailActivity.this)
-                        .withFile(file)
-                        .withText(Defaultcontent.text)
-                        .withSubject(Defaultcontent.title)
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
-                }else if (styles.get(position).equals(StyleUtil.MINAPP)){
-                    UMMin umMin = new UMMin(Defaultcontent.url);
-                    umMin.setThumb(imagelocal);
-                    umMin.setTitle(Defaultcontent.title);
-                    umMin.setDescription(Defaultcontent.text);
-                    umMin.setPath("pages/page10007/page10007");
-                    umMin.setUserName("gh_3ac2059ac66f");
-                    new ShareAction(ShareDetailActivity.this)
-                        .withMedia(umMin)
-                        .setPlatform(share_media)
-                        .setCallback(shareListener).share();
+        for (final String style:styles){
+            Item item = new Item(this);
+            item.setName(style);
+            item.setNoIcon();
+            LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,getResources().getDimensionPixelOffset(R.dimen.item_height));
+            item.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
                 }
-            }
-        });
+            });
+            item.setOnLongClickListener(new OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    return false;
+                }
+            });
+            container.addView(item,lp);
+        }
+
 
     }
     @Override
@@ -163,7 +111,7 @@ public class ShareDetailActivity extends BaseActivity{
     @Override
     protected void onResume() {
         super.onResume();
-        listView.clearFocus();
+
     }
 
     @Override

@@ -12,4 +12,5 @@
     <color name="log_name">#666666 </color>
     <color name="log_date">#999999 </color>
     <color name="umeng_divide">#eeeeee</color>
+    <color name="infodetail_bg">#DFDFDF</color>
 </resources>

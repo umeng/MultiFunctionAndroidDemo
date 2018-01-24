@@ -5,23 +5,23 @@ import java.util.ArrayList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.widget.LinearLayout.LayoutParams;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.common.ResContainer;
 import com.umeng.socialize.shareboard.SnsPlatform;
 import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
-import com.umeng.soexample.share.views.ShareAdapter;
+import com.umeng.soexample.views.Item;
 
 /**
  * Created by wangfei on 2018/1/23.
  */
 
 public class SharePlatformActivity extends BaseActivity {
-    private ListView listView;
-    private ShareAdapter shareAdapter;
-    private LinearLayout container;
+
     public ArrayList<SnsPlatform> platforms = new ArrayList<SnsPlatform>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +37,25 @@ public class SharePlatformActivity extends BaseActivity {
         return R.layout.activity_ushareplatform;
     }
     private void initViews(){
-        listView = (ListView) findViewById(R.id.list);
+        LinearLayout container = (LinearLayout)findViewById(R.id.platform_container);
         initPlatforms();
-        shareAdapter  = new ShareAdapter(this,platforms);
-        listView.setAdapter(shareAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(SharePlatformActivity.this,ShareDetailActivity.class);
-                intent.putExtra("platform",platforms.get(position).mPlatform);
-                intent.putExtra("name",platforms.get(position).mShowWord);
-                SharePlatformActivity.this.startActivity(intent);
-            }
-        });
+        for (final SnsPlatform platform:platforms){
+            Item item = new Item(this);
+            item.setIcon(ResContainer.getResourceId(this,"drawable",platform.mIcon));
+            item.setName(platform.mShowWord);
+            LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,getResources().getDimensionPixelOffset(R.dimen.item_height));
+            item.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(SharePlatformActivity.this,ShareDetailActivity.class);
+                    intent.putExtra("platform",platform.mPlatform);
+                    intent.putExtra("name",platform.mShowWord);
+                    SharePlatformActivity.this.startActivity(intent);
+                }
+            });
+            container.addView(item,lp);
+        }
+
 
     }
     private void initPlatforms(){

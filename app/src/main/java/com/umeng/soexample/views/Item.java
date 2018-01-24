@@ -25,6 +25,9 @@ public class Item extends RelativeLayout {
 
     public Item(Context context) {
         super(context);
+        LayoutInflater.from(context).inflate(R.layout.item,this,true);
+        mTextView= (TextView) findViewById(R.id.item_title);
+        imageView= (ImageView) findViewById(R.id.item_icon);
     }
 
     public Item(Context context, AttributeSet attrs) {
@@ -68,7 +71,11 @@ public class Item extends RelativeLayout {
         }
         titleText = text;
     }
-
+    public void setNoIcon() {
+        if (imageView!=null){
+            imageView.setVisibility(GONE);
+        }
+    }
 
     public void setIcon(int id) {
         if (imageView!=null){
