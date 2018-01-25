@@ -1,6 +1,9 @@
 package com.umeng.soexample.share;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.ProgressDialog;
@@ -13,17 +16,20 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
+import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMEmoji;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMMin;
 import com.umeng.socialize.media.UMVideo;
 import com.umeng.socialize.media.UMWeb;
 import com.umeng.socialize.media.UMusic;
 import com.umeng.socialize.utils.SocializeUtils;
 import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
+import com.umeng.soexample.share.utils.Defaultcontent;
 import com.umeng.soexample.share.utils.StyleUtil;
 import com.umeng.soexample.views.Item;
 
@@ -36,12 +42,7 @@ public class ShareDetailActivity extends BaseActivity{
     public ArrayList<String> styles = new ArrayList<String>();
     private SHARE_MEDIA share_media;
     private LinearLayout container;
-    private UMImage imageurl,imagelocal;
-    private UMVideo video;
-    private UMusic music;
-    private UMEmoji emoji;
-    private UMWeb web;
-    private File file;
+
     private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +66,41 @@ public class ShareDetailActivity extends BaseActivity{
             item.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    if (style.startsWith(StyleUtil.TEXT)){
+                        shareText();
+                    }else if (style.equals(StyleUtil.IMAGELOCAL)){
+                        shareImageLocal();
+                    }else if (style.equals(StyleUtil.IMAGEURL)){
+                        shareImageNet();
+                    }else if (style.startsWith(StyleUtil.WEB00.substring(0,2))){
+                        shareUrl();
+                    }else if (style.startsWith(StyleUtil.MUSIC00.substring(0,2))){
+                       shareMusic();
+                    }else if (style.startsWith(StyleUtil.VIDEO00.substring(0,2))){
+                        shareVideo();
+                    }else if (style.equals(StyleUtil.TEXTANDIMAGE)){
+                        shareTextAndImage();
+                    }else if (style.equals(StyleUtil.MINAPP)){
+                        shareMINApp();
+                    }else if (style.equals(StyleUtil.EMOJI)){
+                        shareEmoji();
+                    }else if (style.equals(StyleUtil.FILE)){
+                        shareFile();
+                    }
                 }
             });
             item.setOnLongClickListener(new OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
+                    if (style.startsWith(StyleUtil.TEXT)
+                        ||style.equals(StyleUtil.IMAGELOCAL)
+                        ||style.equals(StyleUtil.IMAGEURL)
+                        ||style.startsWith(StyleUtil.WEB00.substring(0,2))){
+                        Intent intent = new Intent(ShareDetailActivity.this,SettingActivity.class);
+                        intent.putExtra("style",style);
+                        ShareDetailActivity.this.startActivity(intent);
+
+                    }
                     return false;
                 }
             });
@@ -78,6 +108,113 @@ public class ShareDetailActivity extends BaseActivity{
         }
 
 
+    }
+    public void shareText(){
+        new ShareAction(ShareDetailActivity.this).withText(Defaultcontent.text)
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareImageLocal(){
+        UMImage imagelocal = new UMImage(this, R.drawable.logo);
+        imagelocal.setThumb(new UMImage(this, R.drawable.thumb));
+        new ShareAction(ShareDetailActivity.this).withMedia(imagelocal )
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareImageNet(){
+        UMImage imageurl = new UMImage(this,Defaultcontent.imageurl);
+        imageurl.setThumb(new UMImage(this, R.drawable.thumb));
+        new ShareAction(ShareDetailActivity.this).withMedia(imageurl )
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareUrl(){
+        UMWeb web = new UMWeb(Defaultcontent.url);
+        web.setTitle("This is web title");
+        web.setThumb(new UMImage(this, R.drawable.thumb));
+        web.setDescription("my description");
+        new ShareAction(ShareDetailActivity.this).withMedia(web )
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareMusic(){
+        UMusic music = new UMusic(Defaultcontent.musicurl);
+        music.setTitle("This is music title");
+        music.setThumb(new UMImage(this, R.drawable.thumb));
+        music.setDescription("my description");
+        music.setmTargetUrl(Defaultcontent.url);
+        new ShareAction(ShareDetailActivity.this).withMedia(music )
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareVideo(){
+        UMVideo video = new UMVideo(Defaultcontent.videourl);
+        video.setThumb(new UMImage(this,R.drawable.thumb));
+        video.setTitle("This is video title");
+        video.setDescription("my description");
+        new ShareAction(ShareDetailActivity.this).withMedia(video )
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareTextAndImage(){
+        UMImage imagelocal = new UMImage(this, R.drawable.logo);
+        imagelocal.setThumb(new UMImage(this, R.drawable.thumb));
+        new ShareAction(ShareDetailActivity.this).withText(Defaultcontent.text)
+            .withMedia(imagelocal)
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareFile(){
+        File file = new File(this.getFilesDir()+"test.txt");
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (SocializeUtils.File2byte(file).length<=0){
+            String content = "U-share分享";
+            byte[] contentInBytes = content.getBytes();
+            try {
+                FileOutputStream fop = new FileOutputStream(file);
+                fop.write(contentInBytes);
+                fop.flush();
+                fop.close();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        new ShareAction(ShareDetailActivity.this)
+            .withFile(file)
+            .withText(Defaultcontent.text)
+            .withSubject(Defaultcontent.title)
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareEmoji(){
+        UMEmoji emoji = new UMEmoji(this,"http://img5.imgtn.bdimg.com/it/u=2749190246,3857616763&fm=21&gp=0.jpg");
+        emoji.setThumb(new UMImage(this, R.drawable.thumb));
+        new ShareAction(ShareDetailActivity.this)
+            .withMedia(emoji)
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
+    }
+    public void shareMINApp(){
+        UMMin umMin = new UMMin(Defaultcontent.url);
+        umMin.setThumb(new UMImage(this,R.drawable.thumb));
+        umMin.setTitle(Defaultcontent.title);
+        umMin.setDescription(Defaultcontent.text);
+        umMin.setPath("pages/page10007/page10007");
+        umMin.setUserName("gh_3ac2059ac66f");
+        new ShareAction(ShareDetailActivity.this)
+            .withMedia(umMin)
+            .setPlatform(share_media)
+            .setCallback(shareListener).share();
     }
     @Override
     public int getLayout() {
