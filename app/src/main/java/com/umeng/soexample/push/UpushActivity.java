@@ -13,7 +13,6 @@ public class UpushActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setTitle("推送");
         setBackVisibily();
     }

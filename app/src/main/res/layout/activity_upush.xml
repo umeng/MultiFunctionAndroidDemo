@@ -1,16 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="@color/bg"
                 android:fitsSystemWindows="true"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
+
     <include
         android:id="@+id/title_bar"
+        layout="@layout/titlebar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/titlebar"
-        layout="@layout/titlebar" />
+        android:layout_height="@dimen/titlebar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/umeng_divide"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="16dp"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/log_name"
+                    android:text="标签"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="@dimen/text_size_small"
+                    android:hint="请输入tag"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="添加"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="删除"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="展示所有"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/umeng_divide"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="16dp"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/log_name"
+                    android:text="加权标签"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="@dimen/text_size_small"
+                    android:hint="请输入weighted tag"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="添加"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="删除"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="展示所有"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/umeng_divide"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="16dp"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/log_name"
+                    android:text="别名"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="@dimen/text_size_small"
+                    android:hint="请输入alias"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="添加"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="删除"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="展示所有"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/umeng_divide"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="16dp"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/log_name"
+                    android:text="辅助功能"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="添加"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="手机系统检查"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/umeng_divide"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </RelativeLayout>
