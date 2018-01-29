@@ -1,0 +1,8 @@
+com.umeng.message.lib.test
+int id notification_large_icon1 0x7f010000
+int id notification_large_icon2 0x7f010001
+int id notification_text 0x7f010002
+int id notification_title 0x7f010003
+int id upush_notification1 0x7f010004
+int id upush_notification2 0x7f010005
+int layout upush_notification 0x7f020000
