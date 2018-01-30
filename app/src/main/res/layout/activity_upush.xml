@@ -85,7 +85,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="添加"/>
@@ -98,7 +98,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="删除"/>
@@ -110,7 +110,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="展示所有"/>
@@ -165,7 +165,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="添加"/>
@@ -178,7 +178,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="删除"/>
@@ -190,7 +190,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="展示所有"/>
@@ -245,7 +245,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="添加"/>
@@ -258,7 +258,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="删除"/>
@@ -270,7 +270,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="展示所有"/>
@@ -316,7 +316,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="展示插屏"/>
@@ -362,10 +362,10 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
-                        android:text="添加"/>
+                        android:text="透传"/>
 
                     <Button
                         android:layout_width="wrap_content"
@@ -374,7 +374,7 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
-                        android:background="@drawable/um_infodetailbg"
+                        android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="手机系统检查"/>

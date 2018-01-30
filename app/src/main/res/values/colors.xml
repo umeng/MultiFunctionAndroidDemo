@@ -7,6 +7,7 @@
     <color name="titlebg">#202020</color>
     <color name="titletc">#ffffff</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
     <color name="bg">#F9F9F9 </color>
     <color name="textcolor">#333333 </color>
     <color name="log_name">#666666 </color>
