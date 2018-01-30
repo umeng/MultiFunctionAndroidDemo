@@ -131,14 +131,31 @@
                 android:background="@color/white"
                 android:orientation="vertical">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="17dp"
-                    android:layout_marginStart="16dp"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textColor="@color/log_name"
-                    android:text="加权标签"/>
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginStart="16dp"
+                        android:textSize="@dimen/text_size_medium"
+                        android:textColor="@color/log_name"
+                        android:text="加权标签"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="16dp"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/log_name"
+                        android:text="1024"/>
+
+                </RelativeLayout>
 
                 <EditText
                     android:layout_width="match_parent"
