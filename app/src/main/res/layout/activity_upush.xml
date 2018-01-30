@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/bg"
@@ -35,14 +34,31 @@
                 android:background="@color/white"
                 android:orientation="vertical">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="17dp"
-                    android:layout_marginStart="16dp"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textColor="@color/log_name"
-                    android:text="标签"/>
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginStart="16dp"
+                        android:textSize="@dimen/text_size_medium"
+                        android:textColor="@color/log_name"
+                        android:text="标签"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="16dp"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/log_name"
+                        android:text="1024"/>
+
+                </RelativeLayout>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -258,6 +274,52 @@
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
                         android:text="展示所有"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/umeng_divide"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="16dp"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/log_name"
+                    android:text="应用内消息"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:background="@drawable/um_infodetailbg"
+                        android:textColor="@color/log_name"
+                        android:textSize="@dimen/text_size_small"
+                        android:text="展示插屏"/>
 
                 </LinearLayout>
 
