@@ -61,6 +61,7 @@
                 </RelativeLayout>
 
                 <EditText
+                    android:id="@+id/etx_input_tag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -77,6 +78,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btn_add_tag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="17dp"
@@ -91,6 +93,7 @@
                         android:text="添加"/>
 
                     <Button
+                        android:id="@+id/btn_delete_tag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
@@ -104,6 +107,7 @@
                         android:text="删除"/>
 
                     <Button
+                        android:id="@+id/btn_show_tags"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="8dp"
@@ -158,6 +162,7 @@
                 </RelativeLayout>
 
                 <EditText
+                    android:id="@+id/etx_input_weighted_tag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -165,6 +170,16 @@
                     android:layout_marginEnd="16dp"
                     android:textSize="@dimen/text_size_small"
                     android:hint="请输入weighted tag"/>
+
+                <EditText
+                    android:id="@+id/etx_input_weighted_tag_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="@dimen/text_size_small"
+                    android:hint="请输入value（-10~10之间）"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -174,6 +189,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btn_add_weighted_tag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="17dp"
@@ -188,6 +204,7 @@
                         android:text="添加"/>
 
                     <Button
+                        android:id="@+id/btn_delete_weighted_tag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
@@ -201,6 +218,7 @@
                         android:text="删除"/>
 
                     <Button
+                        android:id="@+id/btn_show_weighted_tags"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="8dp"
@@ -238,6 +256,7 @@
                     android:text="别名"/>
 
                 <EditText
+                    android:id="@+id/etx_input_alias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -245,6 +264,16 @@
                     android:layout_marginEnd="16dp"
                     android:textSize="@dimen/text_size_small"
                     android:hint="请输入alias"/>
+
+                <EditText
+                    android:id="@+id/etx_input_alias_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="@dimen/text_size_small"
+                    android:hint="请输入alias type"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -254,6 +283,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btn_add_alias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="17dp"
@@ -268,6 +298,7 @@
                         android:text="添加"/>
 
                     <Button
+                        android:id="@+id/btn_delete_alias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
@@ -281,6 +312,7 @@
                         android:text="删除"/>
 
                     <Button
+                        android:id="@+id/btn_set_alias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="8dp"
@@ -290,7 +322,7 @@
                         android:background="@drawable/um_push_btn"
                         android:textColor="@color/log_name"
                         android:textSize="@dimen/text_size_small"
-                        android:text="展示所有"/>
+                        android:text="Set Ailas"/>
 
                 </LinearLayout>
 
@@ -325,6 +357,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btn_show_card_message"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="17dp"
@@ -371,6 +404,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btn_serialnet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="17dp"
@@ -385,6 +419,7 @@
                         android:text="透传"/>
 
                     <Button
+                        android:id="@+id/btn_device_check"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="8dp"
