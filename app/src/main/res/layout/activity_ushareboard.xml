@@ -19,7 +19,7 @@
         android:background="@color/umeng_divide"
         />
     <com.umeng.soexample.views.Item
-        android:id="@+id/social_share"
+        android:id="@+id/shareboard_bottom_one"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         app:umtitle="页面底部菜单-1"
@@ -27,23 +27,23 @@
         app:umicon="@drawable/um_menud"
         android:layout_height="@dimen/item_height"/>
     <com.umeng.soexample.views.Item
-        android:id="@+id/social_board"
+        android:id="@+id/shareboard_center_one"
         android:layout_width="match_parent"
-        android:layout_below="@id/social_share"
+        android:layout_below="@id/shareboard_bottom_one"
         app:umtitle="页面中部菜单-1"
         app:umicon="@drawable/um_menuc"
         android:layout_height="@dimen/item_height"/>
     <com.umeng.soexample.views.Item
-        android:id="@+id/social_auth"
+        android:id="@+id/shareboard_bottom_two"
         android:layout_width="match_parent"
-        android:layout_below="@id/social_board"
+        android:layout_below="@id/shareboard_center_one"
         app:umtitle="页面底部菜单-2"
         app:umicon="@drawable/um_menud"
         android:layout_height="@dimen/item_height"/>
     <com.umeng.soexample.views.Item
-        android:id="@+id/social_info"
+        android:id="@+id/shareboard_center_two"
         android:layout_width="match_parent"
-        android:layout_below="@id/social_auth"
+        android:layout_below="@id/shareboard_bottom_two"
         app:umtitle="页面中部菜单-2"
         app:umicon="@drawable/um_menuc"
         android:layout_height="@dimen/item_height"/>

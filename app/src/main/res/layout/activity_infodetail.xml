@@ -23,6 +23,10 @@
            android:layout_marginLeft="16dp"
            android:layout_marginRight="16dp"
            android:layout_marginTop="16dp"
+           android:scrollbars = "vertical"
+           android:scrollbarStyle="insideOverlay"
+           android:textColor="@color/textcolor"
+           android:padding="5dp"
            android:id="@+id/result"
            android:background="@drawable/um_infodetailbg"/>
        <Button

@@ -98,6 +98,7 @@ public class ShareDetailActivity extends BaseActivity{
                         ||style.startsWith(StyleUtil.WEB00.substring(0,2))){
                         Intent intent = new Intent(ShareDetailActivity.this,SettingActivity.class);
                         intent.putExtra("style",style);
+                        intent.putExtra("platform",share_media);
                         ShareDetailActivity.this.startActivity(intent);
 
                     }

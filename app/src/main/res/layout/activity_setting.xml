@@ -78,6 +78,7 @@
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginBottom="16dp"
+                            android:singleLine="true"
                             android:id="@+id/netimg_input"
                             android:gravity="start"
                             android:textColor="@color/log_name"
@@ -100,6 +101,7 @@
                             android:layout_marginTop="4dp"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
+                            android:singleLine="true"
                             android:layout_marginBottom="16dp"
                             android:gravity="start"
                             android:id="@+id/netimg_input_thumb"
@@ -129,6 +131,7 @@
                             android:layout_marginTop="4dp"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
+                            android:singleLine="true"
                             android:gravity="start"
                             android:layout_marginBottom="16dp"
                             android:id="@+id/localimg_input"
@@ -148,7 +151,7 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
-
+                            android:singleLine="true"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:gravity="start"
@@ -183,6 +186,7 @@
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:gravity="start"
+                            android:singleLine="true"
                             android:layout_marginBottom="16dp"
                             android:id="@+id/net_title"
                             android:textColor="@color/log_name"
@@ -205,7 +209,7 @@
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginBottom="16dp"
-
+                            android:singleLine="true"
                             android:id="@+id/net_desc"
                             android:gravity="start"
                             android:textColor="@color/log_name"
@@ -228,7 +232,7 @@
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginBottom="16dp"
-
+                            android:singleLine="true"
                             android:id="@+id/net_url"
                             android:gravity="start"
                             android:textColor="@color/log_name"
@@ -253,6 +257,7 @@
                             android:layout_marginBottom="16dp"
                             android:id="@+id/net_thumb"
                             android:gravity="start"
+                            android:singleLine="true"
                             android:textColor="@color/log_name"
                             android:hint="不输入默认使用icon"
                             android:background="@drawable/um_infodetailbg"/>
