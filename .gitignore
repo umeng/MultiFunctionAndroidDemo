@@ -6,3 +6,16 @@
 /captures
 .externalNativeBuild
 .idea
+.gradle/
+.idea/
+.git/
+.DS_Store
+gradlew.bat
+import-summary.txt
+local.properties
+*.iml
+build/
+captures/
+config.xml
+settings.gradle
+

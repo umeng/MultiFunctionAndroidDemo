@@ -9,7 +9,7 @@
         android:targetSdkVersion="25" />
 
     <permission
-        android:name="dollar_openBracket_applicationId_closeBracket.permission.MIPUSH_RECEIVE"
+        android:name="dollar_openBracket_applicationId_closeBracket"
         android:protectionLevel="signatureOrSystem" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -27,25 +27,25 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="dollar_openBracket_applicationId_closeBracket.permission.MIPUSH_RECEIVE" />
+    <uses-permission android:name="dollar_openBracket_applicationId_closeBracket" />
 
     <!-- 兼容flyme5.0以下版本，魅族内部集成pushSDK必填，不然无法收到消息 -->
     <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE" />
 
     <permission
-        android:name="dollar_openBracket_applicationId_closeBracket.push.permission.MESSAGE"
+        android:name="dollar_openBracket_applicationId_closeBracket"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="dollar_openBracket_applicationId_closeBracket.push.permission.MESSAGE" />
+    <uses-permission android:name="dollar_openBracket_applicationId_closeBracket" />
 
     <!-- 兼容flyme3.0配置权限 -->
     <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="dollar_openBracket_applicationId_closeBracket.permission.C2D_MESSAGE"
+        android:name="dollar_openBracket_applicationId_closeBracket"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="dollar_openBracket_applicationId_closeBracket.permission.C2D_MESSAGE" />
+    <uses-permission android:name="dollar_openBracket_applicationId_closeBracket" />
 
     <application>
         <service
@@ -132,7 +132,7 @@
             android:exported="true"
             android:process=":channel" >
             <intent-filter>
-                <action android:name="dollar_openBracket_applicationId_closeBracket.intent.action.COMMAND" />
+                <action android:name="dollar_openBracket_applicationId_closeBracket" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -179,7 +179,7 @@
 
         <provider
             android:name="com.umeng.message.provider.MessageProvider"
-            android:authorities="dollar_openBracket_applicationId_closeBracket.umeng.message"
+            android:authorities="dollar_openBracket_applicationId_closeBracket"
             android:exported="false" >
             <grant-uri-permission android:pathPattern=".*" />
         </provider>
