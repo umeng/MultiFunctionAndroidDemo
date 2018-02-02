@@ -33,13 +33,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="track事件"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="跟踪特定名称事件"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g1_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="自定义的track事件"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="可通过map参数指定键值对属性参数"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/group2"
@@ -57,19 +57,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="设置超级属性"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="注册超级属性名,指定对应的属性值"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g2_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="获取超级属性"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="获取所有超级属性的属性值"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g2_b3"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="清除超级属性"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="清除所有已注册的超级属性"/>
             </LinearLayout>
 
             <LinearLayout
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="关注首次触发事件"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="关注特定事件名,统计被关注事件的首次触发点"/>
             </LinearLayout>
         </RelativeLayout>
 

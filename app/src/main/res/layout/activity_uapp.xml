@@ -68,8 +68,8 @@
                     android:id="@+id/analytics_g2_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    app:umfuncname="账号登出"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncname="用户登出"
+                    app:umfuncdesc="账号登出"/>
             </LinearLayout>
 
             <LinearLayout

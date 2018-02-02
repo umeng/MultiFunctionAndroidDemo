@@ -33,19 +33,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="关卡开始"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对开始指定关卡事件进行统计"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g1_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="关卡失败"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对指定关卡闯关失败事件进行统计"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g1_b3"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="关卡通过"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对指定关卡闯关通过事件进行统计"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/group2"
@@ -63,19 +63,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="充值付费（真实消费）"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对游戏内充值付费事件进行统计"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g2_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="购买物品（真实消费）"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对游戏内购买物品事件进行统计"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g2_b3"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="有订单的充值付费（真实消费）"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对游戏内有订单的充值付费事件进行统计"/>
             </LinearLayout>
 
             <LinearLayout
@@ -94,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="购买物品（虚拟消费）"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对游戏内购买物品事件进行统计"/>
             </LinearLayout>
 
             <LinearLayout
@@ -113,7 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="使用物品"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对游戏内物品消耗事件进行统计"/>
             </LinearLayout>
 
             <LinearLayout
@@ -132,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="游戏奖励"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对游戏内获得奖励事件进行统计"/>
             </LinearLayout>
 
             <LinearLayout
@@ -151,13 +151,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="用户登录"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对游戏账号登陆事件进行统计"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g6_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="用户登出"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="对游戏账号登出事件进行统计"/>
             </LinearLayout>
         </RelativeLayout>
 
