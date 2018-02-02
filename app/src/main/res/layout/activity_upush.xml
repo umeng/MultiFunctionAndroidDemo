@@ -49,6 +49,7 @@
                         android:text="标签"/>
 
                     <TextView
+                        android:id="@+id/tv_tag_remain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -107,7 +108,7 @@
                         android:text="删除"/>
 
                     <Button
-                        android:id="@+id/btn_show_tags"
+                        android:id="@+id/btn_show_tag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="8dp"
@@ -218,7 +219,7 @@
                         android:text="删除"/>
 
                     <Button
-                        android:id="@+id/btn_show_weighted_tags"
+                        android:id="@+id/btn_show_weighted_tag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="8dp"

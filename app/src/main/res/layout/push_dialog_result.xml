@@ -7,61 +7,59 @@
 
     <LinearLayout
         android:layout_width="320dp"
-        android:layout_height="156dp"
+        android:layout_height="210dp"
         android:background="@color/white"
         android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="24dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="18dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="展示所有标签"
+            android:textColor="@color/log_name"
+            android:textSize="@dimen/text_size_medium"/>
 
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/um_push_ok"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="18dp"
-                android:layout_marginStart="16dp"
-                android:text="添加成功"
-                android:textColor="@color/log_name"
-                android:textSize="@dimen/text_size_small"/>
-
-        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/umeng_divide"/>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:layout_weight="1">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="56dp"
-                android:layout_marginStart="56dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
                 android:text="标签为："
                 android:textColor="@color/log_name"
                 android:textSize="@dimen/text_size_small"/>
 
         </ScrollView>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/umeng_divide"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="13dp"
+            android:paddingBottom="11dp">
 
             <Button
                 android:id="@+id/btn_ok"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginBottom="20dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/um_infodetail_blue_bg"
                 android:paddingBottom="8dp"
@@ -76,7 +74,6 @@
                 android:id="@+id/btn_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginEnd="16dp"
                 android:layout_toStartOf="@id/btn_ok"
                 android:background="@drawable/um_infodetailbg"

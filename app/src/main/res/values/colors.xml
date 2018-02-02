@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="blue">#2196F3</color>
+    <color name="red">#F44336</color>
     <color name="titlebg">#202020</color>
     <color name="titletc">#ffffff</color>
     <color name="white">#ffffff</color>
