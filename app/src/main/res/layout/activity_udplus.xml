@@ -107,25 +107,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="设置预置属性"
-                    app:umfuncdesc=""/>
+                    app:umfuncdesc="设置预置属性,可以设置多个K-V键值对表示的属性及属性值"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g4_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="获取预置属性"
-                    app:umfuncdesc=""/>
+                    app:umfuncdesc="获取所有预置属性K-V键值对"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g4_b3"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="删除某一个预置属性"
-                    app:umfuncdesc=""/>
+                    app:umfuncdesc="删除指定预置属性"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g4_b4"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="删除所有预置属性"
-                    app:umfuncdesc=""/>
+                    app:umfuncdesc="删除所有预置属性"/>
             </LinearLayout>
         </RelativeLayout>
 
