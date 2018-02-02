@@ -1,37 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="156dp">
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/push_check_success"
-        android:drawablePadding="16dp"
-        android:text="添加成功"/>
+              android:layout_height="match_parent"
+              android:background="@color/transparent"
+              android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="156dp"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="标签为："/>
-
-    </ScrollView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="确定"/>
-    </RelativeLayout>
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/um_push_ok"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginStart="16dp"
+                android:text="添加成功"
+                android:textColor="@color/log_name"
+                android:textSize="@dimen/text_size_small"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="56dp"
+                android:layout_marginStart="56dp"
+                android:text="标签为："
+                android:textColor="@color/log_name"
+                android:textSize="@dimen/text_size_small"/>
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/um_push_btn"
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="8dp"
+                android:text="确定"
+                android:textColor="@color/log_name"
+                android:textSize="@dimen/text_size_small"/>
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
