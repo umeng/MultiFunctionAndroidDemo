@@ -6,16 +6,23 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:name=".App"
-        android:supportsRtl="true"
-       >
+        android:supportsRtl="true">
+
+        <!--demo启动页-->
+        <activity
+            android:name=".push.SplashTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme_Umeng_Push_Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <!--demo界面   start-->
         <activity android:name=".HomeActivity"
                   android:theme="@android:style/Theme.Black.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".log.LogActivity"
                   android:theme="@android:style/Theme.Black.NoTitleBar">
