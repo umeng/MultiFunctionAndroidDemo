@@ -8,13 +8,6 @@
         android:name=".App"
         android:supportsRtl="true"
        >
-
-        <activity
-            android:name="com.umeng.soexample.analytics.UFragmentStack"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar" />
-        <activity
-            android:name="com.umeng.soexample.analytics.UFragmentTabs"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar" />
         <!--demo界面   start-->
         <activity android:name=".HomeActivity"
                   android:theme="@android:style/Theme.Black.NoTitleBar">
