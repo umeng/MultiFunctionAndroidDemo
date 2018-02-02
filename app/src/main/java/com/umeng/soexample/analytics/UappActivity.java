@@ -22,7 +22,7 @@ import java.util.Map;
 public class UappActivity extends BaseActivity {
 
     private Context mContext;
-    private final String mPageName = "AnalyticsHome";
+    private final String mPageName = "UappActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
