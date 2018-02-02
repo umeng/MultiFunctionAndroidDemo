@@ -33,19 +33,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="普通事件"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="可以指定事件id的普通事件"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g1_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="多属性(K-V)事件"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="带map参数的事件，可指定K-V键值对参数"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g1_b3"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    app:umfuncname="数值型统计"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncname="数值型事件"
+                    app:umfuncdesc="可额外指定数值型参数"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/group2"
@@ -63,12 +63,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="用户登录"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="用指定账号及账号来源登陆"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g2_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    app:umfuncname="用户登出"
+                    app:umfuncname="账号登出"
                     app:umfuncdesc="功能介绍"/>
             </LinearLayout>
 
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="程序崩溃"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="上传应用异常崩溃信息"/>
             </LinearLayout>
         </RelativeLayout>
 
