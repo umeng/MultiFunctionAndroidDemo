@@ -107,13 +107,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="统计Fragment页面（Stack）"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="通过嵌套创建Fragment的例子演示手动页面统计"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g4_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     app:umfuncname="统计Fragment页面（Tab）"
-                    app:umfuncdesc="功能介绍"/>
+                    app:umfuncdesc="演示一个Activity中平级包含多个Fragment的手动页面统计"/>
             </LinearLayout>
         </RelativeLayout>
 
