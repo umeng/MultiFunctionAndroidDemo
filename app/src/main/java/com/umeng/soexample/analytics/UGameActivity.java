@@ -47,7 +47,7 @@ public class UGameActivity extends BaseActivity {
                 Toast.makeText(mContext, "已完成关卡开始", Toast.LENGTH_SHORT).show();
             }
         });
-        findViewById(R.id.analytics_g1_b1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.analytics_g1_b2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 关卡失败
@@ -55,7 +55,7 @@ public class UGameActivity extends BaseActivity {
                 Toast.makeText(mContext, "已完成关卡失败", Toast.LENGTH_SHORT).show();
             }
         });
-        findViewById(R.id.analytics_g1_b1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.analytics_g1_b3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 成功过关
