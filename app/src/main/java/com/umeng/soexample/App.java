@@ -138,6 +138,9 @@ public class App extends Application {
                 sendBroadcast(new Intent(UPDATE_STATUS_ACTION));
             }
         });
+
+        //使用完全自定义处理
+        //mPushAgent.setPushIntentServiceClass(UmengNotificationService.class);
     }
 
     {
