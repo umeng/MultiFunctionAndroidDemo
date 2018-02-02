@@ -37,15 +37,9 @@ public class UDplusActivity extends BaseActivity {
         setBackVisibily();
 
         mContext = this;
-        // SDK在统计Fragment时，需要关闭Activity自带的页面统计，
-        // 然后在每个页面中重新集成页面统计的代码(包括调用了 onResume 和 onPause 的Activity)。
-        MobclickAgent.openActivityDurationTrack(false);
-        // MobclickAgent.setAutoLocation(true);
-        // MobclickAgent.setSessionContinueMillis(1000);
-//        MobclickAgent.setScenarioType(mContext, EScenarioType.E_UM_NORMAL);
-        //设置dplus case
-        MobclickAgent.setScenarioType(mContext, MobclickAgent.EScenarioType.E_DUM_NORMAL);
 
+        //设置 U-Dplus场景
+        MobclickAgent.setScenarioType(mContext, MobclickAgent.EScenarioType.E_DUM_NORMAL);
 
         findViewById(R.id.analytics_g1_b1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,13 +117,13 @@ public class UDplusActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
         MobclickAgent.onPageStart(mPageName);
-        MobclickAgent.onResume(mContext);
+        // MobclickAgent.onResume(mContext); // BaseActivity中已经统一调用，此处无需再调用
     }
 
     @Override
     public void onPause() {
         super.onPause();
         MobclickAgent.onPageEnd(mPageName);
-        MobclickAgent.onPause(mContext);
+        // MobclickAgent.onPause(mContext); // BaseActivity中已经统一调用，此处无需再调用
     }
 }

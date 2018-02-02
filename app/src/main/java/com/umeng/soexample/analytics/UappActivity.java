@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.analytics.MobclickAgent.EScenarioType;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
@@ -15,6 +16,7 @@ import com.umeng.soexample.share.UshareActivity;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * Created by wangfei on 2018/1/23.
@@ -36,11 +38,10 @@ public class UappActivity extends BaseActivity {
         // SDK在统计Fragment时，需要关闭Activity自带的页面统计，
         // 然后在每个页面中重新集成页面统计的代码(包括调用了 onResume 和 onPause 的Activity)。
         MobclickAgent.openActivityDurationTrack(false);
-        // MobclickAgent.setAutoLocation(true);
-        // MobclickAgent.setSessionContinueMillis(1000);
-//        MobclickAgent.setScenarioType(mContext, EScenarioType.E_UM_NORMAL);
-        //设置dplus case
-        MobclickAgent.setScenarioType(mContext, MobclickAgent.EScenarioType.E_DUM_NORMAL);
+
+        // 设置为U-APP场景
+        MobclickAgent.setScenarioType(mContext, EScenarioType.E_UM_NORMAL);
+
 
         findViewById(R.id.analytics_g1_b1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,13 +107,13 @@ public class UappActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
         MobclickAgent.onPageStart(mPageName);
-        MobclickAgent.onResume(mContext);
+        //MobclickAgent.onResume(mContext); // BaseActivity中已经统一调用，此处无需再调用
     }
 
     @Override
     public void onPause() {
         super.onPause();
         MobclickAgent.onPageEnd(mPageName);
-        MobclickAgent.onPause(mContext);
+        //MobclickAgent.onPause(mContext); // BaseActivity中已经统一调用，此处无需再调用
     }
 }

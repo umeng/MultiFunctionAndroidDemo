@@ -35,8 +35,9 @@ public class UGameActivity extends BaseActivity {
         UMGameAgent.init(this);
         // Deprecated UMGameAgent.setPlayerLevel("LV.01");
         UMGameAgent.setPlayerLevel(1);
-        // UMGameAgent.setSessionContinueMillis(1000);
-//        UMGameAgent.setScenarioType(mContext, EScenarioType.E_UM_GAME);
+        //UMGameAgent.setSessionContinueMillis(1000);
+
+        // 设置U-DPlus + 高级GAME场景
         UMGameAgent.setScenarioType(mContext, MobclickAgent.EScenarioType.E_DUM_GAME);
 
         findViewById(R.id.analytics_g1_b1).setOnClickListener(new View.OnClickListener() {
@@ -186,13 +187,14 @@ public class UGameActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
         // 集成基本统计分析,初始化 Session
-        UMGameAgent.onResume(mContext);
+        // MobclickAgent.onResume(this); // BaseActivity中已经统一调用，此处无需再调用
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        // //集成基本统计分析, 结束 Session
-        UMGameAgent.onPause(mContext);
+        // 集成基本统计分析, 结束 Session
+        // MobclickAgent.onPause(this); // BaseActivity中已经统一调用，此处无需再调用
+
     }
 }
