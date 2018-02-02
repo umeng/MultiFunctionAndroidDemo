@@ -111,4 +111,18 @@ public class UDplusActivity extends BaseActivity {
     public int getLayout() {
         return R.layout.activity_udplus;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(mPageName);
+        MobclickAgent.onResume(mContext);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(mPageName);
+        MobclickAgent.onPause(mContext);
+    }
 }
