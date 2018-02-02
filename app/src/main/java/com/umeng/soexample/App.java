@@ -141,6 +141,13 @@ public class App extends Application {
 
         //使用完全自定义处理
         //mPushAgent.setPushIntentServiceClass(UmengNotificationService.class);
+
+        //小米通道
+        //MiPushRegistar.register(this, XIAOMI_ID, XIAOMI_KEY);
+        //华为通道
+        //HuaWeiRegister.register(this);
+        //魅族通道
+        //MeizuRegister.register(this, MEIZU_APPID, MEIZU_APPKEY);
     }
 
     {
