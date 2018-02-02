@@ -90,6 +90,31 @@
                     app:umfuncname="程序崩溃"
                     app:umfuncdesc="上传应用异常崩溃信息"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/group4"
+                android:layout_below="@id/group3"
+                android:layout_width="match_parent"
+                android:layout_marginTop="17dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <com.umeng.soexample.analytics.views.FuncTitle
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    app:umfunctitle="Fragment相关统计"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g4_b1"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="统计Fragment页面（Stack）"
+                    app:umfuncdesc="功能介绍"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g4_b2"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="统计Fragment页面（Tab）"
+                    app:umfuncdesc="功能介绍"/>
+            </LinearLayout>
         </RelativeLayout>
 
     </ScrollView>

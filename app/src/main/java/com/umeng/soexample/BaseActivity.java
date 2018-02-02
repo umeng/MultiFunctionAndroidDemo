@@ -3,6 +3,7 @@ package com.umeng.soexample;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -15,7 +16,7 @@ import com.umeng.analytics.MobclickAgent;
  * Created by wangfei on 2018/1/23.
  */
 
-public abstract class BaseActivity extends Activity{
+public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
