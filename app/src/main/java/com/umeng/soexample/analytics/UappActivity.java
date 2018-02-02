@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -46,6 +47,7 @@ public class UappActivity extends BaseActivity {
             public void onClick(View view) {
                 MobclickAgent.onEvent(mContext, "click");
                 MobclickAgent.onEvent(mContext, "click", "button");
+                Toast.makeText(mContext, "已完成普通事件", Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.analytics_g1_b2).setOnClickListener(new View.OnClickListener() {
@@ -54,18 +56,18 @@ public class UappActivity extends BaseActivity {
                 Map<String, String> map_ekv = new HashMap<String, String>();
                 map_ekv.put("type", "popular");
                 map_ekv.put("artist", "JJLin");
-
                 MobclickAgent.onEvent(mContext, "music", map_ekv);
+                Toast.makeText(mContext, "已完成多属性(K-V)事件", Toast.LENGTH_SHORT).show();
             }
         });
-        findViewById(R.id.analytics_g1_b2).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.analytics_g1_b3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Map<String, String> map_value = new HashMap<String, String>();
                 map_value.put("type", "popular");
                 map_value.put("artist", "JJLin");
-
                 MobclickAgent.onEventValue(mContext, "music", map_value, 12000);
+                Toast.makeText(mContext, "已完成数值型统计", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -73,18 +75,21 @@ public class UappActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 MobclickAgent.onProfileSignIn("example_id");
+                Toast.makeText(mContext, "已完成用户登录", Toast.LENGTH_SHORT).show();
             }
         });
-        findViewById(R.id.analytics_g2_b1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.analytics_g2_b2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MobclickAgent.onProfileSignOff();
+                Toast.makeText(mContext, "已完成用户登出", Toast.LENGTH_SHORT).show();
             }
         });
 
         findViewById(R.id.analytics_g3_b1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(mContext, "已完成程序崩溃", Toast.LENGTH_SHORT).show();
                 "123".substring(10);
             }
         });

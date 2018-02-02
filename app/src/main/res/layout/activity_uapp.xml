@@ -62,7 +62,7 @@
                     android:id="@+id/analytics_g2_b1"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    app:umfuncname="用户登陆"
+                    app:umfuncname="用户登录"
                     app:umfuncdesc="功能介绍"/>
                 <com.umeng.soexample.analytics.views.Function
                     android:id="@+id/analytics_g2_b2"

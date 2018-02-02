@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.analytics.dplus.UMADplus;
@@ -50,6 +51,7 @@ public class UDplusActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 UMADplus.track(mContext, "forward");
+                Toast.makeText(mContext, "已完成track事件", Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.analytics_g1_b2).setOnClickListener(new View.OnClickListener() {
@@ -62,6 +64,7 @@ public class UDplusActivity extends BaseActivity {
                 music.put("listener", 90 * 1000);// 用户听1.5分钟
                 // ... ...
                 UMADplus.track(mContext, "music", music);
+                Toast.makeText(mContext, "已完成自定义的track事件", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -69,6 +72,7 @@ public class UDplusActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 UMADplus.registerSuperProperty(mContext, "supperkey", "supperValue");
+                Toast.makeText(mContext, "已完成设置超级属性", Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.analytics_g2_b2).setOnClickListener(new View.OnClickListener() {
@@ -81,6 +85,7 @@ public class UDplusActivity extends BaseActivity {
                         JSONObject obj = new JSONObject(s);
                         Log.d("test", "===>" + obj.getString("supperkey"));
                     }
+                    Toast.makeText(mContext, "已完成获取超级属性", Toast.LENGTH_SHORT).show();
                 } catch (Throwable e) {
                 }
             }
@@ -89,6 +94,7 @@ public class UDplusActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 UMADplus.clearSuperProperties(mContext);
+                Toast.makeText(mContext, "已完成清除超级属性", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -103,6 +109,7 @@ public class UDplusActivity extends BaseActivity {
                 fisLaunchList.add("track_id_3");
                 fisLaunchList.add("forward");
                 UMADplus.setFirstLaunchEvent(mContext, fisLaunchList);
+                Toast.makeText(mContext, "已完成关注首次触发事件", Toast.LENGTH_SHORT).show();
             }
         });
     }
