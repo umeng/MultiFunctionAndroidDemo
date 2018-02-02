@@ -106,6 +106,32 @@ public class UDplusActivity extends BaseActivity {
                 Toast.makeText(mContext, "已完成关注首次触发事件", Toast.LENGTH_SHORT).show();
             }
         });
+
+        findViewById(R.id.analytics_g4_b1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(mContext, "已完成设置预置属性", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.analytics_g4_b2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "已完成获取预置属性", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.analytics_g4_b3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "已完成删除某一个预置属性", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.analytics_g4_b4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "已完成删除所有预置属性", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
