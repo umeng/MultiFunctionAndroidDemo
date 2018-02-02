@@ -27,74 +27,67 @@
                 <com.umeng.soexample.analytics.views.FuncTitle
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
-                    app:umfunctitle="功能组一"/>
+                    app:umfunctitle="自定义事件"/>
                 <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g1_b1"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    app:umfuncname="功能1"
+                    app:umfuncname="普通事件"
                     app:umfuncdesc="功能介绍"/>
                 <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g1_b2"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    app:umfuncname="功能2"
+                    app:umfuncname="多属性(K-V)事件"
                     app:umfuncdesc="功能介绍"/>
                 <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g1_b3"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    app:umfuncname="功能2"
+                    app:umfuncname="数值型统计"
                     app:umfuncdesc="功能介绍"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/group2"
+                android:layout_below="@id/group1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_below="@id/group1"
                 android:layout_marginTop="17dp">
                 <com.umeng.soexample.analytics.views.FuncTitle
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
-                    app:umfunctitle="功能组二"/>
+                    app:umfunctitle="登陆和登出"/>
                 <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g2_b1"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
+                    app:umfuncname="用户登陆"
+                    app:umfuncdesc="功能介绍"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g2_b2"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="用户登出"
+                    app:umfuncdesc="功能介绍"/>
+            </LinearLayout>
 
-                    app:umfuncname="功能1"
-                    app:umfuncdesc="功能介绍"/>
+            <LinearLayout
+                android:id="@+id/group3"
+                android:layout_below="@id/group2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="17dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <com.umeng.soexample.analytics.views.FuncTitle
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    app:umfunctitle="崩溃统计"/>
                 <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g3_b1"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-
-                    app:umfuncname="功能2"
-                    app:umfuncdesc="功能介绍"/>
-                <com.umeng.soexample.analytics.views.Function
-                    android:layout_width="match_parent"
-                    android:layout_height="57dp"
-                    app:umfuncname="功能3"
-                    app:umfuncdesc="功能介绍"/>
-                <com.umeng.soexample.analytics.views.Function
-                    android:layout_width="match_parent"
-                    android:layout_height="57dp"
-                    app:umfuncname="功能4"
-                    app:umfuncdesc="功能介绍"/>
-                <com.umeng.soexample.analytics.views.Function
-                    android:layout_width="match_parent"
-                    android:layout_height="57dp"
-                    app:umfuncname="功能5"
-                    app:umfuncdesc="功能介绍"/>
-                <com.umeng.soexample.analytics.views.Function
-                    android:layout_width="match_parent"
-                    android:layout_height="57dp"
-                    app:umfuncname="功能6"
-                    app:umfuncdesc="功能介绍"/>
-                <com.umeng.soexample.analytics.views.Function
-                    android:layout_width="match_parent"
-                    android:layout_height="57dp"
-                    app:umfuncname="功能7"
-                    app:umfuncdesc="功能介绍"/>
-                <com.umeng.soexample.analytics.views.Function
-                    android:layout_width="match_parent"
-                    android:layout_height="57dp"
-                    app:umfuncname="功能8"
+                    app:umfuncname="程序崩溃"
                     app:umfuncdesc="功能介绍"/>
             </LinearLayout>
         </RelativeLayout>
