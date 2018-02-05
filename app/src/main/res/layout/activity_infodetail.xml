@@ -37,7 +37,7 @@
            android:id="@+id/ok"
            android:text="获取"
            android:layout_alignRight="@id/result"
-           android:background="@drawable/um_infodetailbg"/>
+           android:background="@drawable/um_push_btn"/>
        <Button
            android:layout_width="56dp"
            android:layout_height="32dp"
@@ -47,7 +47,7 @@
            android:layout_toLeftOf="@id/ok"
            android:layout_marginRight="5dp"
            android:text="清空"
-           android:background="@drawable/um_infodetailbg"/>
+           android:background="@drawable/um_push_btn"/>
    </RelativeLayout>
 
 

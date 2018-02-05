@@ -275,7 +275,7 @@
           android:layout_marginRight="16dp"
           android:textColor="@color/log_name"
           android:layout_alignParentRight="true"
-          android:background="@drawable/um_infodetailbg"/>
+          android:background="@drawable/um_push_btn"/>
         <Button
             android:layout_width="56dp"
             android:layout_height="32dp"
@@ -284,7 +284,7 @@
             android:layout_toLeftOf="@id/send"
             android:layout_marginRight="16dp"
             android:textColor="@color/log_name"
-            android:background="@drawable/um_infodetailbg"/>
+            android:background="@drawable/um_push_btn"/>
 </RelativeLayout>
         </RelativeLayout>
 </RelativeLayout>

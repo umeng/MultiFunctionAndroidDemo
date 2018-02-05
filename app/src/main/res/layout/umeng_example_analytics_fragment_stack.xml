@@ -48,7 +48,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:padding="5dp"
-        android:background="@drawable/um_infodetailbg"
+        android:background="@drawable/um_push_btn"
         android:text="New Fragment" >
 
 
