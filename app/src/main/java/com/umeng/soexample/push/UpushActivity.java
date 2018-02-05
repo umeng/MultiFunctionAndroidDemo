@@ -22,6 +22,7 @@ import com.umeng.message.tag.TagManager.TCallBack;
 import com.umeng.message.tag.TagManager.WeightedTagListCallBack;
 import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
+import com.umeng.soexample.push.notification.DebugNotification;
 
 public class UpushActivity extends BaseActivity implements View.OnClickListener {
 
@@ -69,6 +70,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
         findViewById(R.id.btn_show_weighted_tag).setOnClickListener(this);
         findViewById(R.id.btn_add_alias).setOnClickListener(this);
         findViewById(R.id.btn_delete_alias).setOnClickListener(this);
+        findViewById(R.id.btn_serialnet).setOnClickListener(this);
     }
 
     @Override
@@ -123,11 +125,11 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
         String alias = inputAlias.getText().toString();
         String aliasType = inputAliasType.getText().toString();
         if (TextUtils.isEmpty(alias)) {
-            Toast.makeText(this, "请先输入alias", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请输入alias", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(aliasType)) {
-            Toast.makeText(this, "请先输入alias type", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请输入alias type", Toast.LENGTH_SHORT).show();
             return;
         }
         mPushAgent.setAlias(alias, aliasType, new UTrack.ICallBack() {
@@ -145,6 +147,28 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void deleteAlias() {
+        String alias = inputAlias.getText().toString();
+        String aliasType = inputAliasType.getText().toString();
+        if (TextUtils.isEmpty(alias)) {
+            Toast.makeText(this, "请先输入alias", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(aliasType)) {
+            Toast.makeText(this, "请先输入alias type", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        mPushAgent.deleteAlias(alias, aliasType, new UTrack.ICallBack() {
+            @Override
+            public void onMessage(boolean isSuccess, String message) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        inputAlias.setText("");
+                        inputAliasType.setText("");
+                    }
+                });
+            }
+        });
     }
 
     private void addAlias() {
@@ -298,6 +322,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void serialnet() {
+        DebugNotification.transmission(UpushActivity.this, handler);
     }
 
     private void deviceCheck() {
