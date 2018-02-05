@@ -24,6 +24,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center_horizontal"
+    android:background="@color/titlebg"
     android:orientation="vertical">
 
     <include
@@ -42,11 +43,15 @@
     <Button
         android:id="@+id/new_fragment"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_weight="0"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="5dp"
+        android:background="@drawable/um_infodetailbg"
         android:text="New Fragment" >
 
-        <requestFocus />
+
     </Button>
 
 </LinearLayout>

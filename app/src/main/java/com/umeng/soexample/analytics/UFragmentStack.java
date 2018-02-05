@@ -1,5 +1,7 @@
 package com.umeng.soexample.analytics;
 
+import java.util.Locale;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
-
-import java.util.Locale;
 
 /**
  * Created by cnzz on 18/2/2.
@@ -150,7 +149,7 @@ public class UFragmentStack extends BaseActivity {
             FrameLayout fl = new FrameLayout(getActivity());
             fl.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
                     FrameLayout.LayoutParams.MATCH_PARENT));
-            fl.setBackgroundColor(Color.LTGRAY);
+            fl.setBackgroundColor(getActivity().getResources().getColor(R.color.bg));
             TextView tv = new TextView(getActivity());
             tv.setText("Fragment #" + mNum);
             tv.setTextColor(Color.BLACK);
