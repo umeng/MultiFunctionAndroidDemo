@@ -197,6 +197,10 @@
         <service android:name=".push.MyNotificationService" />
         <service android:name=".push.UmengNotificationService" />
         <receiver android:name=".push.NotificationBroadcast" />
+        <activity
+            android:name=".push.MipushTestActivity"
+            android:launchMode="singleTask"
+            android:exported="true"/>
 
     </application>
 

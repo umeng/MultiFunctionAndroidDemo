@@ -150,11 +150,11 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
         String alias = inputAlias.getText().toString();
         String aliasType = inputAliasType.getText().toString();
         if (TextUtils.isEmpty(alias)) {
-            Toast.makeText(this, "请先输入alias", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请输入alias", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(aliasType)) {
-            Toast.makeText(this, "请先输入alias type", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请输入alias type", Toast.LENGTH_SHORT).show();
             return;
         }
         mPushAgent.deleteAlias(alias, aliasType, new UTrack.ICallBack() {
@@ -223,6 +223,14 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void addWeightedTag() {
+        if (TextUtils.isEmpty(inputWeightedTag.getText())) {
+            Toast.makeText(this, "请输入weighted tag", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(inputWeightedTagValue.getText())) {
+            Toast.makeText(this, "请输入value", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Hashtable<String, Integer> table = new Hashtable<String, Integer>();
         table.put(inputWeightedTag.getText().toString(), Integer.valueOf(inputWeightedTagValue.getText().toString()));
         mPushAgent.getTagManager().addWeightedTags(new TCallBack() {
@@ -246,15 +254,22 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void run() {
                         if (isSuccess) {
+                            StringBuilder info = new StringBuilder();
                             if (result != null) {
-                                StringBuilder info = new StringBuilder();
-                                info.append("Tags:");
                                 for (int i = 0; i < result.size(); i++) {
                                     String tag = result.get(i);
-                                    info.append("\n" + tag);
+                                    info.append(tag);
+                                    if (i != result.size() -1 ) {
+                                        info.append("、");
+                                    }
                                 }
+
                             }
+                            PushDialogFragment.newInstance(1, 1, getString(R.string.push_delete_success),
+                                info.toString()).show(getFragmentManager(), "deleteTag");
                         } else {
+                            PushDialogFragment.newInstance(1, 0, getString(R.string.push_get_tags),
+                                "").show(getFragmentManager(), "deleteTag");
                         }
 
                     }
@@ -279,8 +294,11 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                         inputTag.setText("");
                         if (isSuccess) {
                             tagRemain.setText(String.valueOf(result.remain));
-                            PushDialogFragment.newInstance(0, 1, tag).show(getFragmentManager(), "addtag");
+                            PushDialogFragment.newInstance(0, 1,
+                                getString(R.string.push_delete_success), tag).show(getFragmentManager(), "deleteTag");
                         } else {
+                            PushDialogFragment.newInstance(0, 0,
+                                getString(R.string.push_delete_fail), tag).show(getFragmentManager(), "deleteTag");
                         }
                     }
                 });
@@ -303,8 +321,11 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                         inputTag.setText("");
                         if (isSuccess) {
                             tagRemain.setText(String.valueOf(result.remain));
-                            PushDialogFragment.newInstance(0, 0, tag).show(getFragmentManager(), "addtag");
+                            PushDialogFragment.newInstance(0, 1, getString(R.string.push_add_success), tag).show(
+                                getFragmentManager(), "addTag");
                         } else {
+                            PushDialogFragment.newInstance(0, 0, getString(R.string.push_add_fail), tag).show(
+                                getFragmentManager(), "addTag");
                         }
                     }
                 });

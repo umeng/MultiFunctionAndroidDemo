@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">【友盟+】产品demo</string>
+    <string name="push_add_success">添加成功！</string>
+    <string name="push_add_fail">添加失败！</string>
+    <string name="push_delete_success">删除成功！</string>
+    <string name="push_delete_fail">删除失败！</string>
+    <string name="push_get_tags">展示所有标签</string>
+    <string name="push_tag">标签为：</string>
 </resources>

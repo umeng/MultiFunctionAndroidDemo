@@ -5,18 +5,19 @@ import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.umeng.soexample.R;
-
-/**
- * Created by fanyajie on 2018/1/30
- */
 
 public class PushDialogFragment extends DialogFragment {
 
     static final String VIEW_TYPE = "view_type";
     static final String STATUS = "status";
+    static final String TITLE = "title";
     static final String TEXT = "text";
 
     private int viewType;
@@ -24,11 +25,12 @@ public class PushDialogFragment extends DialogFragment {
     private String title;
     private String text;
 
-    static PushDialogFragment newInstance(int viewType, int status, String text) {
+    static PushDialogFragment newInstance(int viewType, int status, String title, String text) {
         PushDialogFragment fragment = new PushDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(VIEW_TYPE, viewType);
         bundle.putInt(STATUS, status);
+        bundle.putString(TITLE, title);
         bundle.putString(TEXT, text);
         fragment.setArguments(bundle);
         return fragment;
@@ -40,12 +42,43 @@ public class PushDialogFragment extends DialogFragment {
         Bundle bundle = getArguments();
         viewType = bundle.getInt(VIEW_TYPE);
         status = bundle.getInt(STATUS);
+        title = bundle.getString(TITLE);
         text = bundle.getString(TEXT);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.push_dialog, container, false);
+        View v = null;
+        if (viewType == 0) {
+            v = inflater.inflate(R.layout.push_dialog, container, false);
+            ImageView ivIcon = v.findViewById(R.id.push_dialog_icon);
+            TextView tvTitle = v.findViewById(R.id.push_dialog_title);
+            TextView tvText = v.findViewById(R.id.push_dialog_text);
+            Button btnCancel = v.findViewById(R.id.btn_cancel);
+            Button btnOK = v.findViewById(R.id.btn_ok);
+            tvTitle.setText(title);
+            tvText.setText(getString(R.string.push_tag) + text);
+            btnOK.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    PushDialogFragment.this.getDialog().cancel();
+                }
+            });
+
+            if (status == 0) {
+                ivIcon.setImageResource(R.drawable.um_push_tip);
+            }
+
+            if (status == 1) {
+                ivIcon.setImageResource(R.drawable.um_push_ok);
+            }
+        }
+        if (viewType == 1) {
+            v = inflater.inflate(R.layout.push_dialog_result, container, false);
+            TextView tv = v.findViewById(R.id.push_dialog_text);
+            tv.setText(text);
+        }
+        return v;
     }
 
     @Override

@@ -34,6 +34,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/push_dialog_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
