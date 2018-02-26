@@ -27,6 +27,7 @@ android {
             keyPassword "android"
         }
     }
+
 }
 
 dependencies {
