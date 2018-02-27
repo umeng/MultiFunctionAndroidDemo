@@ -71,21 +71,6 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small"/>
 
-            <Button
-                android:id="@+id/btn_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_toStartOf="@id/btn_ok"
-                android:background="@drawable/um_infodetailbg"
-                android:paddingBottom="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingTop="8dp"
-                android:text="删除"
-                android:textColor="@color/log_name"
-                android:textSize="@dimen/text_size_small"/>
-
         </RelativeLayout>
 
     </LinearLayout>

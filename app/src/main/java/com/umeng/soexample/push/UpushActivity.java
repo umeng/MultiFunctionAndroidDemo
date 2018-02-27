@@ -3,6 +3,8 @@ package com.umeng.soexample.push;
 import java.util.Hashtable;
 import java.util.List;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -27,6 +29,8 @@ import com.umeng.soexample.push.notification.DebugNotification;
 public class UpushActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = UpushActivity.class.getName();
+    private static final String TAG_REMAIN = "tag_remain";
+    private static final String WEIGHTED_TAG_REMAIN = "weighted_tag_remain";
 
     private EditText inputTag;
     private EditText inputWeightedTag;
@@ -39,17 +43,21 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     private PushAgent mPushAgent;
     private Handler handler;
 
+    private SharedPreferences sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("推送");
         setBackVisibily();
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
         initClickListener();
         handler = new Handler();
 
         mPushAgent = PushAgent.getInstance(this);
         mPushAgent.onAppStart();
 
+        //展示插屏消息
         if (savedInstanceState == null) {
             showCardMessage();
         }
@@ -216,6 +224,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+                        sharedPref.edit().putInt(WEIGHTED_TAG_REMAIN, result.remain).apply();
                     }
                 });
             }
@@ -239,7 +248,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-
+                        sharedPref.edit().putInt(WEIGHTED_TAG_REMAIN, result.remain).apply();
                     }
                 });
             }
@@ -259,7 +268,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                                 for (int i = 0; i < result.size(); i++) {
                                     String tag = result.get(i);
                                     info.append(tag);
-                                    if (i != result.size() -1 ) {
+                                    if (i != result.size() - 1) {
                                         info.append("、");
                                     }
                                 }
@@ -293,6 +302,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                     public void run() {
                         inputTag.setText("");
                         if (isSuccess) {
+                            sharedPref.edit().putInt(TAG_REMAIN, result.remain).apply();
                             tagRemain.setText(String.valueOf(result.remain));
                             PushDialogFragment.newInstance(0, 1,
                                 getString(R.string.push_delete_success), tag).show(getFragmentManager(), "deleteTag");
@@ -320,6 +330,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                     public void run() {
                         inputTag.setText("");
                         if (isSuccess) {
+                            sharedPref.edit().putInt(TAG_REMAIN, result.remain).apply();
                             tagRemain.setText(String.valueOf(result.remain));
                             PushDialogFragment.newInstance(0, 1, getString(R.string.push_add_success), tag).show(
                                 getFragmentManager(), "addTag");

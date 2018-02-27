@@ -54,7 +54,6 @@ public class PushDialogFragment extends DialogFragment {
             ImageView ivIcon = v.findViewById(R.id.push_dialog_icon);
             TextView tvTitle = v.findViewById(R.id.push_dialog_title);
             TextView tvText = v.findViewById(R.id.push_dialog_text);
-            Button btnCancel = v.findViewById(R.id.btn_cancel);
             Button btnOK = v.findViewById(R.id.btn_ok);
             tvTitle.setText(title);
             tvText.setText(getString(R.string.push_tag) + text);
