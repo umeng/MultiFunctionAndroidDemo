@@ -54,15 +54,9 @@ public class PushDialogFragment extends DialogFragment {
             ImageView ivIcon = v.findViewById(R.id.push_dialog_icon);
             TextView tvTitle = v.findViewById(R.id.push_dialog_title);
             TextView tvText = v.findViewById(R.id.push_dialog_text);
-            Button btnOK = v.findViewById(R.id.btn_ok);
             tvTitle.setText(title);
             tvText.setText(getString(R.string.push_tag) + text);
-            btnOK.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    PushDialogFragment.this.getDialog().cancel();
-                }
-            });
+
 
             if (status == 0) {
                 ivIcon.setImageResource(R.drawable.um_push_tip);
@@ -72,11 +66,24 @@ public class PushDialogFragment extends DialogFragment {
                 ivIcon.setImageResource(R.drawable.um_push_ok);
             }
         }
+
         if (viewType == 1) {
             v = inflater.inflate(R.layout.push_dialog_result, container, false);
             TextView tv = v.findViewById(R.id.push_dialog_text);
             tv.setText(text);
+
         }
+
+        if (v != null) {
+            Button btnOK = v.findViewById(R.id.btn_ok);
+            btnOK.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    PushDialogFragment.this.getDialog().cancel();
+                }
+            });
+        }
+
         return v;
     }
 
