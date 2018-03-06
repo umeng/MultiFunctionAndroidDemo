@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 import com.umeng.message.common.UmLog;
+import com.umeng.message.common.UmengMessageDeviceConfig;
 import com.umeng.message.common.inter.ITagManager;
 import com.umeng.message.common.inter.ITagManager.Result;
 import com.umeng.message.inapp.IUmengInAppMsgCloseCallback;
@@ -79,6 +80,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
         findViewById(R.id.btn_add_alias).setOnClickListener(this);
         findViewById(R.id.btn_delete_alias).setOnClickListener(this);
         findViewById(R.id.btn_serialnet).setOnClickListener(this);
+        findViewById(R.id.btn_device_check).setOnClickListener(this);
     }
 
     @Override
@@ -274,7 +276,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                                 }
 
                             }
-                            PushDialogFragment.newInstance(1, 1, getString(R.string.push_delete_success),
+                            PushDialogFragment.newInstance(1, 1, getString(R.string.push_get_tags),
                                 info.toString()).show(getFragmentManager(), "deleteTag");
                         } else {
                             PushDialogFragment.newInstance(1, 0, getString(R.string.push_get_tags),
@@ -358,5 +360,24 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void deviceCheck() {
+        String push_switch = UmengMessageDeviceConfig.isNotificationEnabled(this);
+        String status;
+        switch (push_switch) {
+            case "true":
+                status = "是";
+                break;
+            case "false":
+                status = "否";
+                break;
+            default:
+                status = push_switch;
+                break;
+        }
+        String cpu = UmengMessageDeviceConfig.getCPU();
+        String osVersion = android.os.Build.VERSION.RELEASE;
+        String info = getString(R.string.push_os_version) + osVersion + "\n" + getString(R.string.push_cpu_info) + cpu
+            + "\n" + getString(R.string.push_system_notification_switch) + status;
+        PushDialogFragment.newInstance(1, 0, getString(
+            R.string.push_device_check), info).show(getFragmentManager(), "deviceCheck");
     }
 }

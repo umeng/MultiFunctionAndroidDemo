@@ -69,8 +69,10 @@ public class PushDialogFragment extends DialogFragment {
 
         if (viewType == 1) {
             v = inflater.inflate(R.layout.push_dialog_result, container, false);
-            TextView tv = v.findViewById(R.id.push_dialog_text);
-            tv.setText(text);
+            TextView tl = v.findViewById(R.id.push_dialog_title);
+            TextView tx = v.findViewById(R.id.push_dialog_text);
+            tl.setText(title);
+            tx.setText(text);
 
         }
 
