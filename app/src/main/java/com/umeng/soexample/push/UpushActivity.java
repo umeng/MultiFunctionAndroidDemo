@@ -79,6 +79,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
         findViewById(R.id.btn_show_weighted_tag).setOnClickListener(this);
         findViewById(R.id.btn_add_alias).setOnClickListener(this);
         findViewById(R.id.btn_delete_alias).setOnClickListener(this);
+        findViewById(R.id.btn_show_card_message).setOnClickListener(this);
         findViewById(R.id.btn_serialnet).setOnClickListener(this);
         findViewById(R.id.btn_device_check).setOnClickListener(this);
     }
