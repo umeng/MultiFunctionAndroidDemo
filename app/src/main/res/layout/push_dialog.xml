@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="12dp"
             android:layout_weight="1">
 
             <TextView
@@ -67,7 +67,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/um_infodetail_blue_bg"
-                android:paddingBottom="8dp"
+                android:paddingBottom="5dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingTop="8dp"

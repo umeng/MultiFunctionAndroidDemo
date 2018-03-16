@@ -6,6 +6,7 @@
     <string name="push_delete_fail">删除失败！</string>
     <string name="push_get_tags">展示所有标签</string>
     <string name="push_tag">标签为：</string>
+    <string name="push_tag_value">权值为：</string>
     <string name="push_device_check">系统检查</string>
     <string name="push_system_notification_switch">系统通知开关是否打开：</string>
     <string name="push_cpu_info">CPU：</string>
