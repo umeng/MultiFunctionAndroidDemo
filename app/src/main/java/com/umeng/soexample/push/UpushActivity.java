@@ -3,6 +3,8 @@ package com.umeng.soexample.push;
 import java.util.Hashtable;
 import java.util.List;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 import com.umeng.message.common.UmLog;
+import com.umeng.message.common.UmengMessageDeviceConfig;
 import com.umeng.message.common.inter.ITagManager;
 import com.umeng.message.common.inter.ITagManager.Result;
 import com.umeng.message.inapp.IUmengInAppMsgCloseCallback;
@@ -27,6 +30,8 @@ import com.umeng.soexample.push.notification.DebugNotification;
 public class UpushActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = UpushActivity.class.getName();
+    private static final String TAG_REMAIN = "tag_remain";
+    private static final String WEIGHTED_TAG_REMAIN = "weighted_tag_remain";
 
     private EditText inputTag;
     private EditText inputWeightedTag;
@@ -39,17 +44,21 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     private PushAgent mPushAgent;
     private Handler handler;
 
+    private SharedPreferences sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("推送");
         setBackVisibily();
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
         initClickListener();
         handler = new Handler();
 
         mPushAgent = PushAgent.getInstance(this);
         mPushAgent.onAppStart();
 
+        //展示插屏消息
         if (savedInstanceState == null) {
             showCardMessage();
         }
@@ -70,7 +79,9 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
         findViewById(R.id.btn_show_weighted_tag).setOnClickListener(this);
         findViewById(R.id.btn_add_alias).setOnClickListener(this);
         findViewById(R.id.btn_delete_alias).setOnClickListener(this);
+        findViewById(R.id.btn_show_card_message).setOnClickListener(this);
         findViewById(R.id.btn_serialnet).setOnClickListener(this);
+        findViewById(R.id.btn_device_check).setOnClickListener(this);
     }
 
     @Override
@@ -216,6 +227,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+                        sharedPref.edit().putInt(WEIGHTED_TAG_REMAIN, result.remain).apply();
                     }
                 });
             }
@@ -239,7 +251,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-
+                        sharedPref.edit().putInt(WEIGHTED_TAG_REMAIN, result.remain).apply();
                     }
                 });
             }
@@ -259,13 +271,13 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                                 for (int i = 0; i < result.size(); i++) {
                                     String tag = result.get(i);
                                     info.append(tag);
-                                    if (i != result.size() -1 ) {
+                                    if (i != result.size() - 1) {
                                         info.append("、");
                                     }
                                 }
 
                             }
-                            PushDialogFragment.newInstance(1, 1, getString(R.string.push_delete_success),
+                            PushDialogFragment.newInstance(1, 1, getString(R.string.push_get_tags),
                                 info.toString()).show(getFragmentManager(), "deleteTag");
                         } else {
                             PushDialogFragment.newInstance(1, 0, getString(R.string.push_get_tags),
@@ -293,6 +305,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                     public void run() {
                         inputTag.setText("");
                         if (isSuccess) {
+                            sharedPref.edit().putInt(TAG_REMAIN, result.remain).apply();
                             tagRemain.setText(String.valueOf(result.remain));
                             PushDialogFragment.newInstance(0, 1,
                                 getString(R.string.push_delete_success), tag).show(getFragmentManager(), "deleteTag");
@@ -320,6 +333,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                     public void run() {
                         inputTag.setText("");
                         if (isSuccess) {
+                            sharedPref.edit().putInt(TAG_REMAIN, result.remain).apply();
                             tagRemain.setText(String.valueOf(result.remain));
                             PushDialogFragment.newInstance(0, 1, getString(R.string.push_add_success), tag).show(
                                 getFragmentManager(), "addTag");
@@ -347,5 +361,24 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void deviceCheck() {
+        String push_switch = UmengMessageDeviceConfig.isNotificationEnabled(this);
+        String status;
+        switch (push_switch) {
+            case "true":
+                status = "是";
+                break;
+            case "false":
+                status = "否";
+                break;
+            default:
+                status = push_switch;
+                break;
+        }
+        String cpu = UmengMessageDeviceConfig.getCPU();
+        String osVersion = android.os.Build.VERSION.RELEASE;
+        String info = getString(R.string.push_os_version) + osVersion + "\n" + getString(R.string.push_cpu_info) + cpu
+            + "\n" + getString(R.string.push_system_notification_switch) + status;
+        PushDialogFragment.newInstance(1, 0, getString(
+            R.string.push_device_check), info).show(getFragmentManager(), "deviceCheck");
     }
 }
