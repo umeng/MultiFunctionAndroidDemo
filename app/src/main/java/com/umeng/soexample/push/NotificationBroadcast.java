@@ -3,8 +3,8 @@ package com.umeng.soexample.push;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import com.umeng.message.UTrack;
-import com.umeng.message.common.UmLog;
 import com.umeng.message.entity.UMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,12 +27,12 @@ public class NotificationBroadcast extends BroadcastReceiver {
 
             switch (action) {
                 case ACTION_DISMISS:
-                    UmLog.i(TAG, "dismiss notification");
+                    Log.i(TAG, "dismiss notification");
                     UTrack.getInstance(context).setClearPrevMessage(true);
                     UTrack.getInstance(context).trackMsgDismissed(msg);
                     break;
                 case ACTION_CLICK:
-                    UmLog.i(TAG, "click notification");
+                    Log.i(TAG, "click notification");
                     UTrack.getInstance(context).setClearPrevMessage(true);
                     MyNotificationService.oldMessage = null;
                     UTrack.getInstance(context).trackMsgClick(msg);

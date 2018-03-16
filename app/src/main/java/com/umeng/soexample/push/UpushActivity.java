@@ -8,13 +8,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
-import com.umeng.message.common.UmLog;
 import com.umeng.message.common.UmengMessageDeviceConfig;
 import com.umeng.message.common.inter.ITagManager;
 import com.umeng.message.common.inter.ITagManager.Result;
@@ -385,7 +385,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
         InAppMessageManager.getInstance(this).showCardMessage(this, "main", new IUmengInAppMsgCloseCallback() {
             @Override
             public void onColse() {
-                UmLog.i(TAG, "card message close");
+                Log.i(TAG, "card message close");
             }
         });
     }
