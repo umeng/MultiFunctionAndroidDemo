@@ -223,6 +223,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                                 builder.append(" ");
                                 builder.append(getString(R.string.push_tag_value));
                                 builder.append(value);
+                                builder.append("\n");
                             }
                             PushDialogFragment.newInstance(1, 1, getString(R.string.push_get_tags),
                                 builder.toString()).show(getFragmentManager(), "deleshowWeightedTagteTag");
@@ -244,11 +245,11 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void run() {
                         if (isSuccess) {
-                            inputWeightedTag.setText("");
-                            inputWeightedTagValue.setText("");
                             sharedPref.edit().putInt(WEIGHTED_TAG_REMAIN, result.remain).apply();
                             PushDialogFragment.newInstance(0, 1, getString(R.string.push_delete_success),
                                 inputWeightedTag.getText().toString()).show(getFragmentManager(), "deleteWeightedTag");
+                            inputWeightedTag.setText("");
+                            inputWeightedTagValue.setText("");
                         } else {
                             PushDialogFragment.newInstance(0, 0, getString(R.string.push_delete_fail),
                                 inputWeightedTag.getText().toString()).show(getFragmentManager(), "deleteWeightedTag");
@@ -277,13 +278,13 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void run() {
                         if (isSuccess) {
-                            inputWeightedTag.setText("");
-                            inputWeightedTagValue.setText("");
                             sharedPref.edit().putInt(WEIGHTED_TAG_REMAIN, result.remain).apply();
                             PushDialogFragment.newInstance(0, 1, getString(R.string.push_add_success),
                                 inputWeightedTag.getText().toString() + "\n" + getString(R.string.push_tag_value) +
                                     inputWeightedTagValue.getText().toString()).show(getFragmentManager(),
                                 "addWeightedTag");
+                            inputWeightedTag.setText("");
+                            inputWeightedTagValue.setText("");
                         } else {
                             PushDialogFragment.newInstance(0, 0, getString(R.string.push_add_fail),
                                 inputWeightedTag.getText().toString() + "\n" + getString(R.string.push_tag_value) + inputWeightedTagValue.getText()
