@@ -32,13 +32,14 @@ public class HomeActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-        findViewById(R.id.home_dplus).setOnClickListener(new OnClickListener() {
+        /*findViewById(R.id.home_dplus).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, UDplusActivity.class);
                 startActivity(intent);
             }
         });
+        */
         findViewById(R.id.home_game).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

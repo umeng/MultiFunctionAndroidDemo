@@ -26,6 +26,7 @@
         android:layout_below="@id/title_bar"
         app:umicon="@drawable/um_app"
         android:layout_height="@dimen/item_height"/>
+    <!--
     <com.umeng.soexample.views.Item
         android:id="@+id/home_dplus"
         android:layout_width="match_parent"
@@ -33,10 +34,11 @@
         app:umtitle="统计UDplus"
         app:umicon="@drawable/um_dplus"
         android:layout_height="@dimen/item_height"/>
+        -->
     <com.umeng.soexample.views.Item
         android:id="@+id/home_game"
         android:layout_width="match_parent"
-        android:layout_below="@id/home_dplus"
+        android:layout_below="@id/home_uapp"
         app:umtitle="统计UGame"
         app:umicon="@drawable/um_ugame"
         android:layout_height="@dimen/item_height"/>
