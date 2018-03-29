@@ -55,6 +55,16 @@ public class App extends Application {
         // mPushAgent.setNotificationPlayVibrate(MsgConstant.NOTIFICATION_PLAY_SDK_DISABLE);
 
         UmengMessageHandler messageHandler = new UmengMessageHandler() {
+
+            /**
+             * 通知的回调方法（通知送达时会回调）
+             */
+            @Override
+            public void dealWithNotificationMessage(Context context, UMessage msg) {
+                //调用super，会展示通知，不调用super，则不展示通知。
+                super.dealWithNotificationMessage(context, msg);
+            }
+
             /**
              * 自定义消息的回调方法
              */
@@ -117,17 +127,26 @@ public class App extends Application {
         UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
 
             @Override
-            public void launchApp(Context context, UMessage uMessage) {
-                super.launchApp(context, uMessage);
+            public void launchApp(Context context, UMessage msg) {
+                super.launchApp(context, msg);
             }
 
             @Override
-            public void openUrl(Context context, UMessage uMessage) {
-                super.openUrl(context, uMessage);
+            public void openUrl(Context context, UMessage msg) {
+                super.openUrl(context, msg);
+            }
+
+            @Override
+            public void openActivity(Context context, UMessage msg) {
+                super.openActivity(context, msg);
+            }
+
+            @Override
+            public void dealWithCustomAction(Context context, UMessage msg) {
+                Toast.makeText(context, msg.custom, Toast.LENGTH_LONG).show();
             }
         };
-        //使用自定义的NotificationHandler，来结合友盟统计处理消息通知，参考http://bbs.umeng.com/thread-11112-1-1.html
-        //CustomNotificationHandler notificationClickHandler = new CustomNotificationHandler();
+        //使用自定义的NotificationHandler
         mPushAgent.setNotificationClickHandler(notificationClickHandler);
 
         //注册推送服务 每次调用register都会回调该接口
