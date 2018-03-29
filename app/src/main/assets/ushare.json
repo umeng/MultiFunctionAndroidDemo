@@ -1,10 +1,6 @@
-[{"name":"1244443",
-  "data":"2018-1-1",
-  "content":"1.fdfssdfsdf\n2.dsdasdasd\n3.dfsdfsdfsfsf"
+[{"name":"U-App V6.9.0",
+  "data":"2018-3-15",
+  "content":"1.优化了debug模式的显示方式\n2.更新了微信 QQ的SDK。\n2.优化了错误检查。\n"
 
-},
-  {"name":"123424234",
-    "data":"2018-1-1",
-    "content":"1.fdfssdfsdf\n2.dsdasdasd\n3.dfsdfsdfsfsf"
-
-  }]
+}
+]
