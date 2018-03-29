@@ -1,10 +1,5 @@
-[{"name":"12344",
-  "data":"2018-1-1",
-  "content":"1.fdfssdfsdf\n2.dsdasdasd\n3.dfsdfsdfsfsf"
+[{"name":"U-Push 4.1.0",
+  "date":"2018-3-29",
+  "content":"1.新增富媒体通知功能。\n 2.支持Debug模式。\n 3.HTTPDNS升级到1.1.3.1版本"
 
-},
-  {"name":"123444",
-    "data":"2018-1-1",
-    "content":"1.fdfssdfsdf\n2.dsdasdasd\n3.dfsdfsdfsfsf"
-
-  }]
+}]
