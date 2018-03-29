@@ -1,10 +1,5 @@
-[{"name":"UApp V9999",
-  "date":"2018-1-1",
-  "content":"1.优化了初始化\n2.开始了上传\n3.可以我知道了"
+[{"name":"U-App V7.5.0",
+  "date":"2018-3-29",
+  "content":"1.对应的基础组件库升级到v1.5.0。\n2.引入集成调试库及对应FAQ。\n"
 
-},
-  {"name":"123",
-    "date":"2018-1-1",
-    "content":"1.fdfssdfsdf\n2.dsdasdasd\n3.dfsdfsdfsfsf"
-
-  }]
+}]
