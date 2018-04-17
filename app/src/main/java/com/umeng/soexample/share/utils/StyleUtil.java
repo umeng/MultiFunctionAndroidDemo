@@ -14,6 +14,7 @@ public class StyleUtil {
     public static String IMAGELOCAL = "纯图片本地";
     public static String IMAGEURL = "纯图片http";
     public static String TEXTANDIMAGE = "图文";
+    public static String MULIMAGE = "多图分享";
     public static String  MUSIC00= "音乐（无标题，无内容）";
     public static String  MUSIC11= "音乐（有标题，有内容）";
     public static String  MUSIC10= "音乐（有标题，无内容）";
@@ -41,6 +42,7 @@ public class StyleUtil {
             styles.add(StyleUtil.TEXT);
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);
+            styles.add(StyleUtil.MULIMAGE);
             styles.add(StyleUtil.WEB11);
             styles.add(StyleUtil.MUSIC11);
             styles.add(StyleUtil.VIDEO11);
@@ -49,6 +51,7 @@ public class StyleUtil {
             styles.add(StyleUtil.TEXTANDIMAGE);
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);
+            styles.add(StyleUtil.MULIMAGE);
             styles.add(StyleUtil.WEB11);
             //            styles.add(StyleUtil.MUSIC11);
             //            styles.add(StyleUtil.VIDEO11);

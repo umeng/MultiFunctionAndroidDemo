@@ -1,1 +1,1 @@
-include ':app', ':umlib', ':push'
+include ':app', ':umlib', ':push', ':UMLibrary'

@@ -11,5 +11,5 @@
     <string name="push_system_notification_switch">系统通知开关是否打开：</string>
     <string name="push_cpu_info">CPU：</string>
     <string name="push_os_version">Android版本：</string>
-
+    <string name="facebook_app_id">1266254913438718</string>
 </resources>

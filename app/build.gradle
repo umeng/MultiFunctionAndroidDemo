@@ -31,9 +31,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':umlib')
-    compile project(':push')
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    compile project(':umlib')
+//    compile project(':push')
     //compile files('libs/umeng-analytics-7.4.1.jar')
     //compile files('libs/umeng-common-1.4.2.jar')
+    compile project(':UMLibrary')
 }
