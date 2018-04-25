@@ -2,6 +2,7 @@ package com.umeng.soexample.share;
 
 import java.util.Map;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -68,5 +69,11 @@ public class InfoDetailActivity extends BaseActivity {
     @Override
     public int getLayout() {
         return R.layout.activity_infodetail;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode,resultCode,data);
     }
 }
