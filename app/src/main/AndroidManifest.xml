@@ -166,7 +166,7 @@
         <!--1104087112943046-->
         <provider
             android:name="com.umeng.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider1266254913438718"
+            android:authorities="com.facebook.app.FacebookContentProvider2094171727560943"
             android:exported="true" />
 
         <meta-data

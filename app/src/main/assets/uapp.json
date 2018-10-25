@@ -1,5 +1,21 @@
-[{"name":"U-App V7.5.0",
-  "date":"2018-3-29",
+[
+ {
+  "name":"U-App V7.5.4",
+  "date":"2018-10-15",
+  "content":"1. 修正非应用内版本升级场景下可能导致的App发版后短时间内使用时长指标异常增高的问题。\n2. 修正埋点辅助自检功能对onPageStart/onPageEnd接口的埋点错误误报问题。\n3. 修复sdk中ssl配置可能影响App ssl全局配置问题。\n4. 对在三星Galaxy S III mini 4.3.1设备上小概率出现的ArrayIndexOutOfBoundsException未捕获异常进行捕获。\n5. 优化SDK初始化耗时，增强SDK稳定性。\n"
+ },
+ {
+  "name":"U-App V7.5.3",
+  "date":"2018-05-23",
+  "content":"1. 将集成调试库模块并入基础组件库。\n2. 优化集成调试模式中对onResume/onPause方法漏埋点的检查机制。\n3. 修复sdk中ssl host域名验证冲突问题。\n4. 修复某些使用场景下流量统计无数据问题。\n5. 修复SDK在App冷启动时可能存在的少量内存泄漏问题。\n"
+},
+ {
+  "name":"U-App V7.5.1",
+  "date":"2018-04-24",
+  "content":"1.支持组件化基础库的版本匹配检查。\n2.去除集成测试库中对子进程检查的LOG输出。\n"
+},
+{"name":"U-App V7.5.0",
+  "date":"2018-03-29",
   "content":"1.对应的基础组件库升级到v1.5.0。\n2.引入集成调试库及对应FAQ。\n"
 
 }]
