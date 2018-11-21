@@ -1,20 +1,26 @@
-[{"name":"U-App V6.9.0",
-  "data":"2018-3-15",
-  "content":"1.优化了debug模式的显示方式\n2.更新了微信 QQ的SDK。\n2.优化了错误检查。\n"
-},
-  {"name":"U-App V6.9.1",
-    "data":"2018-4-15",
-    "content": "1.增加了QQ空间多图分享\n2.增加新浪多图分享。\n3.修改自动集成微信分享的bug。\n4.修改精简版qq没有客户端时没有回调的bug。"
+[
+  {"name":"U-Share V6.9.4",
+    "date":"2018-11-21",
+    "content": "1.解决Facebook分享模块因权限导致的分享失败问题。\n2.解决Line、Instagram分享模块在Android N（Android 7.0）以上设备中图片分享失败问题。\n3.解决小概率出现的数据库操作异常问题。\n4.Twitter分享模块基于Twitter官方SDK重构。"
 
   },
-  {"name":"U-App V6.9.2",
-    "data":"2018-5-24",
+  {"name":"U-Share V6.9.3",
+    "date":"2018-7-10",
+    "content": "1.钉钉支付宝回调Activity的安全性处理\n2.新浪微博精简版崩溃防御。"
+
+  },
+  {"name":"U-Share V6.9.2",
+    "date":"2018-5-24",
     "content": "1.微信增加了小程序多种分享模式\n2.微信小程序缩略图限制増至128k。"
 
   },
-  {"name":"U-App V6.9.3",
-    "data":"2018-7-10",
-    "content": "1.钉钉支付宝回调Activity的安全性处理\n2.新浪微博精简版崩溃防御。"
+  {"name":"U-Share V6.9.1",
+    "date":"2018-4-15",
+    "content": "1.增加了QQ空间多图分享\n2.增加新浪多图分享。\n3.修改自动集成微信分享的bug。\n4.修改精简版qq没有客户端时没有回调的bug。"
 
+  },
+  {"name":"U-Share V6.9.0",
+  "date":"2018-3-15",
+  "content":"1.优化了debug模式的显示方式\n2.更新了微信 QQ的SDK。\n2.优化了错误检查。\n"
   }
 ]
