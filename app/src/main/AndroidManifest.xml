@@ -37,12 +37,8 @@
         <activity android:name=".analytics.UappActivity"
                   android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
-        <activity android:name=".analytics.UGameActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".analytics.UDplusActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
+
+
         <activity android:name=".push.UpushActivity"
                   android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
@@ -70,6 +66,9 @@
         <activity android:name=".share.SettingActivity"
                   android:theme="@style/myTransparent">
         </activity>
+        <activity android:name=".analytics.Process1Activity"
+            android:process=":process_activity_1"/>
+        <service android:name=".analytics.Process1Service" android:process=":process_service_1"/>
         <!--demo界面  end-->
         <!--share  start-->
         <activity

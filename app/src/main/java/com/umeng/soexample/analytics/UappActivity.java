@@ -3,6 +3,7 @@ package com.umeng.soexample.analytics;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,6 +14,9 @@ import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
 import com.umeng.soexample.share.SharePlatformActivity;
 import com.umeng.soexample.share.UshareActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,12 +39,8 @@ public class UappActivity extends BaseActivity {
         setBackVisibily();
 
         mContext = this;
-        // SDK在统计Fragment时，需要关闭Activity自带的页面统计，
-        // 然后在每个页面中重新集成页面统计的代码(包括调用了 onResume 和 onPause 的Activity)。
-        MobclickAgent.openActivityDurationTrack(false);
-
-        // 设置为U-APP场景
-        MobclickAgent.setScenarioType(mContext, EScenarioType.E_UM_NORMAL);
+        int pid = android.os.Process.myPid();
+        Log.i(mPageName, "当前进程ID: " + pid);
 
 
         findViewById(R.id.analytics_g1_b1).setOnClickListener(new View.OnClickListener() {
@@ -108,7 +108,74 @@ public class UappActivity extends BaseActivity {
             }
         });
 
+        // 预置事件属性相关接口示例
+        findViewById(R.id.analytics_g5_b1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JSONObject pre = new JSONObject();
+                try {
+                    pre.put("PreProperties-key1", "PreProperties-value1");
+                    pre.put("PreProperties-key2", "PreProperties-value2");
+                    pre.put("PreProperties-key3", "PreProperties-value3");
+                    pre.put("PreProperties-key4", "PreProperties-value4");
+                    pre.put("PreProperties-key5", "PreProperties-value5");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                MobclickAgent.registerPreProperties(mContext, pre);
+                Toast.makeText(mContext, "预置属性已注册", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        findViewById(R.id.analytics_g5_b2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MobclickAgent.unregisterPreProperty(mContext, "PreProperties-key1");
+                MobclickAgent.unregisterPreProperty(mContext, "PreProperties-key3");
+                MobclickAgent.unregisterPreProperty(mContext, "PreProperties-key5");
+                Toast.makeText(mContext, "预置属性已部分注销", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        findViewById(R.id.analytics_g5_b3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JSONObject preProperties = MobclickAgent.getPreProperties(mContext);
+                if (preProperties != null) {
+                    if (preProperties.length() > 0) {
+                        String properties = preProperties.toString();
+                        Toast.makeText(mContext, "当前预置属性: " + properties, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext, "当前预置属性为空", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        findViewById(R.id.analytics_g5_b4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MobclickAgent.clearPreProperties(mContext);
+                Toast.makeText(mContext, "预置属性已清空", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // 子进程自定义事件埋点示例
+        findViewById(R.id.analytics_g6_b1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startService(new Intent(mContext, Process1Service.class));
+                Toast.makeText(mContext, "后台进程Service已启动", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        findViewById(R.id.analytics_g6_b2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(mContext, Process1Activity.class));
+                Toast.makeText(mContext, "后台进程Activity已启动", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

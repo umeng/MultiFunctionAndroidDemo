@@ -73,13 +73,11 @@ public class UFragmentStack extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-//        MobclickAgent.onPause(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-//        MobclickAgent.onResume(this);
     }
 
     void addFragmentToStack() {

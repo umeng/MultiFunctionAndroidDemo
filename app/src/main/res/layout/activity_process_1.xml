@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/process_event_btn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="EVENT打点"/>
+
+    <Button
+        android:id="@+id/process_stop_process_btn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="杀死该进程"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

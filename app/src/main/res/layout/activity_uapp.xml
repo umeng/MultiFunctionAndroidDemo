@@ -46,6 +46,18 @@
                     android:layout_height="57dp"
                     app:umfuncname="数值型事件"
                     app:umfuncdesc="可额外指定数值型参数"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g1_b4"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="多属性(K-V)事件,支持非String类型属性值"
+                    app:umfuncdesc="属性值支持String,Long,Integer,Float,Double,Short"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g1_b5"
+                    android:layout_width="match_parent"
+                    android:layout_height="77dp"
+                    app:umfuncname="监听自定义事件首次触发"
+                    app:umfuncdesc="通过setFirstLaunchEvent接口设置监听首次触发事件列表,\u000A所有在此列表中的自定义事件，服务器都能对其首次触发进行统计"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/group2"
@@ -71,7 +83,6 @@
                     app:umfuncname="用户登出"
                     app:umfuncdesc="账号登出"/>
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/group3"
                 android:layout_below="@id/group2"
@@ -114,6 +125,66 @@
                     android:layout_height="57dp"
                     app:umfuncname="统计Fragment页面（Tab）"
                     app:umfuncdesc="演示一个Activity中平级包含多个Fragment的手动页面统计"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/group5"
+                android:layout_below="@id/group4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="17dp">
+                <com.umeng.soexample.analytics.views.FuncTitle
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    app:umfunctitle="预置事件属性"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g5_b1"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="注册预置事件属性"
+                    app:umfuncdesc="预置事件属性名用户可自定义,仅支持10个属性"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g5_b2"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="注销指定预置事件属性"
+                    app:umfuncdesc="属性名只支持大小写字母,数字及下划线"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g5_b3"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="获取全部预置事件属性"
+                    app:umfuncdesc="返回包含所有预置事件属性的JSONObject"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g5_b4"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="清空全部预置事件属性"
+                    app:umfuncdesc="清空全部预置事件属性"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/group6"
+                android:layout_below="@id/group5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="17dp">
+                <com.umeng.soexample.analytics.views.FuncTitle
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    app:umfunctitle="子进程自定义事件埋点"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g6_b1"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="后台Service中埋点"
+                    app:umfuncdesc="后台进程Service中进行自定义事件埋点"/>
+                <com.umeng.soexample.analytics.views.Function
+                    android:id="@+id/analytics_g6_b2"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    app:umfuncname="后台Activity中埋点"
+                    app:umfuncdesc="后台进程Activity中进行自定义事件埋点"/>
             </LinearLayout>
         </RelativeLayout>
 

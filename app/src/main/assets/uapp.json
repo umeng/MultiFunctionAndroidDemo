@@ -1,5 +1,10 @@
 [
  {
+  "name":"U-App V8.0.0",
+  "date":"2019-01-03",
+  "content":"1. 原Dplus部分接口合并到U-App接口类MobclickAgent中。\n2. 标准统计SDK增加onEventObject、setPageCollectionMode接口，删除openActivityDurationTrack接口、废弃setScenarioType接口。\n3. 基础组件库V2.0.0增加子进程自定义事件埋点开关接口UMConfigure.setProcessEvent 。\n4. 去掉Game相关接口调用例程(另提供独立游戏统计SDK Demo工程演示游戏统计SDK的集成及使用)。\n"
+ },
+ {
   "name":"U-App V7.5.4",
   "date":"2018-10-15",
   "content":"1. 修正非应用内版本升级场景下可能导致的App发版后短时间内使用时长指标异常增高的问题。\n2. 修正埋点辅助自检功能对onPageStart/onPageEnd接口的埋点错误误报问题。\n3. 修复sdk中ssl配置可能影响App ssl全局配置问题。\n4. 对在三星Galaxy S III mini 4.3.1设备上小概率出现的ArrayIndexOutOfBoundsException未捕获异常进行捕获。\n5. 优化SDK初始化耗时，增强SDK稳定性。\n"

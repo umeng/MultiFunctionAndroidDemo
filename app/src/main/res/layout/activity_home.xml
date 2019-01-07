@@ -26,35 +26,19 @@
         android:layout_below="@id/title_bar"
         app:umicon="@drawable/um_app"
         android:layout_height="@dimen/item_height"/>
-    <!--
-    <com.umeng.soexample.views.Item
-        android:id="@+id/home_dplus"
-        android:layout_width="match_parent"
-        android:layout_below="@id/home_uapp"
-        app:umtitle="统计UDplus"
-        app:umicon="@drawable/um_dplus"
-        android:layout_height="@dimen/item_height"/>
-        -->
-    <com.umeng.soexample.views.Item
-        android:id="@+id/home_game"
-        android:layout_width="match_parent"
-        android:layout_below="@id/home_uapp"
-        app:umtitle="统计UGame"
-        app:umicon="@drawable/um_ugame"
-        android:layout_height="@dimen/item_height"/>
 
     <View
         android:layout_marginTop="39dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@id/home_game"
+        android:layout_below="@id/home_uapp"
         android:background="@color/umeng_divide"
         />
     <com.umeng.soexample.views.Item
         android:id="@+id/home_push"
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
-        android:layout_below="@id/home_game"
+        android:layout_below="@id/home_uapp"
         app:umtitle="推送"
         app:umicon="@drawable/um_upush"
         android:layout_height="@dimen/item_height"/>

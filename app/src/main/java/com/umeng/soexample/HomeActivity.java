@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import com.umeng.soexample.analytics.UDplusActivity;
-import com.umeng.soexample.analytics.UGameActivity;
+
 import com.umeng.soexample.analytics.UappActivity;
 import com.umeng.soexample.log.LogActivity;
 import com.umeng.soexample.push.UpushActivity;
@@ -32,21 +31,8 @@ public class HomeActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-        /*findViewById(R.id.home_dplus).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, UDplusActivity.class);
-                startActivity(intent);
-            }
-        });
-        */
-        findViewById(R.id.home_game).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, UGameActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
         findViewById(R.id.home_push).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
