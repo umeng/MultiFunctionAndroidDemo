@@ -1,5 +1,10 @@
 [
  {
+  "name":"U-App V8.0.2",
+  "date":"2019-02-25",
+  "content":"1. 解决应用外升级App场景下，新版本App首次启动session时长虚高问题。\n2. 调整SDK部分辅助埋点检查log。\n3. 修复基础组件库特殊场景下小概率崩溃问题。\n"
+ },
+ {
   "name":"U-App V8.0.0",
   "date":"2019-01-03",
   "content":"1. 原Dplus部分接口合并到U-App接口类MobclickAgent中。\n2. 标准统计SDK增加onEventObject、setPageCollectionMode接口，删除openActivityDurationTrack接口、废弃setScenarioType接口。\n3. 基础组件库V2.0.0增加子进程自定义事件埋点开关接口UMConfigure.setProcessEvent 。\n4. 去掉Game相关接口调用例程(另提供独立游戏统计SDK Demo工程演示游戏统计SDK的集成及使用)。\n"
