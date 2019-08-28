@@ -7,7 +7,11 @@
         android:icon="@mipmap/ic_launcher"
         android:name=".App"
         android:supportsRtl="true">
+        <!-- targetSDKVersion 28 开启http请求，避免net::ERR_CLEARTEXT_NOT_PERMITTED错误-->
+        android:usesCleartextTraffic="true">
 
+        <!--明确引用org.apache.http.legacy库，避免QQ官方open sdk在Android 9上报错 -->
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <!--demo启动页-->
         <activity
             android:name=".push.SplashTestActivity"
@@ -140,10 +144,8 @@
             android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
@@ -152,6 +154,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
+
         <uses-library
             android:name="com.google.android.maps"
             android:required="false" />
@@ -208,5 +211,13 @@
             android:exported="true"/>
 
     </application>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
 
 </manifest>
