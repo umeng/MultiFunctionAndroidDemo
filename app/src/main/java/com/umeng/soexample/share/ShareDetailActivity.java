@@ -170,8 +170,8 @@ public class ShareDetailActivity extends BaseActivity{
     public void shareMulImage(){
         UMImage imagelocal1 = new UMImage(this, R.drawable.logo);
         imagelocal1.setThumb(new UMImage(this, R.drawable.thumb));
-        UMImage imagelocal2 = new UMImage(this, R.drawable.thumb);
-        imagelocal2.setThumb(new UMImage(this, R.drawable.thumb));
+        UMImage imagelocal2 = new UMImage(this, R.drawable.datu);
+        imagelocal2.setThumb(new UMImage(this, R.drawable.datu));
         new ShareAction(ShareDetailActivity.this).withText("多图分享").withMedias(imagelocal1,imagelocal2 )
             .setPlatform(share_media)
             .setCallback(shareListener).share();
