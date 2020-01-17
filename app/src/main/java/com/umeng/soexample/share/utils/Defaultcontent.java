@@ -13,7 +13,6 @@ public class Defaultcontent {
     public static String title = "【友盟+】社会化组件U-Share";
     public static String imageurl = "https://mobile.umeng.com/images/pic/home/social/img-1.png";
 //     public static String imageurl = "https://img.dawuhanmedia.com/liveimg/41/1490773976999103661055569.jpg";
-    public static String videourl = "http://video.sina.com.cn/p/sports/cba/v/2013-10-22/144463050817.html";
+    public static String videourl = "http://video.sina.com.cn/p/sports/2020-01-15/detail-iihnzhha2647094.d.html";
     public static String musicurl = "https://y.qq.com/n/yqq/song/108782194_num.html?ADTAG=h5_playsong&no_redirect=1";
-
 }

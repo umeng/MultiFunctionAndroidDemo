@@ -145,7 +145,7 @@ public class ShareDetailActivity extends BaseActivity{
         music.setTitle("This is music title");
         music.setThumb(new UMImage(this, R.drawable.thumb));
         music.setDescription("my description");
-        music.setmTargetUrl(Defaultcontent.url);
+        music.setmTargetUrl("http://music.taihe.com/songlist/566346998");
         new ShareAction(ShareDetailActivity.this).withMedia(music )
             .setPlatform(share_media)
             .setCallback(shareListener).share();
@@ -209,7 +209,7 @@ public class ShareDetailActivity extends BaseActivity{
             .setCallback(shareListener).share();
     }
     public void shareEmoji(){
-        UMEmoji emoji = new UMEmoji(this,"http://img5.imgtn.bdimg.com/it/u=2749190246,3857616763&fm=21&gp=0.jpg");
+        UMEmoji emoji = new UMEmoji(this,R.drawable.tutu);
         emoji.setThumb(new UMImage(this, R.drawable.thumb));
         new ShareAction(ShareDetailActivity.this)
             .withMedia(emoji)
