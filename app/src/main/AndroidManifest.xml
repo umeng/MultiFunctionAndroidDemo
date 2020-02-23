@@ -7,7 +7,8 @@
         android:icon="@mipmap/ic_launcher"
         android:name=".App"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"> <!-- targetSDKVersion 28 开启http请求，避免net::ERR_CLEARTEXT_NOT_PERMITTED错误-->
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"> <!-- targetSDKVersion 28 开启http请求，避免net::ERR_CLEARTEXT_NOT_PERMITTED错误-->
 
         <!--明确引用org.apache.http.legacy库，避免QQ官方open sdk在Android 9上报错 -->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
