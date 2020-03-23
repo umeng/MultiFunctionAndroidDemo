@@ -18,6 +18,11 @@ allprojects {
         jcenter()
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
+
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = 1.7
+        targetCompatibility = 1.7
+    }
 }
 
 task clean(type: Delete) {

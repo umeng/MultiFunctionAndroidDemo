@@ -1,8 +1,23 @@
 apply plugin: 'com.android.application'
 
+
+
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 26
+    buildToolsVersion '26.0.3'
+
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    compileOptions{
+        sourceCompatibility org.gradle.api.JavaVersion.VERSION_1_8
+        targetCompatibility org.gradle.api.JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         applicationId "com.umeng.soexample"
         minSdkVersion 18
@@ -10,6 +25,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        jackOptions{
+            enabled true
+        }
     }
     buildTypes {
         release {
@@ -31,12 +50,14 @@ android {
 }
 
 dependencies {
-//    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
 //    compile project(':umlib')
 //    compile project(':push')
-    //compile files('libs/umeng-analytics-7.4.1.jar')
-    //compile files('libs/umeng-common-1.4.2.jar')
     compile project(':UMLibrary')
+
+    // 显式依赖umeng asms库
+    compile(name: 'umeng-asms-v1.1.0', ext: 'aar') // asms包依赖(必选)
+
     compile 'com.twitter.sdk.android:twitter-core:3.1.1'
     compile 'com.twitter.sdk.android:tweet-composer:3.1.1'
 
