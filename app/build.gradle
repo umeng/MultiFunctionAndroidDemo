@@ -56,7 +56,7 @@ dependencies {
     compile project(':UMLibrary')
 
     // 显式依赖umeng asms库
-    compile(name: 'umeng-asms-v1.1.0', ext: 'aar') // asms包依赖(必选)
+    compile(name: 'umeng-asms-v1.1.1', ext: 'aar') // asms包依赖(必选)
 
     compile 'com.twitter.sdk.android:twitter-core:3.1.1'
     compile 'com.twitter.sdk.android:tweet-composer:3.1.1'
