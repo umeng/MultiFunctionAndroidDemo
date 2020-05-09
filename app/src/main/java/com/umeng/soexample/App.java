@@ -49,6 +49,8 @@ public class App extends Application {
         //初始化组件化基础库, 统计SDK/推送SDK/分享SDK都必须调用此初始化接口
         UMConfigure.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
             "669c30a9584623e70e8cd01b0381dcb4");
+	//集成umeng-crash-v0.0.1.aar，则需要关闭原有统计SDK异常捕获功能
+	MobclickAgent.setCatchUncaughtExceptions(false);
         //PushSDK初始化(如使用推送SDK，必须调用此方法)
         initUpush();
 
