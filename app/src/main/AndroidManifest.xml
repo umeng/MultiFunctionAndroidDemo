@@ -140,8 +140,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
         <provider
-            android:authorities="com.tencent.tauth.fileprovider"
-            android:name="com.tencent.tauth.TAuthFileProvider"
+            android:authorities="com.tencent.sample2.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true"
             >
