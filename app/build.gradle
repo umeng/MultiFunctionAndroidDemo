@@ -39,9 +39,9 @@ dependencies {
 //    compile project(':push')
     //compile files('libs/umeng-analytics-7.4.1.jar')
     //compile files('libs/umeng-common-1.4.2.jar')
-    compile project(':UMLibrary')
-    compile 'com.twitter.sdk.android:twitter-core:3.1.1'
-    compile 'com.twitter.sdk.android:tweet-composer:3.1.1'
+    api project(':UMLibrary')
+    implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+    implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
 
-    compile 'com.sina.weibo.sdk:core:4.4.3:openDefaultRelease@aar'
+    implementation 'com.sina.weibo.sdk:core:4.4.3:openDefaultRelease@aar'
 }
