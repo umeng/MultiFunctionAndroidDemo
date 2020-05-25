@@ -1,10 +1,8 @@
 apply plugin: 'com.android.application'
 
-
-
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.3'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.1'
 
 
     repositories {
@@ -24,11 +22,11 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        jackOptions{
-            enabled true
-        }
+        //jackOptions{
+        //    enabled true
+        //}
     }
     buildTypes {
         release {
@@ -50,18 +48,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 //    compile project(':umlib')
 //    compile project(':push')
-    compile project(':UMLibrary')
+    api project(':UMLibrary')
 
     // 显式依赖umeng asms库
-    compile(name: 'umeng-asms-v1.1.2', ext: 'aar') // asms包依赖(必选)
+    implementation(name: 'umeng-asms-v1.1.2', ext: 'aar') // asms包依赖(必选)
     // 显式依赖umeng crash库
-    compile(name: 'umeng-crash-v0.0.1', ext: 'aar') // native crash包依赖(必选)
+    implementation(name: 'umeng-crash-v0.0.3', ext: 'aar') // native crash包依赖(必选)
 
-    compile 'com.twitter.sdk.android:twitter-core:3.1.1'
-    compile 'com.twitter.sdk.android:tweet-composer:3.1.1'
+    implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+    implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
 
-    compile 'com.sina.weibo.sdk:core:4.4.3:openDefaultRelease@aar'
+    implementation 'com.sina.weibo.sdk:core:4.4.3:openDefaultRelease@aar'
 }
