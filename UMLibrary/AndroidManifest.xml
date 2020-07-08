@@ -73,6 +73,11 @@
         </receiver>
 
         <service
+            android:name="com.taobao.accs.internal.AccsJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":channel"/>
+
+        <service
             android:name="com.taobao.accs.ChannelService$KernelService"
             android:process=":channel" />
 
@@ -107,7 +112,7 @@
             android:exported="true"
             android:process=":channel">
             <intent-filter>
-                <action android:name="com.umeng.soexample.intent.action.COMMAND" />
+                <action android:name="${applicationId}.intent.action.COMMAND" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -130,6 +135,7 @@
 
         <service
             android:name="com.umeng.message.UmengMessageCallbackHandlerService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.umeng.messge.registercallback.action" />
@@ -150,15 +156,15 @@
 
         <service
             android:name="com.umeng.message.UmengDownloadResourceService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
             android:exported="false" />
 
         <provider
             android:name="com.umeng.message.provider.MessageProvider"
-            android:authorities="com.umeng.soexample.umeng.message"
+            android:authorities="${applicationId}.umeng.message"
             android:exported="false">
             <grant-uri-permission android:pathPattern=".*" />
         </provider>
-
     </application>
 
 </manifest>
