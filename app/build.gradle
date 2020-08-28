@@ -54,9 +54,9 @@ dependencies {
     api project(':UMLibrary')
 
     // 显式依赖umeng asms库
-    implementation files('libs/umeng-asms-armeabi-v1.1.3.aar') // asms包依赖(必选)
+    implementation files('libs/umeng-asms-v1.1.3.aar') // asms包依赖(必选)
     // 显式依赖umeng crash库
-    implementation files('libs/umeng-crash-armeabi-v0.0.4.aar') // native crash包依赖(必选)
+    implementation files('libs/umeng-crash-v0.0.5.aar') // native crash包依赖(必选)
 
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
     implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
