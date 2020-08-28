@@ -117,7 +117,6 @@ public class StyleUtil {
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);
             styles.add(StyleUtil.WEB11);
-            styles.add(StyleUtil.VIDEO11);
         }else if (share_media == SHARE_MEDIA.FACEBOOK_MESSAGER){
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);
