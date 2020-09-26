@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.1'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.1'
 
 
     repositories {
@@ -19,7 +19,7 @@ android {
     defaultConfig {
         applicationId "com.umeng.soexample"
         minSdkVersion 18
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
