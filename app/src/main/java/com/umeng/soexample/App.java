@@ -37,15 +37,15 @@ public class App extends Application {
         super.onCreate();
         //设置LOG开关，默认为false
         UMConfigure.setLogEnabled(true);
-        try {
-            Class<?> aClass = Class.forName("com.umeng.commonsdk.UMConfigure");
-            Field[] fs = aClass.getDeclaredFields();
-            for (Field f:fs){
-                Log.e("xxxxxx","ff="+f.getName()+"   "+f.getType().getName());
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Class<?> aClass = Class.forName("com.umeng.commonsdk.UMConfigure");
+//            Field[] fs = aClass.getDeclaredFields();
+//            for (Field f:fs){
+//                Log.e("xxxxxx","ff="+f.getName()+"   "+f.getType().getName());
+//            }
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
         //初始化组件化基础库, 统计SDK/推送SDK/分享SDK都必须调用此初始化接口
         UMConfigure.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
             "669c30a9584623e70e8cd01b0381dcb4");
