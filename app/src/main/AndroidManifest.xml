@@ -3,6 +3,7 @@
           package="com.umeng.soexample">
     <queries>
         <package android:name="com.tencent.mm" />
+	<package android:name="com.tencent.mobileqq" />
     </queries>
     <application
         android:allowBackup="true"
