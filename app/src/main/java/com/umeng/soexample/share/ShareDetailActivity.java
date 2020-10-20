@@ -23,6 +23,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMEmoji;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMMin;
+import com.umeng.socialize.media.UMQQMini;
 import com.umeng.socialize.media.UMVideo;
 import com.umeng.socialize.media.UMWeb;
 import com.umeng.socialize.media.UMusic;
@@ -88,6 +89,8 @@ public class ShareDetailActivity extends BaseActivity{
                         shareFile();
                     }else if (style.equals(StyleUtil.MULIMAGE)){
                         shareMulImage();
+                    }else if (style.equals(StyleUtil.QQMiniApp)) {
+                        shareQQMiniApp();
                     }
                 }
             });
@@ -228,6 +231,21 @@ public class ShareDetailActivity extends BaseActivity{
             .setPlatform(share_media)
             .setCallback(shareListener).share();
     }
+
+    public void shareQQMiniApp() {
+        UMQQMini qqMini = new UMQQMini(Defaultcontent.url);
+        qqMini.setThumb(new UMImage(this, Defaultcontent.imageurl)); // 缩略图支持网络图片和本地图片
+        qqMini.setTitle(Defaultcontent.title);
+        qqMini.setDescription(Defaultcontent.text);
+        qqMini.setMiniAppId("1110429485");
+        qqMini.setPath("pages/index/index");
+        new ShareAction(ShareDetailActivity.this)
+                .withMedia(qqMini)
+                .setPlatform(share_media)
+                .setCallback(shareListener).share();
+
+    }
+
     @Override
     public int getLayout() {
         return R.layout.activity_usharedetail;

@@ -1,23 +1,33 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.1'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.1'
+
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    compileOptions{
+        sourceCompatibility org.gradle.api.JavaVersion.VERSION_1_8
+        targetCompatibility org.gradle.api.JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         applicationId "com.umeng.soexample"
         minSdkVersion 18
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    
-    repositories{
-    	flatDir{
-            dirs 'libs'
-    	}
-    }
+        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        //jackOptions{
+        //    enabled true
+        //}
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -35,21 +45,23 @@ android {
         }
     }
 
-
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 //    compile project(':umlib')
 //    compile project(':push')
-    //compile files('libs/umeng-analytics-7.4.1.jar')
-    //compile files('libs/umeng-common-1.4.2.jar')
     api project(':UMLibrary')
+
+    // 显式依赖umeng asms库
+    implementation files('libs/umeng-asms-v1.1.3.aar') // asms包依赖(必选)
+    // 显式依赖umeng crash库
+    implementation files('libs/umeng-crash-v0.0.5.aar') // native crash包依赖(必选)
 
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
     implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
 
     implementation 'com.sina.weibo.sdk:core:4.4.3:openDefaultRelease@aar'
-    implementation files('libs/umeng-asms-v1.1.3.aar')
-    implementation files('libs/umeng-crash-v0.0.5.aar')
+
+
 }

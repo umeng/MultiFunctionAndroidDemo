@@ -60,7 +60,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
 
         //展示插屏消息
         if (savedInstanceState == null) {
-            showCardMessage();
+//            showCardMessage();
         }
     }
 
@@ -120,7 +120,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                 setAlias();
                 break;
             case R.id.btn_show_card_message:
-                showCardMessage();
+//                showCardMessage();
                 break;
             case R.id.btn_serialnet:
                 serialnet();
@@ -382,14 +382,14 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
         }, tag);
     }
 
-    private void showCardMessage() {
-        InAppMessageManager.getInstance(this).showCardMessage(this, "main", new IUmengInAppMsgCloseCallback() {
-            @Override
-            public void onColse() {
-                Log.i(TAG, "card message close");
-            }
-        });
-    }
+//    private void showCardMessage() {
+//        InAppMessageManager.getInstance(this).showCardMessage(this, "main", new IUmengInAppMsgCloseCallback() {
+//            @Override
+//            public void onColse() {
+//                Log.i(TAG, "card message close");
+//            }
+//        });
+//    }
 
     private void serialnet() {
         DebugNotification.transmission(UpushActivity.this, handler);

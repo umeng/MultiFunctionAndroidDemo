@@ -30,6 +30,7 @@ public class StyleUtil {
     public static String  EMOJI= "微信表情";
     public static String  FILE= "文件";
     public static String  MINAPP= "小程序（测试）";
+    public static String  QQMiniApp = "QQ小程序";
     public static void initStyles(SHARE_MEDIA share_media, ArrayList<String> styles){
         styles.clear();
         if (share_media == SHARE_MEDIA.QQ){
@@ -38,6 +39,7 @@ public class StyleUtil {
             styles.add(StyleUtil.WEB11);
             styles.add(StyleUtil.MUSIC11);
             styles.add(StyleUtil.VIDEO11);
+            styles.add(StyleUtil.QQMiniApp);
         }else if (share_media == SHARE_MEDIA.QZONE){
             styles.add(StyleUtil.TEXT);
             styles.add(StyleUtil.IMAGELOCAL);

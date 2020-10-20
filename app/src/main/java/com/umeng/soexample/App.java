@@ -37,18 +37,20 @@ public class App extends Application {
         super.onCreate();
         //设置LOG开关，默认为false
         UMConfigure.setLogEnabled(true);
-        try {
-            Class<?> aClass = Class.forName("com.umeng.commonsdk.UMConfigure");
-            Field[] fs = aClass.getDeclaredFields();
-            for (Field f:fs){
-                Log.e("xxxxxx","ff="+f.getName()+"   "+f.getType().getName());
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Class<?> aClass = Class.forName("com.umeng.commonsdk.UMConfigure");
+//            Field[] fs = aClass.getDeclaredFields();
+//            for (Field f:fs){
+//                Log.e("xxxxxx","ff="+f.getName()+"   "+f.getType().getName());
+//            }
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
         //初始化组件化基础库, 统计SDK/推送SDK/分享SDK都必须调用此初始化接口
         UMConfigure.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
             "669c30a9584623e70e8cd01b0381dcb4");
+	//集成umeng-crash-vx.x.x.aar，则需要关闭原有统计SDK异常捕获功能
+	MobclickAgent.setCatchUncaughtExceptions(false);
         //PushSDK初始化(如使用推送SDK，必须调用此方法)
         initUpush();
 
@@ -226,6 +228,7 @@ public class App extends Application {
 
     {
         PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+        PlatformConfig.setWXFileProvider("com.tencent.sample2.fileprovider");
         //豆瓣RENREN平台目前只能在服务器端配置
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
         PlatformConfig.setYixin("yxc0614e80c9304c11b0391514d09f13bf");
