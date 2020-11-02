@@ -29,6 +29,8 @@ public class StyleUtil {
     public static String  WEB01= "链接（无标题，有内容）";
     public static String  EMOJI= "微信表情";
     public static String  FILE= "文件";
+    public static String  LOCALVIDEO = "本地视频";
+    public static String  LOCALFILE = "本地文件";
     public static String  MINAPP= "小程序（测试）";
     public static String  QQMiniApp = "QQ小程序";
     public static void initStyles(SHARE_MEDIA share_media, ArrayList<String> styles){
@@ -82,8 +84,16 @@ public class StyleUtil {
             styles.add(StyleUtil.WEB11);
             styles.add(StyleUtil.MUSIC11);
             styles.add(StyleUtil.VIDEO11);
-
-        }  else if (share_media == SHARE_MEDIA.TENCENT){
+        }
+        else if (share_media == SHARE_MEDIA.WXWORK) {
+            // 企业微信
+            styles.add(StyleUtil.TEXT);
+            styles.add(StyleUtil.IMAGELOCAL);
+            styles.add(StyleUtil.IMAGEURL);
+            styles.add(StyleUtil.WEB11);
+            styles.add(StyleUtil.LOCALVIDEO);
+            styles.add(StyleUtil.LOCALFILE);
+        } else if (share_media == SHARE_MEDIA.TENCENT){
             styles.add(StyleUtil.TEXT);
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);

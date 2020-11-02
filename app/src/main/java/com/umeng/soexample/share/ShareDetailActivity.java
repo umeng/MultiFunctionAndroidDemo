@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,6 +48,36 @@ public class ShareDetailActivity extends BaseActivity{
     private LinearLayout container;
 
     private ProgressDialog dialog;
+
+    // 演示企业微信 本地文件、本地视频文件分享
+    private File localfile;
+    private UMVideo localVideo;
+
+    // 工具函数
+    private boolean writeFile(String filename, InputStream in) throws IOException
+    {
+        boolean bRet = true;
+        try {
+            OutputStream os = new FileOutputStream(filename);
+            byte[] buffer = new byte[4112];
+            int read;
+            while((read = in.read(buffer)) != -1)
+            {
+                os.write(buffer, 0, read);
+            }
+            in.close();
+            in = null;
+            os.flush();
+            os.close();
+            os = null;
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            bRet = false;
+        }
+        return bRet;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +120,10 @@ public class ShareDetailActivity extends BaseActivity{
                         shareEmoji();
                     }else if (style.equals(StyleUtil.FILE)){
                         shareFile();
+                    }else if (style.equals(StyleUtil.LOCALVIDEO)) {
+                        shareLocalVideo();
+                    }else if (style.equals(StyleUtil.LOCALFILE)) {
+                        shareLocalFile();
                     }else if (style.equals(StyleUtil.MULIMAGE)){
                         shareMulImage();
                     }else if (style.equals(StyleUtil.QQMiniApp)) {
@@ -162,6 +199,80 @@ public class ShareDetailActivity extends BaseActivity{
             .setPlatform(share_media)
             .setCallback(shareListener).share();
     }
+
+    public void shareLocalFile() {
+        if (localfile == null) {
+            String umengCacheDir = this.getExternalFilesDir(null) + File.separator + "umeng_cache";
+            File dir = new File(umengCacheDir);
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+            String localFilePath = umengCacheDir + File.separator + "localFile.txt";
+            localfile = new File(localFilePath);
+            if (!localfile.exists()) {
+                try {
+                    localfile.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (SocializeUtils.File2byte(localfile).length <= 0) {
+                String content = "U-share分享";
+                byte[] contentInBytes = content.getBytes();
+                try {
+                    FileOutputStream fop = new FileOutputStream(localfile);
+                    fop.write(contentInBytes);
+                    fop.flush();
+                    fop.close();
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+        new ShareAction(ShareDetailActivity.this)
+                .withFile(localfile)
+                .withText(Defaultcontent.text)
+                .withSubject(Defaultcontent.title)
+                .setPlatform(share_media)
+                .setCallback(shareListener).share();
+
+    }
+
+    public void shareLocalVideo() {
+        //UMVideo localVideo = new UMVideo();
+        if (localVideo == null) {
+            String umengCacheDir  = this.getExternalFilesDir(null) + File.separator + "umeng_cache";
+            File dir = new File(umengCacheDir);
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+            String localVidemoFileName = "localvideo.mp4";
+            AssetManager am = this.getAssets();
+            try {
+                InputStream is = am.open(localVidemoFileName);
+
+                boolean result = writeFile(umengCacheDir + File.separator + localVidemoFileName, is);
+                if (result) {
+                    File video = new File(umengCacheDir + File.separator + localVidemoFileName);
+                    localVideo = new UMVideo(video);
+                }
+
+            } catch (Throwable e) {
+
+            }
+        }
+        new ShareAction(ShareDetailActivity.this)
+                .withMedia(localVideo)
+                .withText(Defaultcontent.text)
+                .withSubject(Defaultcontent.title)
+                .setPlatform(share_media)
+                .setCallback(shareListener).share();
+    }
+
     public void shareTextAndImage(){
         UMImage imagelocal = new UMImage(this, R.drawable.logo);
         imagelocal.setThumb(new UMImage(this, R.drawable.thumb));

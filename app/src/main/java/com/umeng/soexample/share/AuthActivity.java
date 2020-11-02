@@ -21,7 +21,7 @@ public class AuthActivity extends BaseActivity {
     private ListView listView;
     private AuthAdapter shareAdapter;
     public ArrayList<SnsPlatform> platforms = new ArrayList<SnsPlatform>();
-    private SHARE_MEDIA[] list = {SHARE_MEDIA.QQ, SHARE_MEDIA.SINA, SHARE_MEDIA.WEIXIN,
+    private SHARE_MEDIA[] list = {SHARE_MEDIA.QQ, SHARE_MEDIA.SINA, SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WXWORK,
         SHARE_MEDIA.FACEBOOK, SHARE_MEDIA.TWITTER, SHARE_MEDIA.LINKEDIN, SHARE_MEDIA.DOUBAN, SHARE_MEDIA.RENREN, SHARE_MEDIA.KAKAO,
         SHARE_MEDIA.VKONTAKTE, SHARE_MEDIA.DROPBOX};
     private ProgressDialog dialog;

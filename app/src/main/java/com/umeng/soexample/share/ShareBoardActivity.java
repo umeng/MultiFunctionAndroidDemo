@@ -42,6 +42,7 @@ public class ShareBoardActivity extends BaseActivity {
         /*增加自定义按钮的分享面板*/
         mShareAction = new ShareAction(ShareBoardActivity.this).setDisplayList(
             SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN_FAVORITE,
+            SHARE_MEDIA.WXWORK,
             SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE,
             SHARE_MEDIA.ALIPAY, SHARE_MEDIA.RENREN, SHARE_MEDIA.DOUBAN,
             SHARE_MEDIA.SMS, SHARE_MEDIA.EMAIL, SHARE_MEDIA.YNOTE,

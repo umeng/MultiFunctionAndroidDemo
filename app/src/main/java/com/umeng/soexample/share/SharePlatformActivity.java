@@ -63,6 +63,7 @@ public class SharePlatformActivity extends BaseActivity {
         platforms.add(SHARE_MEDIA.WEIXIN.toSnsPlatform());
         platforms.add(SHARE_MEDIA.WEIXIN_CIRCLE.toSnsPlatform());
         platforms.add(SHARE_MEDIA.WEIXIN_FAVORITE.toSnsPlatform());
+        platforms.add(SHARE_MEDIA.WXWORK.toSnsPlatform());
         platforms.add(SHARE_MEDIA.SINA.toSnsPlatform());
         platforms.add(SHARE_MEDIA.QQ.toSnsPlatform());
         platforms.add(SHARE_MEDIA.QZONE.toSnsPlatform());
