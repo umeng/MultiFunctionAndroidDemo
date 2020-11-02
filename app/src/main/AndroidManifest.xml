@@ -3,7 +3,9 @@
           package="com.umeng.soexample">
     <queries>
         <package android:name="com.tencent.mm" />
-	<package android:name="com.tencent.mobileqq" />
+        <package android:name="com.tencent.mobileqq" />
+        <package android:name="com.facebook.katana" />
+	<package android:name="com.tencent.wework" />
     </queries>
     <application
         android:allowBackup="true"
