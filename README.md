@@ -4,6 +4,8 @@
 
 如果您是采用maven库在线依赖相关友盟SDK，请参考[如下Demo工程](https://github.com/umeng/MultiFunctionAndroidMavenDemo-master)。
 
+apm SDK集成示例工程，请参考 [APM Demo](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/176778/UMDP_zh/1608017839531/CrashDemo.zip)。
+
 ---
 ## 集成升级必读(Android)
 
