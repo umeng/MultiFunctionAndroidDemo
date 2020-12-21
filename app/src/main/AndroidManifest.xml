@@ -4,8 +4,18 @@
     <queries>
         <package android:name="com.tencent.mm" />
         <package android:name="com.tencent.mobileqq" />
+        <package android:name="com.tencent.wework" />
+        <package android:name="com.qzone" />
+        <package android:name="com.sina.weibo" />
+        <package android:name="com.alibaba.android.rimet" />
+        <package android:name="com.eg.android.AlipayGphone" />
+        <package android:name="com.donews.renren.android" />
+        <package android:name="com.douban.frodo" />
+        <package android:name="com.youdao.note" />
+        <package android:name="im.yixin" />
+        <package android:name="com.yinxiang" />
         <package android:name="com.facebook.katana" />
-	<package android:name="com.tencent.wework" />
+        <package android:name="com.linkedin.android" />
     </queries>
     <application
         android:allowBackup="true"
