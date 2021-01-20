@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- QQ 官方分享SDK 共享路径 -->
+    <root-path name="opensdk_root" path=""/>
+    <external-files-path name="opensdk_external" path="Images/tmp"/>
+    <!-- 友盟微信分享SDK 共享路径-->
+    <external-files-path name="umeng_cache" path="umeng_cache/"/>
+    <!-- 新浪微博 官方分享SDK 10.10.0共享路径 -->
+    <external-files-path name="share_files" path="." />
+
+</paths>

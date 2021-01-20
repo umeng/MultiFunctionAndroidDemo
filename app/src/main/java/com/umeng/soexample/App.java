@@ -28,6 +28,7 @@ import com.umeng.analytics.MobclickAgent;
 
 public class App extends Application {
 
+
     private static final String TAG = App.class.getName();
     public static final String UPDATE_STATUS_ACTION = "com.umeng.message.example.action.UPDATE_STATUS";
     private Handler handler;
@@ -50,7 +51,7 @@ public class App extends Application {
         UMConfigure.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
             "669c30a9584623e70e8cd01b0381dcb4");
 	//集成umeng-crash-vx.x.x.aar，则需要关闭原有统计SDK异常捕获功能
-	MobclickAgent.setCatchUncaughtExceptions(false);
+	   MobclickAgent.setCatchUncaughtExceptions(false);
         //PushSDK初始化(如使用推送SDK，必须调用此方法)
         initUpush();
 
@@ -227,16 +228,19 @@ public class App extends Application {
     }
 
     {
+
+        String FileProvider = "com.umeng.soexample.fileprovider";
         PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
-        PlatformConfig.setWXFileProvider("com.tencent.sample2.fileprovider");
+        PlatformConfig.setWXFileProvider(FileProvider);
         //企业微信设置
         PlatformConfig.setWXWork("wwac6ffb259ff6f66a", "EU1LRsWC5uWn6KUuYOiWUpkoH45eOA0yH-ngL8579zs", "1000002", "wwauthac6ffb259ff6f66a000002");
-        PlatformConfig.setWXWorkFileProvider("com.tencent.sample2.fileprovider");
-        //豆瓣RENREN平台目前只能在服务器端配置
+        PlatformConfig.setWXWorkFileProvider(FileProvider);
+
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
+        PlatformConfig.setSinaFileProvider(FileProvider);
         PlatformConfig.setYixin("yxc0614e80c9304c11b0391514d09f13bf");
         PlatformConfig.setQQZone("101830139", "5d63ae8858f1caab67715ccd6c18d7a5");
-        PlatformConfig.setQQFileProvider("com.tencent.sample2.fileprovider");
+        PlatformConfig.setQQFileProvider(FileProvider);
         PlatformConfig.setTwitter("3aIN7fuF685MuZ7jtXkQxalyi", "MK6FEYG63eWcpDFgRYw4w9puJhzDl0tyuqWjZ3M7XJuuG7mMbO");
         PlatformConfig.setAlipay("2015111700822536");
         PlatformConfig.setLaiwang("laiwangd497e70d4", "d497e70d4c3e4efeab1381476bac4c5e");

@@ -45,5 +45,10 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
+    implementation files('libs\\umeng-share-sina-full-7.1.4.jar')
+    implementation files('libs\\umeng-share-core-7.1.4.jar')
+    implementation files('libs\\umeng-shareboard-widget-7.1.4.jar')
+    implementation files('libs\\umeng-share-QQ-full-7.1.4.jar')
+    implementation files('libs\\umeng-share-wechat-full-7.1.4.jar')
 
 }

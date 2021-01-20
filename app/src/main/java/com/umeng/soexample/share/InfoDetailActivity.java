@@ -5,6 +5,7 @@ import java.util.Map;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class InfoDetailActivity extends BaseActivity {
 
                     @Override
                     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+                        Log.e("dasdasfasf",map+"");
                         StringBuilder sb = new StringBuilder();
                         for (String key : map.keySet()) {
                             sb.append(key).append(" : ").append(map.get(key)).append("\n");

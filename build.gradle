@@ -2,9 +2,12 @@
 
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
+
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.4'
@@ -16,9 +19,11 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        jcenter()
+
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 
     tasks.withType(JavaCompile) {
