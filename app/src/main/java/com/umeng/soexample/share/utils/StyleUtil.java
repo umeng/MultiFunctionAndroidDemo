@@ -27,6 +27,7 @@ public class StyleUtil {
     public static String  WEB11= "链接（有标题，有内容）";
     public static String  WEB10= "链接（有标题，无内容）";
     public static String  WEB01= "链接（无标题，有内容）";
+    public static String  WEB000 = "链路跟踪链接 (带root track code)";
     public static String  EMOJI= "微信表情";
     public static String  FILE= "文件";
     public static String  LOCALVIDEO = "本地视频";
@@ -64,6 +65,7 @@ public class StyleUtil {
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);
             styles.add(StyleUtil.WEB11);
+            styles.add(StyleUtil.WEB000);
             styles.add(StyleUtil.MUSIC11);
             styles.add(StyleUtil.VIDEO11);
             styles.add(StyleUtil.EMOJI);

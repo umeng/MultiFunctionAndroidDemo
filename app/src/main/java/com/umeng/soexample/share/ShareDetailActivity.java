@@ -7,13 +7,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,6 +45,9 @@ import com.umeng.soexample.share.utils.Defaultcontent;
 import com.umeng.soexample.share.utils.StyleUtil;
 import com.umeng.soexample.views.Item;
 
+import com.umeng.socialize.tracker.TrackerManager;
+import com.umeng.socialize.tracker.TrackerResultHandler;
+
 /**
  * Created by wangfei on 2018/1/23.
  */
@@ -55,9 +63,9 @@ public class ShareDetailActivity extends BaseActivity{
     // 演示企业微信 本地文件、本地视频文件分享
     private File localfile;
     private UMVideo localVideo;
-
+    private Context appContext;
     private UMImage sinaImageLocal_1, sinaImageLocal_2;
-
+    private Handler H;
 
     // 工具函数
     private boolean writeFile(String filename, InputStream in) throws IOException
@@ -87,12 +95,13 @@ public class ShareDetailActivity extends BaseActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        appContext = this.getApplicationContext();
         share_media = (SHARE_MEDIA) getIntent().getSerializableExtra("platform");
         String name = getIntent().getStringExtra("name");
         setTitle(name);
         setBackVisibily();
         initViews();
-
+        H = new Handler(Looper.getMainLooper());
     }
     private void initViews(){
         LinearLayout container = (LinearLayout)findViewById(R.id.platform_container);
@@ -114,6 +123,8 @@ public class ShareDetailActivity extends BaseActivity{
                         shareImageNet();
                     }else if (style.startsWith(StyleUtil.WEB00.substring(0,2))){
                         shareUrl();
+                    }else if (style.equals(StyleUtil.WEB000)){
+                        shareUrlWithRootTrackCode(appContext);
                     }else if (style.startsWith(StyleUtil.MUSIC00.substring(0,2))){
                        shareMusic();
                     }else if (style.startsWith(StyleUtil.VIDEO00.substring(0,2))){
@@ -186,6 +197,71 @@ public class ShareDetailActivity extends BaseActivity{
             .setPlatform(share_media)
             .setCallback(shareListener).share();
     }
+
+    // ROOT Track Code获取功能见说明：https://developer.umeng.com/docs/128606/detail/200739
+    public void shareUrlWithRootTrackCode(final Context context) {
+        final String webUrl = Defaultcontent.url;
+        HashMap<String, String> customParam = new HashMap<String, String>();
+        customParam.put("userId", "123566");
+        customParam.put("website", "baidu.com");
+        customParam.put("0123456789abcdefg", "key_length_too_long");
+        customParam.put("值长度超限", "012345678901234567890123456789012345678901234567890123456789abcde");
+        customParam.put("valueIsEmpty", "");
+        String umid = TrackerManager.getUMID(context);
+        if (TextUtils.isEmpty(umid)) {
+            Toast.makeText(context,"UMID获取失败，请稍后重试！", Toast.LENGTH_LONG).show();
+            return;
+        }
+        TrackerManager.requestTrackerCode(context,
+                "59892f08310c9307b60023d0", umid, webUrl, null, customParam,
+                new TrackerResultHandler() {
+                    @Override
+                    public void codeGenerateSuccess(final String rootTrackCode) {
+                        if (H != null) {
+                            H.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(appContext,"获取rootTrackCode 成功了。", Toast.LENGTH_LONG).show();
+                                    String newWebUrl = webUrl + "?um_rtc=" + rootTrackCode;
+                                    UMWeb rootTrackWeb = new UMWeb(newWebUrl);
+                                    rootTrackWeb.setTitle("Web title with root track code.");
+                                    rootTrackWeb.setThumb(new UMImage(ShareDetailActivity.this, R.drawable.thumb ));
+                                    rootTrackWeb.setDescription("root track code sample.");
+
+                                    new ShareAction(ShareDetailActivity.this)
+                                            .withMedia(rootTrackWeb)
+                                            .setPlatform(share_media)
+                                            .setCallback(shareListener).share();
+                                }
+                            });
+                        }
+
+                    }
+
+                    @Override
+                    public void codeGenerateFailed(Throwable t) {
+                        if (H != null) {
+                            final String errorMsg = t.getMessage();
+                            H.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(appContext,"获取rootTrackCode 失败了: " + errorMsg, Toast.LENGTH_LONG).show();
+                                    UMWeb web = new UMWeb(Defaultcontent.url);
+                                    web.setTitle("This is web title");
+                                    web.setThumb(new UMImage(ShareDetailActivity.this, R.drawable.thumb));
+                                    web.setDescription("my description");
+                                    new ShareAction(ShareDetailActivity.this)
+                                            .withMedia(web)
+                                            .setPlatform(share_media)
+                                            .setCallback(shareListener).share();
+                                }
+                            });
+                        }
+
+                    }
+                });
+    }
+
     public void shareMusic(){
         UMusic music = new UMusic(Defaultcontent.musicurl);
         music.setTitle("This is music title");
