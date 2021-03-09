@@ -1,22 +1,21 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.1"
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
+        targetSdkVersion 30
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -28,55 +27,9 @@ android {
             assets.srcDirs = ['assets']
             jniLibs.srcDirs = ['libs']
         }
-
-        // Move the tests to tests/java, tests/res, etc...
-        //instrumentTest.setRoot('tests')
-
-        // Move the build types to build-types/<type>
-        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
-        // This moves them out of them default location under src/<type>/... which would
-        // conflict with src/ being used by the main source set.
-        // Adding new build types or product flavors should be accompanied
-        // by a similar customization.
-        debug.setRoot('build-types/debug')
-        release.setRoot('build-types/release')
     }
 }
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    implementation files('libs\\umeng-share-sina-full-7.1.4.jar')
-    implementation files('libs\\umeng-share-core-7.1.4.jar')
-    implementation files('libs\\umeng-shareboard-widget-7.1.4.jar')
-    implementation files('libs\\umeng-share-QQ-full-7.1.4.jar')
-    implementation files('libs\\umeng-share-wechat-full-7.1.4.jar')
-    implementation files('libs\\umeng-sharetool-7.1.4.jar')
-    implementation files('libs\\umeng-share-alipay-7.1.4.jar')
-    implementation files('libs\\umeng-share-Ding-7.1.4.jar')
-    implementation files('libs\\umeng-share-douban-7.1.4.jar')
-    implementation files('libs\\umeng-share-dropbox-7.1.4.jar')
-    implementation files('libs\\umeng-share-email-7.1.4.jar')
-    implementation files('libs\\umeng-share-evernote-7.1.4.jar')
-    implementation files('libs\\umeng-share-facebook-7.1.4.jar')
-    implementation files('libs\\umeng-share-flickr-7.1.4.jar')
-    implementation files('libs\\umeng-share-foursquare-7.1.4.jar')
-    implementation files('libs\\umeng-share-gplus-7.1.4.jar')
-    implementation files('libs\\umeng-share-instagram-7.1.4.jar')
-    implementation files('libs\\umeng-share-kakao-7.1.4.jar')
-    implementation files('libs\\umeng-share-laiwang-7.1.4.jar')
-    implementation files('libs\\umeng-share-line-7.1.4.jar')
-    implementation files('libs\\umeng-share-linkedin-7.1.4.jar')
-    implementation files('libs\\umeng-share-pinterest-7.1.4.jar')
-    implementation files('libs\\umeng-share-pocket-7.1.4.jar')
-    implementation files('libs\\umeng-share-renren-7.1.4.jar')
-    implementation files('libs\\umeng-share-sms-7.1.4.jar')
-    implementation files('libs\\umeng-share-tencentWB-7.1.4.jar')
-    implementation files('libs\\umeng-share-tumblr-7.1.4.jar')
-    implementation files('libs\\umeng-share-twitter-7.1.4.jar')
-    implementation files('libs\\umeng-share-vkontakte-7.1.4.jar')
-    implementation files('libs\\umeng-share-whatsapp-7.1.4.jar')
-    implementation files('libs\\umeng-share-yinxin-7.1.4.jar')
-    implementation files('libs\\umeng-share-ynote-7.1.4.jar')
-    implementation files('libs\\umeng-share-wxwork-7.1.4.jar')
-
 }

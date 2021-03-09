@@ -1,6 +1,5 @@
 package com.umeng.soexample;
 
-import java.lang.reflect.Field;
 
 import android.app.Application;
 import android.app.Notification;
@@ -10,6 +9,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
+
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.MsgConstant;
@@ -49,9 +49,9 @@ public class App extends Application {
 //        }
         //初始化组件化基础库, 统计SDK/推送SDK/分享SDK都必须调用此初始化接口
         UMConfigure.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
-            "669c30a9584623e70e8cd01b0381dcb4");
-	//集成umeng-crash-vx.x.x.aar，则需要关闭原有统计SDK异常捕获功能
-	   MobclickAgent.setCatchUncaughtExceptions(false);
+                "669c30a9584623e70e8cd01b0381dcb4");
+        //集成umeng-crash-vx.x.x.aar，则需要关闭原有统计SDK异常捕获功能
+        MobclickAgent.setCatchUncaughtExceptions(false);
         //PushSDK初始化(如使用推送SDK，必须调用此方法)
         initUpush();
 
@@ -93,11 +93,11 @@ public class App extends Application {
     }
 
     private void initUpush() {
-        PushAgent mPushAgent = PushAgent.getInstance(this);
+        PushAgent pushAgent = PushAgent.getInstance(this);
         handler = new Handler(getMainLooper());
 
         //sdk开启通知声音
-        mPushAgent.setNotificationPlaySound(MsgConstant.NOTIFICATION_PLAY_SDK_ENABLE);
+        pushAgent.setNotificationPlaySound(MsgConstant.NOTIFICATION_PLAY_SDK_ENABLE);
         // sdk关闭通知声音
         // mPushAgent.setNotificationPlaySound(MsgConstant.NOTIFICATION_PLAY_SDK_DISABLE);
         // 通知声音由服务端控制
@@ -151,16 +151,16 @@ public class App extends Application {
                     case 1:
                         Notification.Builder builder = new Notification.Builder(context);
                         RemoteViews myNotificationView = new RemoteViews(context.getPackageName(),
-                            R.layout.notification_view);
+                                R.layout.notification_view);
                         myNotificationView.setTextViewText(R.id.notification_title, msg.title);
                         myNotificationView.setTextViewText(R.id.notification_text, msg.text);
                         myNotificationView.setImageViewBitmap(R.id.notification_large_icon, getLargeIcon(context, msg));
                         myNotificationView.setImageViewResource(R.id.notification_small_icon,
-                            getSmallIconId(context, msg));
+                                getSmallIconId(context, msg));
                         builder.setContent(myNotificationView)
-                            .setSmallIcon(getSmallIconId(context, msg))
-                            .setTicker(msg.ticker)
-                            .setAutoCancel(true);
+                                .setSmallIcon(getSmallIconId(context, msg))
+                                .setTicker(msg.ticker)
+                                .setAutoCancel(true);
 
                         return builder.getNotification();
                     default:
@@ -169,13 +169,13 @@ public class App extends Application {
                 }
             }
         };
-        mPushAgent.setMessageHandler(messageHandler);
+        pushAgent.setMessageHandler(messageHandler);
 
-        /**
+        /*
          * 自定义行为的回调处理，参考文档：高级功能-通知的展示及提醒-自定义通知打开动作
          * UmengNotificationClickHandler是在BroadcastReceiver中被调用，故
          * 如果需启动Activity，需添加Intent.FLAG_ACTIVITY_NEW_TASK
-         * */
+         */
         UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
 
             @Override
@@ -199,10 +199,10 @@ public class App extends Application {
             }
         };
         //使用自定义的NotificationHandler
-        mPushAgent.setNotificationClickHandler(notificationClickHandler);
+        pushAgent.setNotificationClickHandler(notificationClickHandler);
 
         //注册推送服务 每次调用register都会回调该接口
-        mPushAgent.register(new IUmengRegisterCallback() {
+        pushAgent.register(new IUmengRegisterCallback() {
             @Override
             public void onSuccess(String deviceToken) {
                 Log.i(TAG, "device token: " + deviceToken);
