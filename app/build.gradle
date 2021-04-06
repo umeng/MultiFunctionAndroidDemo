@@ -54,7 +54,7 @@ dependencies {
     api project(':UMLibrary')
 
     // 显式依赖umeng asms库
-    implementation files('libs/umeng-asms-v1.2.1.aar') // asms包依赖(必选)
+    implementation files('libs/umeng-asms-v1.2.2.aar') // asms包依赖(必选)
     // 显式依赖umeng apm库
     implementation files('libs/umeng-apm-v1.1.1.aar') // native crash包依赖(必选)
 
