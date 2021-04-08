@@ -3,8 +3,11 @@ package com.umeng.soexample;
 
 import android.app.Application;
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.RemoteViews;
@@ -21,6 +24,7 @@ import com.umeng.message.entity.UMessage;
 import com.umeng.socialize.PlatformConfig;
 
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.soexample.push.UmengNotificationService;
 
 /**
  * Created by wangfei on 2018/1/23.
@@ -149,7 +153,23 @@ public class App extends Application {
             public Notification getNotification(Context context, UMessage msg) {
                 switch (msg.builder_id) {
                     case 1:
-                        Notification.Builder builder = new Notification.Builder(context);
+                        Notification.Builder builder;
+                        if (Build.VERSION.SDK_INT >= 26) {
+                            if (!UmengMessageHandler.isChannelSet) {
+                                UmengMessageHandler.isChannelSet = true;
+                                NotificationChannel chan = new NotificationChannel(UmengMessageHandler.PRIMARY_CHANNEL,
+                                        PushAgent.getInstance(context).getNotificationChannelName(),
+                                        NotificationManager.IMPORTANCE_DEFAULT);
+                                NotificationManager manager = (NotificationManager) context.getSystemService(
+                                        Context.NOTIFICATION_SERVICE);
+                                if (manager != null) {
+                                    manager.createNotificationChannel(chan);
+                                }
+                            }
+                            builder = new Notification.Builder(context, UmengMessageHandler.PRIMARY_CHANNEL);
+                        } else {
+                            builder = new Notification.Builder(context);
+                        }
                         RemoteViews myNotificationView = new RemoteViews(context.getPackageName(),
                                 R.layout.notification_view);
                         myNotificationView.setTextViewText(R.id.notification_title, msg.title);
@@ -161,7 +181,6 @@ public class App extends Application {
                                 .setSmallIcon(getSmallIconId(context, msg))
                                 .setTicker(msg.ticker)
                                 .setAutoCancel(true);
-
                         return builder.getNotification();
                     default:
                         //默认为0，若填写的builder_id并不存在，也使用默认。
@@ -217,7 +236,7 @@ public class App extends Application {
         });
 
         //使用完全自定义处理
-        //mPushAgent.setPushIntentServiceClass(UmengNotificationService.class);
+//        pushAgent.setPushIntentServiceClass(UmengNotificationService.class);
 
         //小米通道
         //MiPushRegistar.register(this, XIAOMI_ID, XIAOMI_KEY);

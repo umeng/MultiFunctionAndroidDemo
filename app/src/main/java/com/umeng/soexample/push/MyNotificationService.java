@@ -3,13 +3,18 @@ package com.umeng.soexample.push;
 import java.util.Random;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
+
+import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
+import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.entity.UMessage;
 import com.umeng.soexample.R;
 import org.json.JSONException;
@@ -47,15 +52,32 @@ public class MyNotificationService extends Service {
         int id = new Random(System.nanoTime()).nextInt();
         oldMessage = msg;
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.cancelAll();
-        Notification.Builder mBuilder = new Notification.Builder(this);
-        mBuilder.setContentTitle(msg.title)
+        try {
+            manager.cancelAll();
+        } catch (Exception ignored) {
+        }
+        Notification.Builder builder;
+        if (Build.VERSION.SDK_INT >= 26) {
+            if (!UmengMessageHandler.isChannelSet) {
+                UmengMessageHandler.isChannelSet = true;
+                NotificationChannel chan = new NotificationChannel(UmengMessageHandler.PRIMARY_CHANNEL,
+                        PushAgent.getInstance(this).getNotificationChannelName(),
+                        NotificationManager.IMPORTANCE_DEFAULT);
+                if (manager != null) {
+                    manager.createNotificationChannel(chan);
+                }
+            }
+            builder = new Notification.Builder(this, UmengMessageHandler.PRIMARY_CHANNEL);
+        } else {
+            builder = new Notification.Builder(this);
+        }
+        builder.setContentTitle(msg.title)
                 .setContentText(msg.text)
                 .setTicker(msg.ticker)
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.umeng_push_notification_default_small_icon)
                 .setAutoCancel(true);
-        Notification notification = mBuilder.getNotification();
+        Notification notification = builder.getNotification();
         PendingIntent clickPendingIntent = getClickPendingIntent(this, msg);
         PendingIntent dismissPendingIntent = getDismissPendingIntent(this, msg);
         notification.deleteIntent = dismissPendingIntent;

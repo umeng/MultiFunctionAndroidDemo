@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.umeng.soexample">
+
     <queries>
         <package android:name="com.tencent.mm" />
         <package android:name="com.tencent.mobileqq" />
@@ -19,15 +20,17 @@
         <package android:name="com.linkedin.android" />
     </queries>
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:name=".App"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config"> <!-- targetSDKVersion 28 开启http请求，避免net::ERR_CLEARTEXT_NOT_PERMITTED错误-->
+        android:usesCleartextTraffic="true"> <!-- targetSDKVersion 28 开启http请求，避免net::ERR_CLEARTEXT_NOT_PERMITTED错误-->
 
         <!--明确引用org.apache.http.legacy库，避免QQ官方open sdk在Android 9上报错 -->
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <!--demo启动页-->
         <activity
             android:name=".push.SplashTestActivity"
@@ -48,47 +51,51 @@
             android:name="com.umeng.soexample.analytics.UFragmentTabs"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar" />
 
-        <activity android:name=".HomeActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".log.LogActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".analytics.UappActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".log.LogActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".analytics.UappActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
 
 
-        <activity android:name=".push.UpushActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".share.UshareActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".share.SharePlatformActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".share.ShareDetailActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".share.ShareBoardActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".share.AuthActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".share.InfoActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".share.InfoDetailActivity"
-                  android:theme="@android:style/Theme.Black.NoTitleBar">
-        </activity>
-        <activity android:name=".share.SettingActivity"
-                  android:theme="@style/myTransparent">
-        </activity>
-        <activity android:name=".analytics.Process1Activity"
-            android:process=":process_activity_1"/>
-        <service android:name=".analytics.Process1Service" android:process=":process_service_1"/>
+        <activity
+            android:name=".push.UpushActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".share.UshareActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".share.SharePlatformActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".share.ShareDetailActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".share.ShareBoardActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".share.AuthActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".share.InfoActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".share.InfoDetailActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+        <activity
+            android:name=".share.SettingActivity"
+            android:theme="@style/myTransparent"></activity>
+        <activity
+            android:name=".analytics.Process1Activity"
+            android:process=":process_activity_1" />
+
+        <service
+            android:name=".analytics.Process1Service"
+            android:process=":process_service_1" />
         <!--demo界面  end-->
         <!--share  start-->
         <activity
@@ -99,9 +106,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"
-            android:theme="@android:style/Theme.NoTitleBar"
             android:excludeFromRecents="true"
-            />
+            android:theme="@android:style/Theme.NoTitleBar" />
         <!-- wechat callback-->
 
         <activity
@@ -127,41 +133,40 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 
-
-
-
         <!-- vk -->
         <activity
             android:name="com.vk.sdk.VKServiceActivity"
             android:label="ServiceActivity"
-            android:theme="@style/VK.Transparent"/>
+            android:theme="@style/VK.Transparent" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="tencent101830139" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true" >
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
-        
+
         <uses-library
             android:name="com.google.android.maps"
             android:required="false" />
@@ -180,29 +185,29 @@
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"
-            />
+            android:value="@string/facebook_app_id" />
 
         <!--twitter分享回调结果 -->
         <receiver
             android:name=".twitterapi.TwitterShareReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_SUCCESS"/>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_FAILURE"/>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.TWEET_COMPOSE_CANCEL"/>
+                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_SUCCESS" />
+                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_FAILURE" />
+                <action android:name="com.twitter.sdk.android.tweetcomposer.TWEET_COMPOSE_CANCEL" />
             </intent-filter>
         </receiver>
 
         <activity
             android:name="com.dropbox.client2.android.AuthActivity"
-            android:launchMode="singleTask"
-            android:configChanges="orientation|keyboard">
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask">
             <intent-filter>
                 <!-- Change this to be db- followed by your app key -->
                 <data android:scheme="db-oz8v5apet3arcdy" />
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -210,12 +215,15 @@
         <!-- push start -->
         <!-- 使用完全自定义消息来开启应用的服务进程的示例服务配置 -->
         <service android:name=".push.MyNotificationService" />
-        <service android:name=".push.UmengNotificationService" />
+        <service
+            android:name=".push.UmengNotificationService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
         <receiver android:name=".push.NotificationBroadcast" />
         <activity
             android:name=".push.MipushTestActivity"
-            android:launchMode="singleTask"
-            android:exported="true"/>
+            android:exported="true"
+            android:launchMode="singleTask" />
 
     </application>
 
@@ -223,8 +231,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 
 </manifest>
