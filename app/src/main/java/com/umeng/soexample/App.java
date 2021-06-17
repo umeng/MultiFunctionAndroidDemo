@@ -266,6 +266,8 @@ public class App extends Application {
         PlatformConfig.setPinterest("1439206");
         PlatformConfig.setKakao("e4f60e065048eb031e235c806b31c70f");
         PlatformConfig.setDing("dingoalmlnohc0wggfedpk");
+        PlatformConfig.setDingFileProvider(FileProvider);
+
         PlatformConfig.setVKontakte("5764965", "5My6SNliAaLxEm3Lyd9J");
         PlatformConfig.setDropbox("oz8v5apet3arcdy", "h7p2pjbzkkxt02a");
 

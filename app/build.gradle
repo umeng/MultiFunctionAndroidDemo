@@ -70,7 +70,10 @@ dependencies {
     implementation(name:'openDefault-10.10.0', ext:'aar')
 
     //QQ官方依赖库
-    implementation 'com.tencent.tauth:qqopensdk:3.51.2'
+    implementation 'com.tencent.tauth:qqopensdk:3.53.0'
     //微信官方依赖库
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.5'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.0'
+
+    //钉钉官方sdk
+    implementation  "com.alibaba.android:ddsharesdk:1.2.0@jar"
 }
