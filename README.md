@@ -1,5 +1,7 @@
 ### 【友盟+】统计、推送、分享三合一组件化SDK集成Demo
 
+重要更新：增加用户授权隐私协议友盟sdk初始化逻辑，具体请查看SplashTestActivity
+
 本项目仅提供离线包依赖方式集成示例。
 
 如果您是采用maven库在线依赖相关友盟SDK，请参考[如下Demo工程](https://github.com/umeng/MultiFunctionAndroidMavenDemo-master)。
