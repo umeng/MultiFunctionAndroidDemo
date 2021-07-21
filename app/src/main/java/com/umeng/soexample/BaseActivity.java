@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 /**
  * Created by wangfei on 2018/1/23.
@@ -28,6 +29,10 @@ public abstract class BaseActivity extends FragmentActivity {
         }
         setContentView(getLayout());
         setTitle(getResources().getString(R.string.app_name));
+
+        //推送平台多维度推送决策必须调用方法
+        PushAgent.getInstance(this).onAppStart();
+
 
     }
     public abstract int getLayout();

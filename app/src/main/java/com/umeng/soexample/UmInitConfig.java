@@ -103,7 +103,9 @@ public class UmInitConfig {
 
     }
 
-
+    /**
+     * 主进程和子进程channel都需要进行初始化和注册
+     */
     private void initUpush(Context context) {
         PushAgent pushAgent = PushAgent.getInstance(context);
         handler = new Handler(getMainLooper());

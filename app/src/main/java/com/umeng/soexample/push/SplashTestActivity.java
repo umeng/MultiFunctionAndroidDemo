@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
+import com.umeng.message.PushAgent;
 import com.umeng.message.inapp.InAppMessageManager;
 import com.umeng.message.inapp.UmengSplashMessageActivity;
 import com.umeng.soexample.HomeActivity;
@@ -30,6 +31,9 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
         /*** sp中uminit为1已经同意隐私协议*/
         if(sharedPreferencesHelper.getSharedPreference("uminit","").equals("1")){
 
+
+
+
             /***
              *  此时初始化在appcation中进行，这里不做任何友盟初始化操作，直接跳转activity
              *
@@ -40,6 +44,8 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
             //跳转homeactivity
             mInAppMessageManager.setMainActivityPath("com.umeng.soexample.HomeActivity");
 
+            //推送平台多维度推送决策必须调用方法
+            PushAgent.getInstance(this).onAppStart();
             return super.onCustomPretreatment();
         }else {
             /*** 隐私协议授权弹窗*/
@@ -70,6 +76,8 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
                 UmInitConfig umInitConfig=new UmInitConfig();
                 umInitConfig.UMinit(getApplicationContext());
 
+                //推送平台多维度推送决策必须调用方法
+                PushAgent.getInstance(SplashTestActivity.this).onAppStart();
                 //关闭弹窗
                 dialog.dismiss();
 
