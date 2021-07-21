@@ -44,7 +44,7 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
             //跳转homeactivity
             mInAppMessageManager.setMainActivityPath("com.umeng.soexample.HomeActivity");
 
-            //推送平台多维度推送决策必须调用方法
+            //推送平台多维度推送决策必须调用方法(需要同意隐私协议之后初始化完成调用)
             PushAgent.getInstance(this).onAppStart();
             return super.onCustomPretreatment();
         }else {
@@ -76,7 +76,7 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
                 UmInitConfig umInitConfig=new UmInitConfig();
                 umInitConfig.UMinit(getApplicationContext());
 
-                //推送平台多维度推送决策必须调用方法
+                //推送平台多维度推送决策必须调用方法(需要同意隐私协议之后初始化完成调用)
                 PushAgent.getInstance(SplashTestActivity.this).onAppStart();
                 //关闭弹窗
                 dialog.dismiss();

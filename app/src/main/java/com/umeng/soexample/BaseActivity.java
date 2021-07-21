@@ -30,7 +30,7 @@ public abstract class BaseActivity extends FragmentActivity {
         setContentView(getLayout());
         setTitle(getResources().getString(R.string.app_name));
 
-        //推送平台多维度推送决策必须调用方法
+        //推送平台多维度推送决策必须调用方法(需要同意隐私协议之后初始化完成调用)
         PushAgent.getInstance(this).onAppStart();
 
 
