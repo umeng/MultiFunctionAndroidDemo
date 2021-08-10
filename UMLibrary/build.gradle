@@ -64,4 +64,5 @@ dependencies {
     implementation files('libs/umeng-share-ynote-7.1.5.jar')
     implementation files('libs/umeng-shareboard-widget-7.1.5.jar')
     implementation files('libs/umeng-sharetool-7.1.5.jar')
+    implementation files('libs/umeng-common-9.4.2.jar')
 }

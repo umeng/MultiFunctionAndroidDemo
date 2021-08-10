@@ -4,6 +4,7 @@
     package="com.umeng.soexample">
 
     <queries>
+        <package android:name="com.instagram.android" />
         <package android:name="com.tencent.mm" />
         <package android:name="com.tencent.mobileqq" />
         <package android:name="com.tencent.wework" />

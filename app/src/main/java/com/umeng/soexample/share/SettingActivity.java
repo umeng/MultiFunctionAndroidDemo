@@ -22,6 +22,7 @@ import com.umeng.socialize.media.UMWeb;
 import com.umeng.soexample.R;
 import com.umeng.soexample.share.utils.StyleUtil;
 
+
 /**
  * Created by wangfei on 2018/1/24.
  */
@@ -43,6 +44,8 @@ public class SettingActivity extends Activity{
         netContainer = (RelativeLayout)findViewById(R.id.net_container);
         btnGroup = (RelativeLayout)findViewById(R.id.btnContainer);
         sendBtn=findViewById(R.id.send);
+
+
         cancelBtn=findViewById(R.id.cancel);
         cancelBtn.setOnClickListener(new OnClickListener() {
             @Override
@@ -95,6 +98,7 @@ public class SettingActivity extends Activity{
                     }else {
                         Toast.makeText(SettingActivity.this,"参数不完整",Toast.LENGTH_LONG).show();
                     }
+
 
                 }
             });
