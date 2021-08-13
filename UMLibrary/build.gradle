@@ -31,6 +31,8 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['umeng-push-6.4.0.aar'])
+    api fileTree(dir: 'libs', include: ['umeng-agoo_tnet4android-3.1.14.10-open.aar'])
     implementation files('libs/umeng-share-alipay-7.1.5.jar')
     implementation files('libs/umeng-share-core-7.1.5.jar')
     implementation files('libs/umeng-share-Ding-7.1.5.jar')
