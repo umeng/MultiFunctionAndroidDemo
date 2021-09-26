@@ -36,7 +36,7 @@ dependencies {
 
 
 
-    implementation files('libs/umeng-common-9.4.2.jar')
+    implementation files('libs/umeng-common-9.4.4.jar')
     implementation files('libs/umeng-agoo-accs-3.4.2.7.jar')
     implementation files('libs/umeng-agoo_aranger-1.0.6.jar')
     implementation files('libs/umeng-agoo_networksdk-3.5.8.jar')
