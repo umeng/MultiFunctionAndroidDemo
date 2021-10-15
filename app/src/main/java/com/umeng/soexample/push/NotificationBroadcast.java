@@ -28,12 +28,10 @@ public class NotificationBroadcast extends BroadcastReceiver {
             switch (action) {
                 case ACTION_DISMISS:
                     Log.i(TAG, "dismiss notification");
-                    UTrack.getInstance(context).setClearPrevMessage(true);
                     UTrack.getInstance(context).trackMsgDismissed(msg);
                     break;
                 case ACTION_CLICK:
                     Log.i(TAG, "click notification");
-                    UTrack.getInstance(context).setClearPrevMessage(true);
                     MyNotificationService.oldMessage = null;
                     UTrack.getInstance(context).trackMsgClick(msg);
                     break;

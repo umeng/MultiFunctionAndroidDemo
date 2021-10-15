@@ -45,19 +45,8 @@ public class App extends Application {
 
         //设置LOG开关，默认为false
         UMConfigure.setLogEnabled(true);
-
-        try {
-            //解决推送消息显示乱码的问题
-            AccsClientConfig.Builder builder = new AccsClientConfig.Builder();
-            builder.setAppKey("umeng:" + "59892f08310c9307b60023d0");
-            builder.setAppSecret("669c30a9584623e70e8cd01b0381dcb4");
-            builder.setTag(AccsClientConfig.DEFAULT_CONFIGTAG);
-            ACCSClient.init(getApplicationContext(), builder.build());
-            TaobaoRegister.setAccsConfigTag(getApplicationContext(), AccsClientConfig.DEFAULT_CONFIGTAG);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        //解决推送消息显示乱码的问题
+        PushAgent.setup(getApplicationContext(), "59892f08310c9307b60023d0", "669c30a9584623e70e8cd01b0381dcb4");
         //友盟预初始化
         UMConfigure.preInit(getApplicationContext(),"59892f08310c9307b60023d0","Umeng");
 

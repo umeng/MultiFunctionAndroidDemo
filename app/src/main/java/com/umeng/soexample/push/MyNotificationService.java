@@ -38,7 +38,6 @@ public class MyNotificationService extends Service {
         try {
             UMessage msg = new UMessage(new JSONObject(message));
             if (oldMessage != null) {
-                UTrack.getInstance(getApplicationContext()).setClearPrevMessage(true);
                 UTrack.getInstance(getApplicationContext()).trackMsgDismissed(oldMessage);
             }
             showNotification(msg);
