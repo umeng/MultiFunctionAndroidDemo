@@ -37,8 +37,6 @@ public class NotificationBroadcast extends BroadcastReceiver {
                     break;
             }
             //
-        } catch (JSONException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }

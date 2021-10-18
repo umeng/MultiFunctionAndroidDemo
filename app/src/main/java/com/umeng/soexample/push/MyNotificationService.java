@@ -41,7 +41,7 @@ public class MyNotificationService extends Service {
                 UTrack.getInstance(getApplicationContext()).trackMsgDismissed(oldMessage);
             }
             showNotification(msg);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return super.onStartCommand(intent, flags, startId);
@@ -82,6 +82,7 @@ public class MyNotificationService extends Service {
         notification.deleteIntent = dismissPendingIntent;
         notification.contentIntent = clickPendingIntent;
         manager.notify(id, notification);
+        UTrack.getInstance(this).trackMsgShow(msg, notification);
     }
 
     public PendingIntent getClickPendingIntent(Context context, UMessage msg) {
