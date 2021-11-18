@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.taobao.accs.ACCSClient;
 import com.taobao.accs.AccsClientConfig;
 import com.taobao.agoo.TaobaoRegister;
+import com.tencent.tauth.Tencent;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.MsgConstant;
@@ -58,6 +59,9 @@ public class App extends Application {
             //友盟正式初始化
             UmInitConfig umInitConfig=new UmInitConfig();
             umInitConfig.UMinit(getApplicationContext());
+            //QQ官方sdk授权
+            Tencent.setIsPermissionGranted(true);
+
         }
 
 

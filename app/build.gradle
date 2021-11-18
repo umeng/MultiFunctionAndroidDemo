@@ -49,6 +49,9 @@ android {
         }
     }
 
+
+
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -68,12 +71,10 @@ dependencies {
     implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
 
 
-     //新浪官方依赖库
-    implementation(name:'openDefault-10.10.0', ext:'aar')
-    //QQ官方依赖库
-    implementation 'com.tencent.tauth:qqopensdk:3.53.0'
+    //新浪官方依赖库
+    implementation 'io.github.sinaweibosdk:core:11.11.1@aar'
     //微信官方依赖库
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.9'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0'
     //钉钉官方sdk
     implementation  "com.alibaba.android:ddsharesdk:1.2.0@jar"
 }
