@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.util.Log;
 import com.umeng.message.UTrack;
 import com.umeng.message.entity.UMessage;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class NotificationBroadcast extends BroadcastReceiver {
@@ -28,12 +27,12 @@ public class NotificationBroadcast extends BroadcastReceiver {
             switch (action) {
                 case ACTION_DISMISS:
                     Log.i(TAG, "dismiss notification");
-                    UTrack.getInstance(context).trackMsgDismissed(msg);
+                    UTrack.getInstance().trackMsgDismissed(msg);
                     break;
                 case ACTION_CLICK:
                     Log.i(TAG, "click notification");
                     MyNotificationService.oldMessage = null;
-                    UTrack.getInstance(context).trackMsgClick(msg);
+                    UTrack.getInstance().trackMsgClick(msg);
                     break;
             }
             //

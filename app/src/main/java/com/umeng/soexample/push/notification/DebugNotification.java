@@ -6,7 +6,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
 import com.umeng.message.MessageSharedPrefs;
-import com.umeng.message.util.HttpRequest;
+import com.umeng.message.utils.HttpRequest;
 import org.json.JSONObject;
 
 public class DebugNotification {

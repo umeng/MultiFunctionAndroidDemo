@@ -15,6 +15,7 @@ import android.os.IBinder;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 import com.umeng.message.UmengMessageHandler;
+import com.umeng.message.common.UPushNotificationChannel;
 import com.umeng.message.entity.UMessage;
 import com.umeng.soexample.R;
 import org.json.JSONException;
@@ -38,7 +39,7 @@ public class MyNotificationService extends Service {
         try {
             UMessage msg = new UMessage(new JSONObject(message));
             if (oldMessage != null) {
-                UTrack.getInstance(getApplicationContext()).trackMsgDismissed(oldMessage);
+                UTrack.getInstance().trackMsgDismissed(oldMessage);
             }
             showNotification(msg);
         } catch (Exception e) {
@@ -59,14 +60,14 @@ public class MyNotificationService extends Service {
         if (Build.VERSION.SDK_INT >= 26) {
             if (!UmengMessageHandler.isChannelSet) {
                 UmengMessageHandler.isChannelSet = true;
-                NotificationChannel chan = new NotificationChannel(UmengMessageHandler.PRIMARY_CHANNEL,
+                NotificationChannel chan = new NotificationChannel(UPushNotificationChannel.PRIMARY_CHANNEL,
                         PushAgent.getInstance(this).getNotificationChannelName(),
                         NotificationManager.IMPORTANCE_DEFAULT);
                 if (manager != null) {
                     manager.createNotificationChannel(chan);
                 }
             }
-            builder = new Notification.Builder(this, UmengMessageHandler.PRIMARY_CHANNEL);
+            builder = new Notification.Builder(this, UPushNotificationChannel.PRIMARY_CHANNEL);
         } else {
             builder = new Notification.Builder(this);
         }

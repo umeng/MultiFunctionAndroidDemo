@@ -25,15 +25,14 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
     View inflate;
     Dialog dialog;
     SharedPreferencesHelper sharedPreferencesHelper;
+
     @Override
     public boolean onCustomPretreatment() {
 
-        sharedPreferencesHelper=new SharedPreferencesHelper(this,"umeng");
+        sharedPreferencesHelper = new SharedPreferencesHelper(this, "umeng");
 
         /*** sp中uminit为1已经同意隐私协议*/
-        if(sharedPreferencesHelper.getSharedPreference("uminit","").equals("1")){
-
-
+        if (sharedPreferencesHelper.getSharedPreference("uminit", "").equals("1")) {
 
 
             /***
@@ -49,7 +48,7 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
             //推送平台多维度推送决策必须调用方法(需要同意隐私协议之后初始化完成调用)
             PushAgent.getInstance(this).onAppStart();
             return super.onCustomPretreatment();
-        }else {
+        } else {
             /*** 隐私协议授权弹窗*/
             dialog();
 
@@ -60,22 +59,21 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
     }
 
 
-
     @SuppressLint("ResourceType")
-    public void dialog(){
+    public void dialog() {
         dialog = new Dialog(this, R.style.dialog);
         inflate = LayoutInflater.from(SplashTestActivity.this).inflate(R.layout.diaologlayout, null);
-        TextView succsebtn=(TextView) inflate.findViewById(R.id.succsebtn);
-        TextView canclebtn=(TextView) inflate.findViewById(R.id.caclebtn);
+        TextView succsebtn = (TextView) inflate.findViewById(R.id.succsebtn);
+        TextView canclebtn = (TextView) inflate.findViewById(R.id.caclebtn);
 
         succsebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /*** uminit为1时代表已经同意隐私协议，sp记录当前状态*/
-                sharedPreferencesHelper.put("uminit","1");
+                sharedPreferencesHelper.put("uminit", "1");
                 UMConfigure.submitPolicyGrantResult(getApplicationContext(), true);
                 /*** 友盟sdk正式初始化*/
-                UmInitConfig umInitConfig=new UmInitConfig();
+                UmInitConfig umInitConfig = new UmInitConfig();
                 umInitConfig.UMinit(getApplicationContext());
                 //QQ官方sdk授权
                 Tencent.setIsPermissionGranted(true);
@@ -85,7 +83,7 @@ public class SplashTestActivity extends UmengSplashMessageActivity {
                 dialog.dismiss();
 
                 //跳转到HomeActivity
-                Intent intent =new Intent(SplashTestActivity.this,HomeActivity.class);
+                Intent intent = new Intent(SplashTestActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
 

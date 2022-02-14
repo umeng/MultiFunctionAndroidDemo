@@ -13,12 +13,13 @@ import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
-import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.MsgConstant;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.UmengNotificationClickHandler;
+import com.umeng.message.api.UPushRegisterCallback;
+import com.umeng.message.common.UPushNotificationChannel;
 import com.umeng.message.entity.UMessage;
 import com.umeng.socialize.PlatformConfig;
 
@@ -146,10 +147,10 @@ public class UmInitConfig {
                         boolean isClickOrDismissed = true;
                         if (isClickOrDismissed) {
                             //自定义消息的点击统计
-                            UTrack.getInstance(context).trackMsgClick(msg);
+                            UTrack.getInstance().trackMsgClick(msg);
                         } else {
                             //自定义消息的忽略统计
-                            UTrack.getInstance(context).trackMsgDismissed(msg);
+                            UTrack.getInstance().trackMsgDismissed(msg);
                         }
                         Toast.makeText(context, msg.custom, Toast.LENGTH_LONG).show();
                     }
@@ -167,7 +168,7 @@ public class UmInitConfig {
                         if (Build.VERSION.SDK_INT >= 26) {
                             if (!UmengMessageHandler.isChannelSet) {
                                 UmengMessageHandler.isChannelSet = true;
-                                NotificationChannel chan = new NotificationChannel(UmengMessageHandler.PRIMARY_CHANNEL,
+                                NotificationChannel chan = new NotificationChannel(UPushNotificationChannel.PRIMARY_CHANNEL,
                                         PushAgent.getInstance(context).getNotificationChannelName(),
                                         NotificationManager.IMPORTANCE_DEFAULT);
                                 NotificationManager manager = (NotificationManager) context.getSystemService(
@@ -176,7 +177,7 @@ public class UmInitConfig {
                                     manager.createNotificationChannel(chan);
                                 }
                             }
-                            builder = new Notification.Builder(context, UmengMessageHandler.PRIMARY_CHANNEL);
+                            builder = new Notification.Builder(context, UPushNotificationChannel.PRIMARY_CHANNEL);
                         } else {
                             builder = new Notification.Builder(context);
                         }
@@ -231,7 +232,7 @@ public class UmInitConfig {
         pushAgent.setNotificationClickHandler(notificationClickHandler);
 
         //注册推送服务 每次调用register都会回调该接口
-        pushAgent.register(new IUmengRegisterCallback() {
+        pushAgent.register(new UPushRegisterCallback() {
             @Override
             public void onSuccess(String deviceToken) {
                 Log.i(TAG, "device token: " + deviceToken);
