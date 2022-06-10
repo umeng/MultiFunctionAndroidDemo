@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3000"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:background="#ffff">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <ImageView
+                android:id="@+id/umeng_card_message_image"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:scaleType="centerInside"
+                tools:ignore="ContentDescription" />
+
+            <Button
+                android:id="@+id/umeng_card_message_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/umeng_card_message_image"
+                android:layout_marginTop="20dp"
+                android:text="确定"
+                tools:ignore="HardcodedText" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/umeng_card_message_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:text="关闭"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+    </FrameLayout>
+
+</RelativeLayout>

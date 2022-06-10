@@ -30,8 +30,6 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     private static final String WEIGHTED_TAG_REMAIN = "weighted_tag_remain";
 
     private EditText inputTag;
-    private EditText inputWeightedTag;
-    private EditText inputWeightedTagValue;
     private EditText inputAlias;
     private EditText inputAliasType;
 
@@ -62,17 +60,12 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
 
     private void initClickListener() {
         inputTag = findViewById(R.id.etx_input_tag);
-        inputWeightedTag = findViewById(R.id.etx_input_weighted_tag);
-        inputWeightedTagValue = findViewById(R.id.etx_input_weighted_tag_value);
         inputAlias = findViewById(R.id.etx_input_alias);
         inputAliasType = findViewById(R.id.etx_input_alias_type);
         tagRemain = findViewById(R.id.tv_tag_remain);
         findViewById(R.id.btn_add_tag).setOnClickListener(this);
         findViewById(R.id.btn_delete_tag).setOnClickListener(this);
         findViewById(R.id.btn_show_tag).setOnClickListener(this);
-        findViewById(R.id.btn_add_weighted_tag).setOnClickListener(this);
-        findViewById(R.id.btn_delete_weighted_tag).setOnClickListener(this);
-        findViewById(R.id.btn_show_weighted_tag).setOnClickListener(this);
         findViewById(R.id.btn_add_alias).setOnClickListener(this);
         findViewById(R.id.btn_delete_alias).setOnClickListener(this);
         findViewById(R.id.btn_show_card_message).setOnClickListener(this);
@@ -94,12 +87,6 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
             deleteTag();
         } else if (id == R.id.btn_show_tag) {
             showTag();
-        } else if (id == R.id.btn_add_weighted_tag) {
-            addWeightedTag();
-        } else if (id == R.id.btn_delete_weighted_tag) {
-            deleteWeightedTag();
-        } else if (id == R.id.btn_show_weighted_tag) {
-            showWeightedTag();
         } else if (id == R.id.btn_add_alias) {
             addAlias();
         } else if (id == R.id.btn_delete_alias) {
@@ -188,95 +175,6 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                 });
             }
         });
-    }
-
-    private void showWeightedTag() {
-        mPushAgent.getTagManager().getWeightedTags(new UPushTagCallback<Hashtable<String, Integer>>() {
-            @Override
-            public void onMessage(final boolean isSuccess, final Hashtable<String, Integer> result) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (isSuccess) {
-                            StringBuilder builder = new StringBuilder();
-                            for (String key : result.keySet()) {
-                                int value = result.get(key);
-                                builder.append(getString(R.string.push_tag));
-                                builder.append(key);
-                                builder.append(" ");
-                                builder.append(getString(R.string.push_tag_value));
-                                builder.append(value);
-                                builder.append("\n");
-                            }
-                            PushDialogFragment.newInstance(1, 1, getString(R.string.push_get_tags),
-                                    builder.toString()).show(getFragmentManager(), "deleshowWeightedTagteTag");
-                        } else {
-                            PushDialogFragment.newInstance(1, 0, getString(R.string.push_get_tags),
-                                    "").show(getFragmentManager(), "showWeightedTag");
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-    private void deleteWeightedTag() {
-        mPushAgent.getTagManager().deleteWeightedTags(new UPushTagCallback<Result>() {
-            @Override
-            public void onMessage(final boolean isSuccess, final Result result) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (isSuccess) {
-                            sharedPref.edit().putInt(WEIGHTED_TAG_REMAIN, result.remain).apply();
-                            PushDialogFragment.newInstance(0, 1, getString(R.string.push_delete_success),
-                                    inputWeightedTag.getText().toString()).show(getFragmentManager(), "deleteWeightedTag");
-                            inputWeightedTag.setText("");
-                            inputWeightedTagValue.setText("");
-                        } else {
-                            PushDialogFragment.newInstance(0, 0, getString(R.string.push_delete_fail),
-                                    inputWeightedTag.getText().toString()).show(getFragmentManager(), "deleteWeightedTag");
-                        }
-                    }
-                });
-            }
-        }, inputWeightedTag.getText().toString());
-    }
-
-    private void addWeightedTag() {
-        if (TextUtils.isEmpty(inputWeightedTag.getText())) {
-            Toast.makeText(this, "请输入weighted tag", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(inputWeightedTagValue.getText())) {
-            Toast.makeText(this, "请输入value", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        final Hashtable<String, Integer> table = new Hashtable<String, Integer>();
-        table.put(inputWeightedTag.getText().toString(), Integer.valueOf(inputWeightedTagValue.getText().toString()));
-        mPushAgent.getTagManager().addWeightedTags(new UPushTagCallback<Result>() {
-            @Override
-            public void onMessage(final boolean isSuccess, final Result result) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (isSuccess) {
-                            sharedPref.edit().putInt(WEIGHTED_TAG_REMAIN, result.remain).apply();
-                            PushDialogFragment.newInstance(0, 1, getString(R.string.push_add_success),
-                                    inputWeightedTag.getText().toString() + "\n" + getString(R.string.push_tag_value) +
-                                            inputWeightedTagValue.getText().toString()).show(getFragmentManager(),
-                                    "addWeightedTag");
-                            inputWeightedTag.setText("");
-                            inputWeightedTagValue.setText("");
-                        } else {
-                            PushDialogFragment.newInstance(0, 0, getString(R.string.push_add_fail),
-                                    inputWeightedTag.getText().toString() + "\n" + getString(R.string.push_tag_value) + inputWeightedTagValue.getText()
-                                            .toString()).show(getFragmentManager(), "addWeightedTag");
-                        }
-                    }
-                });
-            }
-        }, table);
     }
 
     private void showTag() {
@@ -375,7 +273,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
 //    }
 
     private void serialnet() {
-        DebugNotification.transmission(UpushActivity.this, handler);
+        DebugNotification.transmission(UpushActivity.this);
     }
 
     private void deviceCheck() {
