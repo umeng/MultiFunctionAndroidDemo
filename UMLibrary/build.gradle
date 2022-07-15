@@ -31,9 +31,8 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api fileTree(dir: 'libs', include: ['umeng-push-6.5.2.aar'])
+    api fileTree(dir: 'libs', include: ['umeng-push-6.5.3.aar'])
     api fileTree(dir: 'libs', include: ['umeng-agoo_tnet4android-3.1.14.10.2.aar'])
-    api fileTree(dir: 'libs', include: ['umeng-union-1.4.1.aar'])
 
     //qq官方sdk依赖库
     implementation files('libs/open_sdk_3.5.11.6_r13b47b7_lite.jar')

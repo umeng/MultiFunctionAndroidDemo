@@ -2,7 +2,6 @@ package com.umeng.soexample;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -137,7 +136,6 @@ public class UmInitConfig {
              */
             @Override
             public void dealWithCustomMessage(final Context context, final UMessage msg) {
-
                 handler.post(new Runnable() {
 
                     @Override
@@ -166,28 +164,16 @@ public class UmInitConfig {
                     case 1:
                         Notification.Builder builder;
                         if (Build.VERSION.SDK_INT >= 26) {
-                            if (!UmengMessageHandler.isChannelSet) {
-                                UmengMessageHandler.isChannelSet = true;
-                                NotificationChannel chan = new NotificationChannel(UPushNotificationChannel.PRIMARY_CHANNEL,
-                                        PushAgent.getInstance(context).getNotificationChannelName(),
-                                        NotificationManager.IMPORTANCE_DEFAULT);
-                                NotificationManager manager = (NotificationManager) context.getSystemService(
-                                        Context.NOTIFICATION_SERVICE);
-                                if (manager != null) {
-                                    manager.createNotificationChannel(chan);
-                                }
-                            }
-                            builder = new Notification.Builder(context, UPushNotificationChannel.PRIMARY_CHANNEL);
+                            NotificationChannel channel = UPushNotificationChannel.getDefaultMode(context);
+                            builder = new Notification.Builder(context, channel.getId());
                         } else {
                             builder = new Notification.Builder(context);
                         }
-                        RemoteViews myNotificationView = new RemoteViews(context.getPackageName(),
-                                R.layout.notification_view);
+                        RemoteViews myNotificationView = new RemoteViews(context.getPackageName(), R.layout.notification_view);
                         myNotificationView.setTextViewText(R.id.notification_title, msg.title);
                         myNotificationView.setTextViewText(R.id.notification_text, msg.text);
                         myNotificationView.setImageViewBitmap(R.id.notification_large_icon, getLargeIcon(context, msg));
-                        myNotificationView.setImageViewResource(R.id.notification_small_icon,
-                                getSmallIconId(context, msg));
+                        myNotificationView.setImageViewResource(R.id.notification_small_icon, getSmallIconId(context, msg));
                         builder.setContent(myNotificationView)
                                 .setSmallIcon(getSmallIconId(context, msg))
                                 .setTicker(msg.ticker)
@@ -256,7 +242,5 @@ public class UmInitConfig {
         //魅族通道
         //MeizuRegister.register(this, MEIZU_APPID, MEIZU_APPKEY);
     }
-
-
 
 }

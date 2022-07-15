@@ -13,7 +13,8 @@ import android.os.Looper;
 import android.widget.Toast;
 
 import com.umeng.commonsdk.service.UMGlobalContext;
-import com.umeng.message.MessageSharedPrefs;
+import com.umeng.message.PushAgent;
+
 import org.json.JSONObject;
 
 public class DebugNotification {
@@ -27,7 +28,7 @@ public class DebugNotification {
         try {
             final AndroidUnicast unicast = new AndroidUnicast("59892f08310c9307b60023d0",
                 "xkqdlqwgkglgfdydyawb16etxilvmy3g");
-            unicast.setDeviceToken(MessageSharedPrefs.getInstance(mContext).getDeviceToken());
+            unicast.setDeviceToken(PushAgent.getInstance(mContext).getRegistrationId());
             unicast.setTicker("Android unicast ticker");
             unicast.setTitle("Title");
             unicast.setText("Demo透传测试");

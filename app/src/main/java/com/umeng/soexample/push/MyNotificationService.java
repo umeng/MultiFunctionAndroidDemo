@@ -12,13 +12,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 
-import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
-import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.common.UPushNotificationChannel;
 import com.umeng.message.entity.UMessage;
 import com.umeng.soexample.R;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MyNotificationService extends Service {
@@ -58,16 +55,8 @@ public class MyNotificationService extends Service {
         }
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT >= 26) {
-            if (!UmengMessageHandler.isChannelSet) {
-                UmengMessageHandler.isChannelSet = true;
-                NotificationChannel chan = new NotificationChannel(UPushNotificationChannel.PRIMARY_CHANNEL,
-                        PushAgent.getInstance(this).getNotificationChannelName(),
-                        NotificationManager.IMPORTANCE_DEFAULT);
-                if (manager != null) {
-                    manager.createNotificationChannel(chan);
-                }
-            }
-            builder = new Notification.Builder(this, UPushNotificationChannel.PRIMARY_CHANNEL);
+            NotificationChannel channel = UPushNotificationChannel.getDefaultMode(this);
+            builder = new Notification.Builder(this, channel.getId());
         } else {
             builder = new Notification.Builder(this);
         }
@@ -83,7 +72,7 @@ public class MyNotificationService extends Service {
         notification.deleteIntent = dismissPendingIntent;
         notification.contentIntent = clickPendingIntent;
         manager.notify(id, notification);
-        UTrack.getInstance(this).trackMsgShow(msg, notification);
+        UTrack.getInstance().trackMsgShow(msg, notification);
     }
 
     public PendingIntent getClickPendingIntent(Context context, UMessage msg) {

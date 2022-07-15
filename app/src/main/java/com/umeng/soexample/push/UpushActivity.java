@@ -1,7 +1,11 @@
 package com.umeng.soexample.push;
 
+import android.app.AppOpsManager;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -10,24 +14,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.umeng.commonsdk.utils.UMUtils;
 import com.umeng.message.PushAgent;
 import com.umeng.message.api.UPushAliasCallback;
 import com.umeng.message.api.UPushTagCallback;
-import com.umeng.message.common.UmengMessageDeviceConfig;
 import com.umeng.message.common.inter.ITagManager;
 import com.umeng.message.common.inter.ITagManager.Result;
 import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
 import com.umeng.soexample.push.notification.DebugNotification;
 
-import java.util.Hashtable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class UpushActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = UpushActivity.class.getName();
     private static final String TAG_REMAIN = "tag_remain";
-    private static final String WEIGHTED_TAG_REMAIN = "weighted_tag_remain";
 
     private EditText inputTag;
     private EditText inputAlias;
@@ -277,7 +281,7 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void deviceCheck() {
-        String push_switch = UmengMessageDeviceConfig.isNotificationEnabled(this);
+        String push_switch = getNotificationSwitch(this);
         String status;
         switch (push_switch) {
             case "true":
@@ -290,11 +294,41 @@ public class UpushActivity extends BaseActivity implements View.OnClickListener 
                 status = push_switch;
                 break;
         }
-        String cpu = UmengMessageDeviceConfig.getCPU();
+        String cpu = UMUtils.getCPU();
         String osVersion = android.os.Build.VERSION.RELEASE;
         String info = getString(R.string.push_os_version) + osVersion + "\n" + getString(R.string.push_cpu_info) + cpu
                 + "\n" + getString(R.string.push_system_notification_switch) + status;
         PushDialogFragment.newInstance(1, 0, getString(
                 R.string.push_device_check), info).show(getFragmentManager(), "deviceCheck");
+    }
+
+
+    public static String getNotificationSwitch(Context context) {
+        String result = "unknown";
+        if (Build.VERSION.SDK_INT >= 24) {
+            try {
+                result = String.valueOf(((NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE)).areNotificationsEnabled());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (Build.VERSION.SDK_INT >= 19) {
+            try {
+                AppOpsManager opsManager = (AppOpsManager)context.getSystemService(Context.APP_OPS_SERVICE);
+                ApplicationInfo applicationInfo = context.getApplicationInfo();
+                String packageName = context.getApplicationContext().getPackageName();
+                int uid = applicationInfo.uid;
+                Class<?> clazz = Class.forName(AppOpsManager.class.getName());
+                Method method = clazz.getMethod("checkOpNoThrow", Integer.TYPE, Integer.TYPE, String.class);
+                Field field = clazz.getDeclaredField("OP_POST_NOTIFICATION");
+                Integer op = (Integer) field.get(opsManager);
+                if (op != null) {
+                    Integer ret = (Integer) method.invoke(opsManager, op, uid, packageName);
+                    result = String.valueOf(ret != null && ret == AppOpsManager.MODE_ALLOWED);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 }
