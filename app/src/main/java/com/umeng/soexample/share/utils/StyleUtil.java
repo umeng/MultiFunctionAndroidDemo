@@ -256,7 +256,17 @@ public class StyleUtil {
         }else if (share_media == SHARE_MEDIA.DROPBOX) {
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);
+        } else if (share_media == SHARE_MEDIA.BYTEDANCE) {
+            styles.add(StyleUtil.IMAGELOCAL);
+            styles.add(StyleUtil.MULIMAGE);
+            styles.add(StyleUtil.IMAGEURL);
+            styles.add(StyleUtil.LOCALVIDEO);
+        } else if (share_media == SHARE_MEDIA.BYTEDANCE_PUBLISH) {
+            styles.add(StyleUtil.LOCALVIDEO);
+        } else if (share_media == SHARE_MEDIA.BYTEDANCE_FRIENDS) {
+            styles.add(StyleUtil.IMAGELOCAL);
+            styles.add(StyleUtil.IMAGEURL);
+            styles.add(StyleUtil.WEB11);
         }
-
     }
 }

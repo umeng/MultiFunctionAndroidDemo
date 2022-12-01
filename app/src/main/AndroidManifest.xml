@@ -19,6 +19,7 @@
         <package android:name="com.yinxiang" />
         <package android:name="com.facebook.katana" />
         <package android:name="com.linkedin.android" />
+        <package android:name="com.ss.android.ugc.aweme" />
     </queries>
     <application
         android:name=".App"
@@ -111,6 +112,10 @@
             android:excludeFromRecents="true"
             android:theme="@android:style/Theme.NoTitleBar" />
         <!-- wechat callback-->
+
+        <activity
+            android:name=".douyinapi.DouYinEntryActivity"
+            android:exported="true"/>
 
         <activity
             android:name=".wxapi.WXEntryActivity"

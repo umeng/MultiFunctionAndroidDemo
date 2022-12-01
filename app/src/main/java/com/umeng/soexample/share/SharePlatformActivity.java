@@ -96,6 +96,9 @@ public class SharePlatformActivity extends BaseActivity {
         platforms.add(SHARE_MEDIA.FLICKR.toSnsPlatform());
         platforms.add(SHARE_MEDIA.FOURSQUARE.toSnsPlatform());
         platforms.add(SHARE_MEDIA.DROPBOX.toSnsPlatform());
+        platforms.add(SHARE_MEDIA.BYTEDANCE.toSnsPlatform());
+        platforms.add(SHARE_MEDIA.BYTEDANCE_PUBLISH.toSnsPlatform());
+        platforms.add(SHARE_MEDIA.BYTEDANCE_FRIENDS.toSnsPlatform());
         platforms.add(SHARE_MEDIA.MORE.toSnsPlatform());
 
     }

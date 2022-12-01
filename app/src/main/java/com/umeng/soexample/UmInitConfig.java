@@ -44,6 +44,8 @@ public class UmInitConfig {
         PlatformConfig.setWXWork("wwac6ffb259ff6f66a", "EU1LRsWC5uWn6KUuYOiWUpkoH45eOA0yH-ngL8579zs", "1000002", "wwauthac6ffb259ff6f66a000002");
         PlatformConfig.setWXWorkFileProvider(FileProvider);
 
+        PlatformConfig.setBytedance("awd1cemo6d0l69zp", "awd1cemo6d0l69zp", "a2dce41fff214270dd4a7f60ac885491", FileProvider);
+
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
         PlatformConfig.setSinaFileProvider(FileProvider);
         PlatformConfig.setYixin("yxc0614e80c9304c11b0391514d09f13bf");

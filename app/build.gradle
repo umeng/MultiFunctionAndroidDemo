@@ -3,13 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 30
 
-    //aar
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -49,9 +42,6 @@ android {
         }
     }
 
-
-
-
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -59,22 +49,20 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     api project(':UMLibrary')
-
-    // 显式依赖umeng asms库
-    implementation files('libs/umeng-asms-v1.2.2.aar') // asms包依赖(必选)
-    // 显式依赖umeng apm库
-    implementation files('libs/umeng-apm-v1.1.1.aar') // native crash包依赖(必选)
 
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
     implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
 
-
     //新浪官方依赖库
-    implementation 'io.github.sinaweibosdk:core:11.11.1@aar'
+    implementation 'io.github.sinaweibosdk:core:12.5.0@aar'
     //微信官方依赖库
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0'
     //钉钉官方sdk
-    implementation  "com.alibaba.android:ddsharesdk:1.2.0@jar"
+    implementation "com.alibaba.android:ddsharesdk:1.2.0@jar"
+
+    //字节sdk
+    api 'com.bytedance.ies.ugc.aweme:opensdk-china-external:0.1.9.0'
+    api 'com.bytedance.ies.ugc.aweme:opensdk-common:0.1.9.0'
 }

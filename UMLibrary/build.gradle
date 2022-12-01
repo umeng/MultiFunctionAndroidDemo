@@ -30,46 +30,5 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
-    api fileTree(dir: 'libs', include: ['umeng-push-6.5.5.aar'])
-    api fileTree(dir: 'libs', include: ['umeng-agoo_tnet4android-3.1.14.10.2.aar'])
-
-    implementation files('libs/umeng-share-alipay-7.2.0.jar')
-    implementation files('libs/umeng-share-core-7.2.0.jar')
-    implementation files('libs/umeng-share-Ding-7.2.0.jar')
-    implementation files('libs/umeng-share-douban-7.2.0.jar')
-    implementation files('libs/umeng-share-dropbox-7.2.0.jar')
-    implementation files('libs/umeng-share-email-7.2.0.jar')
-    implementation files('libs/umeng-share-evernote-7.2.0.jar')
-    implementation files('libs/umeng-share-facebook-7.2.0.jar')
-    implementation files('libs/umeng-share-flickr-7.2.0.jar')
-    implementation files('libs/umeng-share-foursquare-7.2.0.jar')
-    implementation files('libs/umeng-share-gplus-7.2.0.jar')
-    implementation files('libs/umeng-share-instagram-7.2.0.jar')
-    implementation files('libs/umeng-share-kakao-7.2.0.jar')
-    implementation files('libs/umeng-share-laiwang-7.2.0.jar')
-    implementation files('libs/umeng-share-line-7.2.0.jar')
-    implementation files('libs/umeng-share-linkedin-7.2.0.jar')
-    implementation files('libs/umeng-share-pinterest-7.2.0.jar')
-    implementation files('libs/umeng-share-pocket-7.2.0.jar')
-    implementation files('libs/umeng-share-QQ-full-7.2.0.jar')
-    implementation files('libs/umeng-share-renren-7.2.0.jar')
-    implementation files('libs/umeng-share-sina-full-7.2.0.jar')
-    implementation files('libs/umeng-share-sms-7.2.0.jar')
-    implementation files('libs/umeng-share-tencentWB-7.2.0.jar')
-    implementation files('libs/umeng-share-tumblr-7.2.0.jar')
-    implementation files('libs/umeng-share-twitter-7.2.0.jar')
-    implementation files('libs/umeng-share-vkontakte-7.2.0.jar')
-    implementation files('libs/umeng-share-wechat-full-7.2.0.jar')
-    implementation files('libs/umeng-share-whatsapp-7.2.0.jar')
-    implementation files('libs/umeng-share-wxwork-7.2.0.jar')
-    implementation files('libs/umeng-share-yinxin-7.2.0.jar')
-    implementation files('libs/umeng-share-ynote-7.2.0.jar')
-    implementation files('libs/umeng-shareboard-widget-7.2.0.jar')
-    implementation files('libs/umeng-sharetool-7.2.0.jar')
-
-    //qq官方sdk依赖库
-
-
-
+    api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 }
