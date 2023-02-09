@@ -24,8 +24,8 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"> <!-- targetSDKVersion 28 开启http请求，避免net::ERR_CLEARTEXT_NOT_PERMITTED错误-->
@@ -56,42 +56,42 @@
 
         <activity
             android:name=".HomeActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".log.LogActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".analytics.UappActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
 
 
         <activity
             android:name=".push.UpushActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".share.UshareActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".share.SharePlatformActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".share.ShareDetailActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".share.ShareBoardActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".share.AuthActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".share.InfoActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".share.InfoDetailActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
             android:name=".share.SettingActivity"
-            android:theme="@style/myTransparent"></activity>
+            android:theme="@style/myTransparent" />
         <activity
             android:name=".analytics.Process1Activity"
             android:process=":process_activity_1" />
@@ -105,7 +105,6 @@
             android:name=".yxapi.YXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"
@@ -115,7 +114,7 @@
 
         <activity
             android:name=".douyinapi.DouYinEntryActivity"
-            android:exported="true"/>
+            android:exported="true" />
 
         <activity
             android:name=".wxapi.WXEntryActivity"
@@ -129,14 +128,12 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- alipay callback-->
         <activity
             android:name=".apshare.ShareEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 
@@ -182,7 +179,6 @@
         <activity
             android:name="com.umeng.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!--1104087112943046-->
         <provider
@@ -233,8 +229,10 @@
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="${applicationId}"
                     android:path="/thirdpush"
@@ -249,6 +247,5 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
 </manifest>
