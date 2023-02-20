@@ -95,22 +95,7 @@ public class StyleUtil {
             styles.add(StyleUtil.WEB11);
             styles.add(StyleUtil.LOCALVIDEO);
             styles.add(StyleUtil.LOCALFILE);
-        } else if (share_media == SHARE_MEDIA.TENCENT){
-            styles.add(StyleUtil.TEXT);
-            styles.add(StyleUtil.IMAGELOCAL);
-            styles.add(StyleUtil.IMAGEURL);
-            styles.add(StyleUtil.WEB11);
-            styles.add(StyleUtil.MUSIC11);
-            styles.add(StyleUtil.VIDEO11);
         } else if (share_media == SHARE_MEDIA.DOUBAN){
-            styles.add(StyleUtil.TEXT);
-            styles.add(StyleUtil.TEXTANDIMAGE);
-            styles.add(StyleUtil.IMAGELOCAL);
-            styles.add(StyleUtil.IMAGEURL);
-            styles.add(StyleUtil.WEB11);
-            styles.add(StyleUtil.MUSIC11);
-            styles.add(StyleUtil.VIDEO11);
-        }else if (share_media == SHARE_MEDIA.RENREN){
             styles.add(StyleUtil.TEXT);
             styles.add(StyleUtil.TEXTANDIMAGE);
             styles.add(StyleUtil.IMAGELOCAL);
@@ -163,20 +148,6 @@ public class StyleUtil {
             styles.add(StyleUtil.WEB11);
             styles.add(StyleUtil.MUSIC11);
             styles.add(StyleUtil.VIDEO11);
-        }else if (share_media == SHARE_MEDIA.LAIWANG){
-
-            //            styles.add(StyleUtil.IMAGELOCAL);
-            //            styles.add(StyleUtil.IMAGEURL);
-            styles.add(StyleUtil.WEB11);
-            styles.add(StyleUtil.MUSIC11);
-            styles.add(StyleUtil.VIDEO11);
-        }else if (share_media == SHARE_MEDIA.LAIWANG_DYNAMIC){
-            //
-            //            styles.add(StyleUtil.IMAGELOCAL);
-            //            styles.add(StyleUtil.IMAGEURL);
-            styles.add(StyleUtil.WEB11);
-            styles.add(StyleUtil.MUSIC11);
-            styles.add(StyleUtil.VIDEO11);
         }else if (share_media == SHARE_MEDIA.INSTAGRAM){
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);
@@ -199,11 +170,6 @@ public class StyleUtil {
             styles.add(StyleUtil.IMAGEURL);
             styles.add(StyleUtil.TEXTANDIMAGE);
         }else if (share_media == SHARE_MEDIA.KAKAO){
-            styles.add(StyleUtil.TEXT);
-            styles.add(StyleUtil.IMAGELOCAL);
-            styles.add(StyleUtil.IMAGEURL);
-            styles.add(StyleUtil.TEXTANDIMAGE);
-        }else if (share_media == SHARE_MEDIA.GOOGLEPLUS){
             styles.add(StyleUtil.TEXT);
             styles.add(StyleUtil.IMAGELOCAL);
             styles.add(StyleUtil.IMAGEURL);

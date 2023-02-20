@@ -44,12 +44,11 @@ public class ShareBoardActivity extends BaseActivity {
             SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN_FAVORITE,
             SHARE_MEDIA.WXWORK,
             SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE,
-            SHARE_MEDIA.ALIPAY, SHARE_MEDIA.RENREN, SHARE_MEDIA.DOUBAN,
+            SHARE_MEDIA.ALIPAY, SHARE_MEDIA.DOUBAN,
             SHARE_MEDIA.SMS, SHARE_MEDIA.EMAIL, SHARE_MEDIA.YNOTE,
-            SHARE_MEDIA.EVERNOTE, SHARE_MEDIA.LAIWANG, SHARE_MEDIA.LAIWANG_DYNAMIC,
-            SHARE_MEDIA.LINKEDIN, SHARE_MEDIA.YIXIN, SHARE_MEDIA.YIXIN_CIRCLE,
-            SHARE_MEDIA.TENCENT, SHARE_MEDIA.FACEBOOK, SHARE_MEDIA.TWITTER,
-            SHARE_MEDIA.WHATSAPP, SHARE_MEDIA.GOOGLEPLUS, SHARE_MEDIA.LINE,
+            SHARE_MEDIA.EVERNOTE,
+            SHARE_MEDIA.LINKEDIN, SHARE_MEDIA.YIXIN, SHARE_MEDIA.YIXIN_CIRCLE, SHARE_MEDIA.FACEBOOK, SHARE_MEDIA.TWITTER,
+            SHARE_MEDIA.WHATSAPP, SHARE_MEDIA.LINE,
             SHARE_MEDIA.INSTAGRAM, SHARE_MEDIA.KAKAO, SHARE_MEDIA.PINTEREST,
             SHARE_MEDIA.POCKET, SHARE_MEDIA.TUMBLR, SHARE_MEDIA.FLICKR,
             SHARE_MEDIA.FOURSQUARE, SHARE_MEDIA.MORE)
@@ -141,7 +140,6 @@ public class ShareBoardActivity extends BaseActivity {
                     && platform != SHARE_MEDIA.PINTEREST
 
                     && platform != SHARE_MEDIA.INSTAGRAM
-                    && platform != SHARE_MEDIA.GOOGLEPLUS
                     && platform != SHARE_MEDIA.YNOTE
                     && platform != SHARE_MEDIA.EVERNOTE) {
                     Toast.makeText(mActivity.get(), platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
@@ -161,7 +159,6 @@ public class ShareBoardActivity extends BaseActivity {
                 && platform != SHARE_MEDIA.PINTEREST
 
                 && platform != SHARE_MEDIA.INSTAGRAM
-                && platform != SHARE_MEDIA.GOOGLEPLUS
                 && platform != SHARE_MEDIA.YNOTE
                 && platform != SHARE_MEDIA.EVERNOTE) {
                 Toast.makeText(mActivity.get(), platform + " 分享失败啦", Toast.LENGTH_SHORT).show();

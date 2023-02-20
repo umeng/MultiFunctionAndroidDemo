@@ -96,20 +96,35 @@ public class AuthAdapter extends BaseAdapter {
         @Override
         public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
             SocializeUtils.safeCloseDialog(dialog);
-            Toast.makeText(mContext, "成功了", Toast.LENGTH_LONG).show();
-            notifyDataSetChanged();
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(mContext, "成功了", Toast.LENGTH_LONG).show();
+                    notifyDataSetChanged();
+                }
+            });
         }
 
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
             SocializeUtils.safeCloseDialog(dialog);
-            Toast.makeText(mContext, "失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(mContext, "失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
         @Override
         public void onCancel(SHARE_MEDIA platform, int action) {
             SocializeUtils.safeCloseDialog(dialog);
-            Toast.makeText(mContext, "取消了", Toast.LENGTH_LONG).show();
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(mContext, "取消了", Toast.LENGTH_LONG).show();
+                }
+            });
         }
     };
 }

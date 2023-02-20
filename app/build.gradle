@@ -14,22 +14,8 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        //jackOptions{
-        //    enabled true
-        //}
-
         ndk {//PushSDK目前只支持4种架构
             abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            signingConfig signingConfigs.debug
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -42,6 +28,19 @@ android {
         }
     }
 
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+//    packagingOptions {
+//        exclude 'AndroidManifest.xml'
+//        exclude 'resources.arsc'
+//    }
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -50,7 +49,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    api project(':UMLibrary')
+    implementation project(':UMLibrary')
 
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
     implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
@@ -63,6 +62,6 @@ dependencies {
     implementation "com.alibaba.android:ddsharesdk:1.2.0@jar"
 
     //字节sdk
-    api 'com.bytedance.ies.ugc.aweme:opensdk-china-external:0.1.9.0'
-    api 'com.bytedance.ies.ugc.aweme:opensdk-common:0.1.9.0'
+    implementation 'com.bytedance.ies.ugc.aweme:opensdk-china-external:0.1.9.0'
+    implementation 'com.bytedance.ies.ugc.aweme:opensdk-common:0.1.9.0'
 }
