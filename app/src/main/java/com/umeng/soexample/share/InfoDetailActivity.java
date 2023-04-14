@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.handler.UMDYUtils;
+import com.umeng.socialize.handler.UMHonorUtils;
 import com.umeng.soexample.BaseActivity;
 import com.umeng.soexample.R;
 
@@ -40,13 +42,31 @@ public class InfoDetailActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
-                        Log.e("dasdasfasf",map+"");
-                        StringBuilder sb = new StringBuilder();
-                        for (String key : map.keySet()) {
-                            sb.append(key).append(" : ").append(map.get(key)).append("\n");
+                    public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
+                        Log.e("InfoDetailActivity",data+"");
+                        StringBuilder temp = new StringBuilder();
+                        for (String key : data.keySet()) {
+                            String v = data.get(key);
+                            if (platform == SHARE_MEDIA.BYTEDANCE) {
+                                if ("encrypt_mobile".equals(key)) {
+                                    try {
+                                        v = UMDYUtils.decryptMobileNumber(v);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } else if (platform == SHARE_MEDIA.HONOR) {
+                                if ("mobileNumber".equals(key)) {
+                                    try {
+                                        v = UMHonorUtils.decryptMobileNumber(v);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                            temp.append(key).append(" : ").append(v).append("\n");
                         }
-                        result.setText(sb.toString());
+                        result.setText(temp.toString());
                     }
 
                     @Override

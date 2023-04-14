@@ -55,6 +55,7 @@ public class UmInitConfig {
 
         PlatformConfig.setVKontakte("5764965", "5My6SNliAaLxEm3Lyd9J");
         PlatformConfig.setDropbox("oz8v5apet3arcdy", "h7p2pjbzkkxt02a");
+        PlatformConfig.setHonor("104408749", "fb1d1d0320a0f661cb1c22892622501f3affceeafb625a5646f299a04c1602ec");
 
         //集成umeng-crash-vx.x.x.aar，则需要关闭原有统计SDK异常捕获功能
         MobclickAgent.setCatchUncaughtExceptions(false);

@@ -22,7 +22,7 @@
         <package android:name="com.ss.android.ugc.aweme" />
     </queries>
 
-    <uses-sdk tools:overrideLibrary="com.tencent.wwapi" />
+    <uses-sdk tools:overrideLibrary="com.tencent.wwapi, com.honor.openSdk" />
 
     <application
         android:name=".App"

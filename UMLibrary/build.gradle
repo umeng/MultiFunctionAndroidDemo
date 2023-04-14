@@ -1,11 +1,40 @@
 apply plugin: 'com.android.library'
 
+ArrayList<String> getShareDir(String name) {
+    ArrayList<File> tmp = new ArrayList<File>()
+    File[] files = (new File(rootDir, "share")).listFiles()
+    if (files != null) {
+        tmp.addAll(files)
+    }
+    ArrayList<String> dirs = new ArrayList<String>()
+    while (tmp.size() > 0) {
+        File file = tmp.remove(0)
+        if (file.isDirectory() && name == file.getName()) {
+            dirs.add(file.getPath())
+        } else if (file.isDirectory()) {
+            files = file.listFiles()
+            if (files != null) {
+                tmp.addAll(files)
+            }
+        }
+    }
+    return dirs
+}
+
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 30
+        targetSdkVersion 33
+
+        sourceSets {
+            main {
+                ArrayList<String> resSrcList = getShareDir("res")
+                resSrcList.add("src/main/res")
+                res.srcDirs = resSrcList
+            }
+        }
     }
 
     buildTypes {
@@ -18,4 +47,8 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    ArrayList<String> share = getShareDir("libs")
+    for (String item : share) {
+        api fileTree(dir: "${item}", include: ['*.jar', '*.aar'])
+    }
 }
