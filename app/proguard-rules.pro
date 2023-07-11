@@ -14,6 +14,7 @@
 -keep class org.android.** {*;}
 -keep class anet.channel.** {*;}
 -keep class com.umeng.** {*;}
+-keep class com.uyumao.** { *; }
 -keep class com.xiaomi.** {*;}
 -keep class com.huawei.** {*;}
 -keep class com.meizu.** {*;}
