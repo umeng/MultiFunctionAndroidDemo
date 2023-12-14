@@ -1,20 +1,11 @@
 *.iml
 .gradle
-/local.properties
+local.properties
 .DS_Store
-/build
-/captures
+build
+captures
 .externalNativeBuild
 .idea
-.gradle/
-.idea/
-.git/
-.DS_Store
-gradlew.bat
-import-summary.txt
-local.properties
+.git
 *.iml
-build/
-captures/
-config.xml
 

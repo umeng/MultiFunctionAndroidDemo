@@ -51,16 +51,22 @@ dependencies {
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     implementation project(':UMLibrary')
 
+    //U-Share 依赖
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:25.0.0'
+
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
     implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
 
     //新浪官方依赖库
-    implementation 'io.github.sinaweibosdk:core:12.5.0@aar'
+//    implementation 'io.github.sinaweibosdk:core:13.10.0'
+    implementation('io.github.sinaweibosdk:core:13.10.0') {
+        exclude module: 'unspecified'
+    }
     //微信官方依赖库
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.24'
     //钉钉官方sdk
-    implementation "com.alibaba.android:ddsharesdk:1.2.0@jar"
-
+    implementation "com.alibaba.android:ddsharesdk:1.2.2"
     //字节sdk
     implementation 'com.bytedance.ies.ugc.aweme:opensdk-china-external:0.1.9.0'
     implementation 'com.bytedance.ies.ugc.aweme:opensdk-common:0.1.9.0'
