@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 34
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -59,8 +59,7 @@ dependencies {
     implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
 
     //新浪官方依赖库
-//    implementation 'io.github.sinaweibosdk:core:13.10.0'
-    implementation('io.github.sinaweibosdk:core:13.10.0') {
+    implementation('io.github.sinaweibosdk:core:13.10.1') {
         exclude module: 'unspecified'
     }
     //微信官方依赖库

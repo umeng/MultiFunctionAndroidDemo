@@ -22,11 +22,11 @@ ArrayList<String> getShareDir(String name) {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 33
+        targetSdkVersion 30
 
         sourceSets {
             main {
