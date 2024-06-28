@@ -7,6 +7,5 @@ captures
 .externalNativeBuild
 .idea
 .git
-.github
 *.iml
 
