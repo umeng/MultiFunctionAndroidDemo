@@ -54,9 +54,7 @@ public class HomeActivity extends BaseActivity {
 
         if(Build.VERSION.SDK_INT >= 23){
             String[] mPermissionList = new String[]{
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_PHONE_STATE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE};
+                    Manifest.permission.READ_PHONE_STATE};
             this.requestPermissions(mPermissionList, 123);
         }
     }
