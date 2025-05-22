@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.umeng.soexample"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
