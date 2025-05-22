@@ -52,11 +52,6 @@ public class HomeActivity extends BaseActivity {
             }
         });
 
-        if(Build.VERSION.SDK_INT >= 23){
-            String[] mPermissionList = new String[]{
-                    Manifest.permission.READ_PHONE_STATE};
-            this.requestPermissions(mPermissionList, 123);
-        }
     }
 
 
