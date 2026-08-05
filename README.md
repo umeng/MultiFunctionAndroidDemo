@@ -1,3 +1,26 @@
+# Umeng+ Android SDK Demo
+
+Official Android integration examples for Umeng+ developer products.
+
+友盟+ Android SDK 官方集成示例，覆盖以下产品：
+
+- **U-App** — 移动统计与用户行为分析
+- **U-Push** — 消息推送与厂商通道
+- **U-APM** — 崩溃分析与应用性能监控
+- **U-Share** — 社会化分享
+- **Privacy Compliance** — SDK隐私合规初始化示例
+
+## Quick Links｜快速入口
+
+- [友盟+ SDK开发者中心](https://devs.umeng.com/)
+- [友盟+ 官网](https://www.umeng.com/)
+- [提交接入问题](https://github.com/umeng/MultiFunctionAndroidDemo/issues)
+
+---
+
+
+
+
 ### 【友盟+】统计、推送、分享三合一组件化SDK集成Demo
 
 重要更新：增加用户授权隐私协议友盟sdk初始化逻辑，具体请查看SplashTestActivity
