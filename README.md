@@ -53,3 +53,11 @@ apm SDK集成示例工程，请参考 [APM Demo](http://docs-aliyun.cn-hangzhou.
 #### 5. 如集成移动统计后无数据，请查看https://developer.umeng.com/docs/119267/cate/121449 
 
 #### 6. 详细升级文档，请查看：https://developer.umeng.com/docs/119267/detail/118642
+
+
+## 友盟开发者知识库
+
+遇到 SDK 接入、消息推送、崩溃分析、小程序统计或 AI 工具问题，可访问：
+
+- [友盟开发者知识库](https://github.com/umeng/umeng-developer-guide)
+- [友盟官方开发者文档](https://developer.umeng.com/docs)
